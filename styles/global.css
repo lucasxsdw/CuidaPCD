@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+/* MENU PARTE DE CIMA */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px 30PX;
+    background-color: transparent;
+
+}
+
+.logo img {
+    width: 170px;
+    height: auto;
+    padding-left: 30px;
+}
+
+nav {
+    flex-grow: 1;
+}
+
+.lista {
+    display: flex;
+    list-style: none;
+    gap: 20px; 
+    justify-content: flex-end; 
+}
+
+.lista a {
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+    font-weight: regular;
+    transition: color 0.3s ease;
+}
+
+.lista a:hover {
+    color: #936CFB;
+}
+
+.botões {
+    display: flex;
+    gap: 10px;
+    padding-left: 20px;
+    padding-right: 30px;
+}
+
+.botões .botãoCadastro,
+.botões .botãoLogin {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.botões .botãoCadastro {
+    border: 2px solid #936CFB;
+    color: #936CFB;
+    background-color: transparent;
+}
+
+.botões .botãoCadastro:hover {
+    background-color: #936CFB;
+    color: #fff;
+}
+
+.botões .botãoLogin {
+    background-color: #936CFB;
+    color: #fff;
+    border: none;
+}
+
+.botões .botãoLogin:hover {
+    background-color: #371595;
+}
+
+/* MENU PARTE DE CIMA */
+
+/* CAIXA DO MAIN*/
+.caixa-roxa {
+    background-color: #1F3556;
+    margin: 0 auto;
+    border-radius: 30px;
+    height: 380px;
+    width: calc(100% - 80px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('../images/shape.png');
+    background-repeat: no-repeat;
+    background-position: right bottom;
+    background-size: 310px 310px;
+}
+
+.botoes-container {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.botao-branco {
+    background-color: #fff;
+    color: #6c63ff;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.botao-branco:hover {
+    background-color: #e0e0e0;
+    color: #5a54e0;
+}
+
+.texto-saude {
+    color: #fff;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.5;
+    text-align: left;
+    margin-bottom: 20px;
+    word-wrap: break-word;
+}
+
+
