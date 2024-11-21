@@ -1,0 +1,37 @@
+.container {
+    max-width: 1300px;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+.titulo h1 {
+    font-size: 24px;
+    color: #1F3556;
+    text-align: left;
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.titulo h1::after {
+    content: "";
+    display: block;
+    width: 69px;
+    height: 5px;
+    background-color: #936CFB;
+    margin-top: 2px;
+    position: relative;
+    left: 0; 
+    border-radius: 15px;
+}
+
+
+.conteudo {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.Missao{
+    background-color: #936CFB;
+    border-radius: 15px;
+}
