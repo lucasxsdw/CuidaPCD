@@ -1,0 +1,78 @@
+No Spring Boot, o Thymeleaf é usado como mecanismo de template para renderizar páginas HTML dinâmicas. No exemplo que mostrei, você viu a sintaxe ${usuario.fotoPerfil}, e a razão pela qual o Thymeleaf consegue acessar essa propriedade está relacionada à forma como o modelo é passado para o template.
+
+Vou explicar em detalhes como isso funciona:
+
+Como o Thymeleaf trabalha com o modelo no Spring Boot:
+Modelo (Model) no Spring MVC: Quando um controlador (como o PerfilController) é executado e retorna uma view (como o arquivo perfil.html), ele pode adicionar objetos ao modelo (Model), que é um contêiner que contém os dados que serão passados para a view.
+
+No método do controlador, temos:
+
+java
+Copiar código
+
+@GetMapping("/perfil/{id}")
+public String exibirPerfil(@PathVariable Long id, Model model) {
+    Usuario usuario = usuarioService.buscarUsuarioPorId(id)
+            .orElseThrow(() -> new RuntimeException("Usuário não encontrado"));
+    model.addAttribute("usuario", usuario);  // Adiciona o objeto "usuario" ao modelo
+    return "perfil";  // Retorna o nome do template Thymeleaf
+}
+
+model.addAttribute("usuario", usuario);: O método addAttribute adiciona o objeto usuario ao modelo, associando a chave "usuario" ao valor usuario (que é um objeto da classe Usuario).
+Esse objeto usuario será passado para o template perfil.html para ser usado na renderização da página.
+Acessando os Dados no Template Thymeleaf: O Thymeleaf vai automaticamente interpretar o modelo passado para a página HTML e permitir que você acesse as propriedades do objeto usando a sintaxe de expressão ${}.
+
+No arquivo perfil.html, você escreveu:
+
+html
+Copiar código
+
+<img src="${usuario.fotoPerfil != null ? usuario.fotoPerfil : 'https://via.placeholder.com/150'}" alt="Foto do Perfil" class="foto-perfil">
+
+${usuario.fotoPerfil}: Isso indica que o Thymeleaf deve buscar a propriedade fotoPerfil do objeto usuario, que foi adicionado ao modelo pelo controlador.
+Como o Thymeleaf sabe disso?
+Quando você usa a sintaxe ${usuario.fotoPerfil}, o Thymeleaf entende que "usuario" é um objeto que foi adicionado ao modelo com a chave "usuario", e que você deseja acessar a propriedade fotoPerfil desse objeto.
+Se fotoPerfil for null, o Thymeleaf usará o valor alternativo 'https://via.placeholder.com/150' como URL da imagem, fornecendo um fallback para quando não houver uma foto definida.
+
+Resumo do Fluxo:
+Controlador (PerfilController):
+
+No método exibirPerfil, você recupera o objeto Usuario do banco de dados (ou de algum outro lugar) e o adiciona ao modelo.
+
+java
+Copiar código
+
+model.addAttribute("usuario", usuario);
+Modelo no Thymeleaf (perfil.html):
+
+O modelo é passado para o template Thymeleaf, e o Thymeleaf pode acessar as propriedades desse objeto usando a sintaxe ${usuario.fotoPerfil}.
+Renderização de Dados:
+
+O Thymeleaf interpreta ${usuario.fotoPerfil} e exibe o valor da propriedade fotoPerfil do objeto usuario no HTML.
+
+Por que isso funciona:
+O Spring Boot (com o Thymeleaf) cria automaticamente um mecanismo de interação entre o modelo (dados do controlador) e a view (página HTML). O Thymeleaf é capaz de processar o objeto usuario no modelo e fornecer acesso às suas propriedades diretamente no template. Isso facilita a criação de páginas dinâmicas, onde os dados são gerados no backend e renderizados na interface do usuário.
+
+Exemplo Simplificado:
+Controlador (Spring Boot): Adiciona o objeto usuario ao modelo.
+
+java
+Copiar código
+
+@GetMapping("/perfil/{id}")
+public String exibirPerfil(@PathVariable Long id, Model model) {
+    Usuario usuario = new Usuario("João", "joao@example.com", "https://via.placeholder.com/150");
+    model.addAttribute("usuario", usuario);
+    return "perfil";
+}
+Template Thymeleaf (perfil.html): Acessa as propriedades do objeto usuario dentro do template.
+
+html
+Copiar código
+
+<h1>{{usuario.nome}}</h1>
+<p>{{usuario.email}}</p>
+<img src="{{usuario.fotoPerfil}}" alt="Foto do perfil">
+Resultado: A página renderiza as informações do usuário, como nome, email e foto de perfil, usando o modelo passado do controlador.
+
+Em resumo, o Thymeleaf consegue acessar as propriedades do objeto usuario porque o Spring Boot faz o trabalho de passar esse objeto do controlador para o template, e o Thymeleaf fornece uma sintaxe simples para acessar e renderizar essas propriedades dentro do HTML.
