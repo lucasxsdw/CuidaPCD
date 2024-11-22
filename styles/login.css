@@ -1,0 +1,50 @@
+.Conteiner{
+    max-width: 1300px;
+    margin: 20px auto;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+}
+.caixaEsquerda{
+    background-color: #1F3556;
+    border-radius: 10px;
+    width: 367px;
+    height: 651px;
+    display: flex;
+    justify-content: center;
+    align-items:flex-start;
+    padding-top: 120px;
+    background-image: url('../images/shape.png');
+    background-repeat: no-repeat;
+    background-position: right bottom;
+    background-size: 250px 250px;
+}
+
+.texto-saude{
+    color: #ffff;
+    font-size: 25px;
+}
+
+#saude{
+    color:  #FFCA6A;;
+}
+
+#vida{
+    color: #F76EB6;;
+}
+
+#google{
+    width: 20px;
+}
+
+#facebook{
+    width: 20px;
+}
+
+#apple{
+    width: 20px;
+}
+ 
+#logoLogin {
+    height: 60px;
+}
