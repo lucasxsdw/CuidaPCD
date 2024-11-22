@@ -90,59 +90,6 @@ nav {
 
 /* MENU PARTE DE CIMA */
 
-/* CAIXA DO MAIN*/
-.caixa-roxa {
-    background-color: #1F3556;
-    margin: 0 auto;
-    border-radius: 30px;
-    height: 380px;
-    width: calc(100% - 80px);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-image: url('../images/shape.png');
-    background-repeat: no-repeat;
-    background-position: right bottom;
-    background-size: 310px 310px;
-}
-
-.botoes-container {
-    display: flex;
-    gap: 15px;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-.botao-branco {
-    background-color: #fff;
-    color: #6c63ff;
-    border: none;
-    border-radius: 20px;
-    padding: 10px 20px;
-    font-size: 14px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.botao-branco:hover {
-    background-color: #e0e0e0;
-    color: #5a54e0;
-}
-
-.texto-saude {
-    color: #fff;
-    font-size: 18px;
-    font-weight: 500;
-    line-height: 1.5;
-    text-align: left;
-    margin-bottom: 20px;
-    word-wrap: break-word;
-}
-
-
-
-
 footer {
     background-color: none;
     padding: 20px 40px;
