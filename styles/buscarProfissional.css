@@ -1,11 +1,46 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 
+.profissionais {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
 
+}
 
+.profissional1{
+    margin: 0 auto;
+    height: auto; /* Ajuste automático da altura, se necessário */
+    width: calc(100% - 80px);
+    padding: 20px 0 30px; /* Espaçamento interno consistente */
+    display: flex;
+    gap: 30px;
+    justify-content: center; /* Centraliza verticalmente */
+    
+}
 
+.profissional2{
+    margin: 0 auto;
+    height: auto; /* Ajuste automático da altura, se necessário */
+    width: calc(100% - 80px);
+    padding: 20px 0 30px; /* Espaçamento interno consistente */
+    display: flex;
+    gap: 30px;
+    justify-content: center; /* Centraliza verticalmente */
+    
+}
 
+.profissional3{
+    margin: 0 auto;
+    height: auto; /* Ajuste automático da altura, se necessário */
+    width: calc(100% - 80px);
+    padding: 20px 0 30px; /* Espaçamento interno consistente */
+    display: flex;
+    gap: 30px;
+    justify-content: center; /* Centraliza verticalmente */
+    
+}
 
-.profissional{
+.profissional4{
     margin: 0 auto;
     height: auto; /* Ajuste automático da altura, se necessário */
     width: calc(100% - 80px);
@@ -26,6 +61,7 @@
     background-color: #ffffff;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
     border-radius: 10px;
+
 }
 
 #iconelocal{
@@ -190,4 +226,11 @@ label {
 /* Estilo do ícone */
 .btn-buscar img {
     width: 18px;
+}
+
+.Seletor{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
 }
