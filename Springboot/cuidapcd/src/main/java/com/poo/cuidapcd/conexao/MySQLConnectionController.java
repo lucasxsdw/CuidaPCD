@@ -80,7 +80,7 @@ public class MySQLConnectionController {
         return autenticado;
     }
 
-    @PostMapping("/enviarFormulario")
+    @PostMapping("/enviarFormulario/Profissional")
     public void receberFormularioProfissional(@ModelAttribute Profissional profissional) {
 
         String sqlUsuario = "INSERT INTO usuario (nome, email, senha, telefone, cpf, endereco) VALUES (?, ?, ?, ?, ?)";
@@ -119,7 +119,7 @@ public class MySQLConnectionController {
         
     }
 
-    @PostMapping("/enviarFormulario")
+    @PostMapping("/enviarFormulario/Cliente")
     public void receberFormularioCliente(@ModelAttribute Cliente cliente) {
 
         String sqlUsuario = "INSERT INTO usuario (nome, email, senha, telefone, cpf, endereco) VALUES (?, ?, ?, ?, ?)";
