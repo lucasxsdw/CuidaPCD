@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-CuidapcdApplication<cuidapcd>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.poo.cuidapcd.CuidapcdApplication",
+            "projectName": "cuidapcd",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
