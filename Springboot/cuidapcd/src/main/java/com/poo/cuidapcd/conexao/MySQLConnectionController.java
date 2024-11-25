@@ -83,8 +83,10 @@ public class MySQLConnectionController {
     @PostMapping("/enviarFormulario/Profissional")
     public void receberFormularioProfissional(@ModelAttribute Profissional profissional) {
 
-        String sqlUsuario = "INSERT INTO usuario (nome, email, senha, telefone, cpf, endereco) VALUES (?, ?, ?, ?, ?)";
-        String sqlProf = "INSERT INTO profissional (id, formacao, experiencia, regiao_de_atendimento, sobre, cnpj, registro_profissional, arquivo_curriculo, arquivo_certificado, arquivo_foto, cpf) VALUES ((SELECT id FROM usuario WHERE cpf = ?), ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        String sqlUsuario = "INSERT INTO usuario (nome, email, senha, telefone, cpf) VALUES (?, ?, ?, ?, ?)";
+        String sqlProf = "INSERT INTO profissional (id, formacao, experiencia, sobre, cnpj, registro_profissional, arquivo_curriculo, arquivo_certificado, arquivo_foto, cpf) VALUES ((SELECT id FROM usuario WHERE cpf = ?), ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        String sqlEndereco = "INSERT INTO endereco (id, rua, bairro, cidade, cep, estado, numero) VALUES ((SELECT id FROM usuario WHERE cpf = ?), ?, ?, ?, ?, ?, ?)";
+        String sqlEspecialidade = "INSERT INTO especialidade (id, nomeEspecialidade, descricao) VALUES ((SELECT id FROM usuario WHERE cpf = ?), ?, ?)";
 
         try (Connection connection = DriverManager.getConnection(dbUrl, dbUsername, dbPassword);
              PreparedStatement preparedStatement = connection.prepareStatement(sqlUsuario)) {
@@ -93,7 +95,6 @@ public class MySQLConnectionController {
             preparedStatement.setString(3, profissional.getSenha());
             preparedStatement.setString(4, profissional.getTelefone());
             preparedStatement.setString(5, profissional.getCpf());
-            preparedStatement.setString(6, profissional.getEndereco());
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -104,25 +105,47 @@ public class MySQLConnectionController {
                 preparedStatement.setString(1, profissional.getCpf());
                 preparedStatement.setString(2, profissional.getFormacao());
                 preparedStatement.setString(3, profissional.getExperiencia());
-                preparedStatement.setString(4, profissional.getRegiaoDeAtendimento());
-                preparedStatement.setString(5, profissional.getSobre());
-                preparedStatement.setString(6, profissional.getCnpj());
-                preparedStatement.setString(7, profissional.getRegistroProfissional());
-                preparedStatement.setString(8, profissional.getArquivoCurriculo());
-                preparedStatement.setString(9, profissional.getArquivoCertificado());
-                preparedStatement.setString(10, profissional.getArquivoFoto());
-                preparedStatement.setString(11, profissional.getCpf());
+                preparedStatement.setString(4, profissional.getSobre());
+                preparedStatement.setString(5, profissional.getCnpj());
+                preparedStatement.setString(6, profissional.getRegistroProfissional());
+                preparedStatement.setString(7, profissional.getArquivoCurriculo());
+                preparedStatement.setString(8, profissional.getArquivoCertificado());
+                preparedStatement.setString(9, profissional.getArquivoFoto());
+                preparedStatement.setString(10, profissional.getCpf());
                 preparedStatement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
         } 
-        
+
+        try (Connection connection = DriverManager.getConnection(dbUrl, dbUsername, dbPassword);
+             PreparedStatement preparedStatement = connection.prepareStatement(sqlEndereco)) {
+            preparedStatement.setString(1, profissional.getCpf());
+            preparedStatement.setString(2, profissional.getEndereco().getRua());
+            preparedStatement.setString(3, profissional.getEndereco().getBairro());
+            preparedStatement.setString(4, profissional.getEndereco().getCidade());
+            preparedStatement.setString(5, profissional.getEndereco().getCep());
+            preparedStatement.setString(6, profissional.getEndereco().getEstado());
+            preparedStatement.setString(7, profissional.getEndereco().getNumero());
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } 
+
+        try (Connection connection = DriverManager.getConnection(dbUrl, dbUsername, dbPassword);
+             PreparedStatement preparedStatement = connection.prepareStatement(sqlEspecialidade)) {
+            preparedStatement.setString(1, profissional.getCpf());
+            preparedStatement.setString(2, profissional.getEspecialidade().getNomeEspecialidade());
+            preparedStatement.setString(3, profissional.getEspecialidade().getDescricao());
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }   
     }
 
     @PostMapping("/enviarFormulario/Cliente")
     public void receberFormularioCliente(@ModelAttribute Cliente cliente) {
 
-        String sqlUsuario = "INSERT INTO usuario (nome, email, senha, telefone, cpf, endereco) VALUES (?, ?, ?, ?, ?)";
+        String sqlUsuario = "INSERT INTO usuario (nome, email, senha, telefone, cpf) VALUES (?, ?, ?, ?, ?)";
         String sqlCliente = "INSERT INTO cliente (id, cpf, preferencias) VALUES ((SELECT id FROM usuario WHERE cpf = ?), ?, ?)";
 
         try (Connection connection = DriverManager.getConnection(dbUrl, dbUsername, dbPassword);
@@ -132,7 +155,6 @@ public class MySQLConnectionController {
             preparedStatement.setString(3, cliente.getSenha());
             preparedStatement.setString(4, cliente.getTelefone());
             preparedStatement.setString(5, cliente.getCpf());
-            preparedStatement.setString(6, cliente.getEndereco());
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();

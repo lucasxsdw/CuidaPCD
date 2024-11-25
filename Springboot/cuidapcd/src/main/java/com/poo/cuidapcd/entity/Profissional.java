@@ -4,28 +4,30 @@ package com.poo.cuidapcd.entity;
 public class Profissional extends Usuario{
     private String formacao;
     private String experiencia;
-    private String regiaoDeAtendimento;
     private String sobre;
     private String cnpj;
     private String registroProfissional;
     private String arquivoCurriculo;
     private String arquivoCertificado;
     private String arquivoFoto;
+    private Endereco endereco;
+    private Especialidade especialidade;
 
-    
-    public Profissional(Long id, String nome, String email, String senha, String telefone, String cpf, String endereco,
-            String formacao, String experiencia, String regiaoDeAtendimento, String sobre, String cnpj,
-            String registroProfissional, String arquivoCurriculo, String arquivoCertificado, String arquivoFoto) {
-        super(id, nome, email, senha, telefone, cpf, endereco);
+    public Profissional(Long id, String nome, String email, String senha, String telefone, String cpf,
+    String formacao, String experiencia, String sobre, String cnpj,
+    String registroProfissional, String arquivoCurriculo, String arquivoCertificado, String arquivoFoto, String rua, String bairro, 
+    String cidade, String estado, String cep, String numero, Especialidade especialidade) {
+        super(id, nome, email, senha, telefone, cpf);
         this.formacao = formacao;
         this.experiencia = experiencia;
-        this.regiaoDeAtendimento = regiaoDeAtendimento;
         this.sobre = sobre;
         this.cnpj = cnpj;
         this.registroProfissional = registroProfissional;
         this.arquivoCurriculo = arquivoCurriculo;
         this.arquivoCertificado = arquivoCertificado;
         this.arquivoFoto = arquivoFoto;
+        this.endereco = new Endereco(rua, bairro, cidade, estado, cep, numero);
+        this.especialidade = especialidade;
     }
     public String getFormacao() {
         return formacao;
@@ -38,12 +40,6 @@ public class Profissional extends Usuario{
     }
     public void setExperiencia(String experiencia) {
         this.experiencia = experiencia;
-    }
-    public String getRegiaoDeAtendimento() {
-        return regiaoDeAtendimento;
-    }
-    public void setRegiaoDeAtendimento(String regiaoDeAtendimento) {
-        this.regiaoDeAtendimento = regiaoDeAtendimento;
     }
     public String getSobre() {
         return sobre;
@@ -80,5 +76,17 @@ public class Profissional extends Usuario{
     }
     public void setArquivoFoto(String arquivoFoto) {
         this.arquivoFoto = arquivoFoto;
+    }
+    public Endereco getEndereco() {
+        return endereco;
+    }
+    public void setEndereco(Endereco endereco) {
+        this.endereco = endereco;
+    }
+    public Especialidade getEspecialidade() {
+        return especialidade;
+    }
+    public void setEspecialidade(Especialidade especialidade) {
+        this.especialidade = especialidade;
     }
 }
