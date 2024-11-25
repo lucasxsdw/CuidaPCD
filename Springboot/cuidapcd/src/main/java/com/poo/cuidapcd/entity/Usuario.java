@@ -7,14 +7,22 @@ public class Usuario {
     private String senha;
     private String telefone;
     private String cpf;
+    private String endereco;
     
-    public Usuario(Long id, String nome, String email, String senha, String telefone, String cpf) {
+    public Usuario(Long id, String nome, String email, String senha, String telefone, String cpf, String endereco) {
         this.id = id;
         this.nome = nome;
         this.email = email;
         this.senha = senha;
         this.telefone = telefone;
         this.cpf = cpf;
+        this.endereco = endereco;
+    }
+    public String getEndereco() {
+        return endereco;
+    }
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
     }
     public Long getId() {
         return id;

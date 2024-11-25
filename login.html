@@ -125,6 +125,7 @@
     </footer>
 
     <!-- Script para Login -->
+    <!--
     <script>
         // Espera o DOM carregar completamente antes de adicionar os listeners
         document.addEventListener("DOMContentLoaded", function() {
@@ -156,6 +157,44 @@
                 } else {
                     alert("Credenciais inválidas. Tente novamente.");
                 }
+            });
+        });
+    </script>
+    -->
+
+    <script>
+        // Captura o formulário e envia os dados de login para o controlador via AJAX
+        document.getElementById("loginForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Impede o envio padrão do formulário
+    
+            var email = document.getElementById("email").value;
+            var password = document.getElementById("password").value;
+    
+            // Cria o objeto de login no formato esperado pelo controlador
+            var loginRequest = {
+                username: email,  // O nome de usuário será o e-mail
+                password: password
+            };
+    
+            // Faz a requisição AJAX
+            fetch('/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(loginRequest)
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert('Login bem-sucedido');
+                    // Aqui você pode redirecionar o usuário ou fazer outras ações
+                } else {
+                    alert('Credenciais inválidas');
+                }
+            })
+            .catch(error => {
+                console.error('Erro no login:', error);
             });
         });
     </script>

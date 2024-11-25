@@ -1,0 +1,20 @@
+package com.poo.cuidapcd.entity;
+
+public class Cliente extends Usuario{
+    private String preferencias;
+
+    public Cliente(Long id, String nome, String email, String senha, String telefone, String cpf, String endereco,
+            String preferencias) {
+        super(id, nome, email, senha, telefone, cpf, endereco);
+        this.preferencias = preferencias;
+    }
+
+    public String getPreferencias() {
+        return preferencias;
+    }
+
+    public void setPreferencias(String preferencias) {
+        this.preferencias = preferencias;
+    }
+
+}
