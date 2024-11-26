@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles/global.css">
-    <link rel="stylesheet" href="styles\cadastroProfissional.css"> 
+    <link rel="stylesheet" href="../static/Css/global.css">
+    <link rel="stylesheet" href="../static/Css/cadastroProfissional.css"> 
     <title>Cadastro</title>
 </head>
 <body>
@@ -52,14 +52,14 @@
             </div>
 
             <div class="container-form">
-                <form id="loginForm" action="/enviarFormulario/Profissional" method="POST" class="login-form">
+                <form id="loginForm" action="/cadastroProfissional" method="POST" class="login-form">
                     <!-- Divisão em duas colunas -->
                     <div class="form-sections">
                         <!-- Primeira coluna -->
                         <div class="form-section">
                             <div class="input-group">
                                 <label for="name">Nome:</label>
-                                <input type="text" id="name" name="name" placeholder="Digite seu nome completo" required>
+                                <input type="text" id="nome" name="nome" placeholder="Digite seu nome completo" required>
                             </div>
                             <div class="input-group">
                                 <label for="email">Email:</label>
@@ -67,7 +67,7 @@
                             </div>
                             <div class="input-group">
                                 <label for="password">Senha:</label>
-                                <input type="password" id="password" name="password" placeholder="Digite sua senha" required>
+                                <input type="password" id="senha" name="senha" placeholder="Digite sua senha" required>
                             </div>
                             <div class="input-group">
                                 <label for="telefone">Telefone:</label>
@@ -84,8 +84,28 @@
                         <!-- Segunda coluna -->
                         <div class="form-section">
                             <div class="input-group">
-                                <label for="endereco">Endereço:</label>
-                                <input type="text" id="endereco" name="endereco" placeholder="Digite seu endereço" required>
+                                <label for="cidade">Cidade:</label>
+                                <input type="text" id="cidade" name="cidade" placeholder="Digite seu endereço" required>
+                            </div>
+                            <div class="input-group">
+                                <label for="estado">Estado:</label>
+                                <input type="text" id="estado" name="estado" placeholder="Digite seu endereço" required>
+                            </div>
+                            <div class="input-group">
+                                <label for="cep">Cep:</label>
+                                <input type="text" id="cep" name="cep" placeholder="Digite seu endereço" required>
+                            </div>
+                            <div class="input-group">
+                                <label for="numero">Numero:</label>
+                                <input type="text" id="numero" name="numero" placeholder="Digite seu endereço" required>
+                            </div>
+                            <div class="input-group">
+                                <label for="bairro">Bairro:</label>
+                                <input type="text" id="bairro" name="bairro" placeholder="Digite seu endereço" required>
+                            </div>
+                            <div class="input-group">
+                                <label for="rua">Rua:</label>
+                                <input type="text" id="rua" name="rua" placeholder="Digite seu endereço" required>
                             </div>
                             <div class="input-group">
                                 <label for="sobre">Sobre:</label>
@@ -99,6 +119,14 @@
                                 <label for="registroProfissional">Registro:</label>
                                 <input type="text" id="registroProfissional" name="registroProfissional" placeholder="CRM, CRO..." required>
                             </div>
+                            <div class="input-group">
+                                <label for="formacao">Formação:</label>
+                                <input type="text" id="formacao" name="formacao" placeholder="CRM, CRO..." required>
+                            </div>
+                            <div class="input-group">
+                                <label for="experiência">Experiencia:</label>
+                                <input type="text" id="experiencia" name="esperiencia" placeholder="CRM, CRO..." required>
+                            </div>
                             
                         </div>
                     </div>
@@ -107,17 +135,17 @@
                     <div class="campo-arquivos">
                         <div class="input-group">
                             <label for="arquivoCurriculo">Currículo:</label>
-                            <input type="file" id="arquivoCurriculo" name="arquivoCurriculo" required>
+                            <input type="file" id="arquivoCurriculo" name="arquivoCurriculo">
                         </div>
 
                         <div class="input-group">
                             <label for="arquivoCertificado">Foto:</label>
-                            <input type="file" id="arquivoCertificado" name="arquivoCertificado" required>
+                            <input type="file" id="arquivoCertificado" name="arquivoCertificado">
                         </div>
 
                         <div class="input-group">
                             <label for="certificado">Certificado:</label>
-                            <input type="file" id="certificado" name="arquivo" required>
+                            <input type="file" id="certificado" name="arquivo">
                         </div>
                     </div>
                     
