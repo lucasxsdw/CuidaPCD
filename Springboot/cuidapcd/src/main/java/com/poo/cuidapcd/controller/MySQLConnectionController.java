@@ -1,4 +1,4 @@
-package com.poo.cuidapcd.conexao;
+package com.poo.cuidapcd.controller;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,6 +14,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.poo.cuidapcd.conexao.EnderecoDAO;
+import com.poo.cuidapcd.conexao.ProfissionalDAO;
+import com.poo.cuidapcd.conexao.UsuarioDAO;
 import com.poo.cuidapcd.entity.Cliente;
 import com.poo.cuidapcd.entity.Profissional;
 
@@ -20,7 +24,14 @@ import com.poo.cuidapcd.entity.Profissional;
 @Controller
 public class MySQLConnectionController {
     
-    MySQLConnectionController mysqle;
+    @Autowired
+    ProfissionalDAO profissionaldao;
+
+    @Autowired
+    UsuarioDAO usuariodao;
+
+    @Autowired
+    EnderecoDAO enderecodao;
     
     @Value("${spring.datasource.url}")
     private String dbUrl;
@@ -52,12 +63,19 @@ public class MySQLConnectionController {
 
     @PostMapping("/cadastroProfissional")
     public void receberFormularioProfissional(@ModelAttribute Profissional profissional) {
-        mysqle.cadastrarUsuario(profissional);
-        mysqle.cadastrarProfissional(profissional);
-        mysqle.cadastrarEndereco(profissional);
+        usuariodao.cadastrarUsuario(profissional);
+
+        int delayInSeconds = 5;
+        try {
+            Thread.sleep(delayInSeconds * 1000);
+            profissionaldao.cadastrarProfissional(profissional);
+            enderecodao.cadastrarEndereco(profissional);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
-    public void insertUsuario( String nome, String email, String senha, String telefone, String cpf) {
+    /*public void insertUsuario( String nome, String email, String senha, String telefone, String cpf) {
 
         String sql = "INSERT INTO usuario (nome, email, senha, telefone, cpf) VALUES (?, ?, ?, ?, ?)";
 
@@ -72,7 +90,7 @@ public class MySQLConnectionController {
         } catch (SQLException e) {
             e.printStackTrace();
         } 
-    }
+    }*/
 
     public boolean verificarLogin(String email, String senha){
         boolean autenticado = false;
@@ -95,7 +113,7 @@ public class MySQLConnectionController {
     }
 
 
-    public void cadastrarUsuario(Profissional profissional){
+   /* public void cadastrarUsuario(Profissional profissional){
 
         String sqlUsuario = "INSERT INTO usuario (nome, email, senha, telefone, cpf) VALUES (?, ?, ?, ?, ?)";
 
@@ -152,7 +170,7 @@ public class MySQLConnectionController {
             e.printStackTrace();
         } 
 
-    }
+    }*/
 
     /*@PostMapping("/cadastroProfissional")
     public void receberFormularioProfissional(@ModelAttribute Profissional profissional) {
