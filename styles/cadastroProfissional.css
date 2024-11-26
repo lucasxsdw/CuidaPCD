@@ -1,0 +1,247 @@
+.Conteiner {
+    max-width: 1600px;
+    margin: 0 auto; 
+    padding: 20px;
+    display: flex;
+    gap: 20px; 
+    justify-content: center; 
+    align-items: center; 
+    height: 100vh; 
+    flex-wrap: wrap; 
+}
+
+
+.caixaEsquerda {
+    width: 367px; 
+    height: 700px; 
+    background-color: #1F3556;
+    color: white;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+    background-image: url('../images/shape.png');
+    background-repeat: no-repeat;
+    background-position: right bottom;
+    background-size: 250px 250px;
+    padding-top: 120px;
+}
+
+/* Container geral do formulário */
+.container-form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    
+}
+
+/* Divisão em duas partes iguais */
+.form-sections {
+    display: flex;
+    gap: 10px; 
+    flex-wrap: wrap; /* Permite que as colunas se ajustem em telas menores */
+    justify-content: space-between;
+    
+}
+
+/* Cada seção ocupa 50% */
+.form-section {
+    flex: 1; /* Ocupa metade do espaço disponível */
+    max-width: 48%; 
+}
+
+/* Alinha os campos no formulário */
+.input-group {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 15px;
+    margin-left: 30px;
+}
+
+
+.texto-saude {
+    font-size: 24px;
+    line-height: 1.5;
+    text-align: center; 
+}
+
+
+.caixaDireita {
+    max-width: 900px;
+    width: 90%; 
+    height: 700px; 
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    position: relative;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center; 
+}
+
+
+/*.close-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    width: 15px;
+    height: 15px;
+  
+}*/
+
+.LogoLogin {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.LogoLogin img {
+   
+    width: 80px;
+    height: 80px;
+   
+}
+
+.LogoLogin h1 {
+    font-size: 24px;
+    color: #333;
+    font-weight: 600;
+}
+
+
+.login-form {
+    margin-top: 30px;
+    width: 400%;
+    max-width: 680px; 
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+}
+
+
+
+.input-group {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Para espaçar label e input */
+    gap: 10px; /* Espaçamento entre o rótulo e o campo */
+    width: 100%; /* Certifica-se de ocupar a largura disponível */
+}
+
+
+.input-group label {
+    flex: 1; 
+    text-align: right; 
+    font-size: 14px; 
+    margin-right: 10px; 
+}
+
+.input-group input {
+    flex: 2; /* Dá mais espaço ao campo em relação ao rótulo */
+    padding: 5px;
+    font-size: 14px;
+    border: none;
+    background-color: #F5F5F5;
+    border-radius: 10px;
+    height: 44px;
+    outline: none;
+}
+
+
+
+input[type="email"], input[type="password"] {
+    flex: 1;
+    border: none;
+    outline: none;
+    padding: 5px;
+    font-size: 14px;
+    border-radius: 10px;
+    height: 44px; 
+}
+
+
+input[type="email"]:focus, input[type="password"]:focus {
+    background-color: #E1E1E1;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+}
+
+input[type="text"] {
+    flex: 1;
+    border: none;
+    outline: none;
+    padding: 5px;
+    font-size: 14px;
+    border-radius: 10px;
+    height: 44px;
+}
+
+
+input[type="text"]:focus {
+    background-color: #E1E1E1;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+}
+
+
+
+
+
+.linha-cinza {
+    border: none;
+    height: 1px;
+    background-color: #ccc;
+    margin: 10px 0;
+}
+
+
+.usetambem {
+    text-align: center;
+    font-size: 12px;
+    color: #A3A3A3;
+    margin: 15px 0;
+}
+
+
+#facebook{
+    height: 20px;
+}
+
+
+button[type="submit"] {
+    width: 100%;
+    max-width: 266px;
+    padding: 10px;
+    background-color: #936CFB;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-bottom: 40px;
+    margin-left: 190px;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #7A5BDB; 
+}
+
+
+
+
+@media (max-width: 768px) {
+    .Conteiner {
+        flex-direction: column;
+        align-items: center;
+    }
+    .caixaEsquerda, .caixaDireita {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+}
+
