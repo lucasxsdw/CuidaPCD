@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.poo.cuidapcd.entity.Cliente;
 import com.poo.cuidapcd.entity.Profissional;
 
-//Isso aqui vai virar o DAO, so é o controller por enquanto pra testar se ta funcionando a conexão de um modo mais rapido
+//Isso aqui vai virar o DAO, so é o controller por enquanto pra testar se ta funcionando a conexão de um modo mais rapido as
 @Controller
 public class MySQLConnectionController {
 
