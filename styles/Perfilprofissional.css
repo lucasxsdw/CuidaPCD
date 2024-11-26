@@ -1,0 +1,172 @@
+.caixa-roxa {
+    background-color: #b8b8b8;
+    margin: 0 auto;
+    border-radius: 30px;
+    height: 380px;
+    width: calc(100% - 80px);
+    display: flex;
+    justify-content:center;
+    align-items: center;
+}
+
+.conteiner{
+    max-width: calc(100% - 80px);
+    margin: 20px auto;
+    padding: 20px;
+}
+
+
+.circulo {
+    width: 300px; /* Largura do círculo */
+    height: 300px; /* Altura do círculo */
+    background-color: #797979; /* Cor do círculo */
+    border-radius: 50%; /* Torna o elemento um círculo */
+    position: absolute; /* Posição absoluta dentro do container */
+    top: 330px; /* Distância de 50px do topo do container */
+    z-index: 2; /* A caixa 2 terá prioridade e ficará acima da caixa 1 */
+}
+
+.btn-download {
+    display: flex;
+    align-items: center;
+    background-color: #F0EAFF; /* Cor de fundo do botão */
+    color: #936CFB;
+    font-size: 16px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    gap: 10px;
+}
+
+
+
+/* Efeito ao passar o mouse sobre o botão */
+.btn-download:hover {
+    background-color: #6744c5; /* Cor de fundo ao passar o mouse */
+    color: white;
+}
+
+ /* Centraliza o mapa na página */
+ .map-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+/* Estilo do mapa */
+iframe {
+    width: calc(100% - 80px);
+    height: 336px;
+    border: 0; /* Remove a borda do iframe */
+    border-radius: 16px;
+    padding-top: 30px;
+}
+
+.nomeEfuncao{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 130px;
+    border-bottom: #cacaca 2px solid;
+}
+
+#nome{
+    font-size: 35px;
+    color: #0D2549;
+}
+
+#funcao{
+    font-size: 12px;
+    padding-bottom: 20px;
+}
+img{
+    width: 120px;
+}
+
+.titulos{
+    font-size: 35px;
+    color: #0D2549;
+    padding-top: 20px;
+
+}
+
+.sobremim{
+    background-color: #EEEEEE;
+    border-radius: 16px;
+    padding: 20px 30px;
+}
+
+.formação{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    gap: 35px;
+}
+
+.escolaridade{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 20px;
+
+}
+
+.areadedownload{
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 30px;
+}
+
+.circle {
+    width: 120px;
+    height: 120px;
+    background-color: #F0EAFF;
+    border-radius: 50%; 
+    display: flex;
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center; 
+    color: #936CFB; 
+    margin: 0 auto; 
+}
+
+.circle .number {
+    font-size: 50px;
+    font-weight: bold;
+}
+
+.circle .text {
+    font-size: 20px;
+}
+
+.circle-caption {
+    margin-top: 10px;
+    font-size: 16px;
+    color: #333; /* Cor do texto abaixo do círculo */
+}
+
+.anosdeexperiencia {
+    text-align: center; /* Centraliza o texto abaixo do círculo */
+}
+
+.experiencia{
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.divformação {
+    display: flex;
+    gap: 40px;
+    flex-direction: column;
+}
+
+
