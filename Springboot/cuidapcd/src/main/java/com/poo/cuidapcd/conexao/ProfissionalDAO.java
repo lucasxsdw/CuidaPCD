@@ -24,7 +24,7 @@ public class ProfissionalDAO {
 
     public void cadastrarProfissional(Profissional profissional){
 
-        String sqlProf = "INSERT INTO profissional (id, formacao, experiencia, sobre, cnpj, registro_profissional, arquivo_curriculo, arquivo_certificado, arquivo_foto) VALUES ((SELECT id FROM usuario WHERE cpf = ?), ?, ?, ?, ?, ?, ?, ?, ?)";
+        String sqlProf = "INSERT INTO profissional (id, formacao, experiencia, sobre, cnpj, registroProfissional, arquivoCurriculo, arquivoCertificado, arquivoFoto) VALUES ((SELECT id FROM usuario WHERE cpf = ?), ?, ?, ?, ?, ?, ?, ?, ?)";
 
         try (Connection connection = DriverManager.getConnection(dbUrl, dbUsername, dbPassword);
              PreparedStatement preparedStatement = connection.prepareStatement(sqlProf)) {

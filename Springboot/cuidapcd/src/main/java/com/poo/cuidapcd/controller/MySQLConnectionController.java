@@ -65,7 +65,7 @@ public class MySQLConnectionController {
     public void receberFormularioProfissional(@ModelAttribute Profissional profissional) {
         usuariodao.cadastrarUsuario(profissional);
 
-        int delayInSeconds = 5;
+        int delayInSeconds = 2;
         try {
             Thread.sleep(delayInSeconds * 1000);
             profissionaldao.cadastrarProfissional(profissional);
