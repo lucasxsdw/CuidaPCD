@@ -1,61 +1,162 @@
-/* Estilo para o formulário */
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    margin: 0;
-    padding: 0;
+.Conteiner {
+    max-width: 1300px;
+    margin: 0 auto; 
+    padding: 20px;
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    height: 100vh; 
+    flex-wrap: wrap; 
 }
+
+
+.caixaEsquerda {
+    width: 367px; 
+    height: 651px; 
+    background-color: #1F3556;
+    color: white;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+    background-image: url('../images/shape.png');
+    background-repeat: no-repeat;
+    background-position: right bottom;
+    background-size: 250px 250px;
+    padding-top: 120px;
+}
+
+.texto-saude {
+    font-size: 24px;
+    line-height: 1.5;
+    text-align: center; 
+}
+
+.quadrado-roxo {
+    display: inline-block;
+    background-color: #6c63ff;; /* Fundo sólido roxo */
+    color: white; /* Cor do texto ajustada para contraste */
+    padding: 4px; /* Espaçamento interno */
+    border-radius: 4px; /* Cantos arredondados (opcional) */
+}
+
+#amarelo {
+    color: #FFCA6A;
+    font-weight: 600;
+}
+
+#rosa {
+    color: #F76EB6;
+    font-weight: 600;
+}
+
 
 .form-container {
     width: 100%;
     max-width: 800px;
+    height: 651px;
     margin: 50px auto;
     background-color: white;
     padding: 20px;
     border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.common-fields{
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center;    
+
+}
+
+.titulodapagina{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 50px;
+
+}
+
+#logoCadastro{
+    width: 85px;
 }
 
 h2 {
     text-align: center;
-    color: #333;
+    color: #1F3556;
+}
+
+.estiloInputs{
+    border-color: none;
+    flex-direction: row;
+    display: flex;
+    gap: 30px;
+
 }
 
 label {
-    font-weight: bold;
+    font-weight: 200;
     display: block;
-    margin-bottom: 8px;
+    margin-bottom: 3px;
+    font-size: 12px;
+    color: #1F3556;
 }
 
 input, select, textarea {
     width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    font-size: 14px;
+    padding: 15px 50px 15px 10px;
+    margin-bottom: 16px;
+    border-radius: 16px;
+    border: none;
+    font-size: 12px;
+    background-color: #F2F2F2;
 }
 
-button {
-    padding: 10px;
-    background-color: #6c63ff;
+#avancar-btn {
+    padding: 10px 45px;
+    background-color: #936CFB;
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 16px;
     cursor: pointer;
     font-size: 16px;
+    margin-top: 30px;
+}
+
+.retornalogin{
+    padding-top: 10px;
+    font-size: 12px;
+}
+
+.loginlink{
+    color: #936CFB;
+    text-decoration: none;
 }
 
 button:hover {
-    background-color: #5a54d8;
+    background-color: #2e298b;
 }
 
-/* Opções para escolha Usuário ou Médico */
-.escolha-tipo {
-    text-align: center;
+#escolha-container{
+    display: flex; /* Ativa Flexbox para alinhamento horizontal */
+    justify-content: center; /* Centraliza os botões no contêiner */
+    gap: 20px; /* Espaço entre os botões */
+
 }
 
+/* Centraliza o conteúdo dentro do botão */
 .opcao-btn {
+    display: flex;
+    flex-direction: column; /* Organiza em coluna (imagem acima do texto) */
+    justify-content: center; /* Centraliza verticalmente */
+    align-items: center; /* Centraliza horizontalmente */
     width: 100px;
     height: 100px;
     border-radius: 50%;
@@ -66,16 +167,44 @@ button:hover {
     cursor: pointer;
 }
 
+/* Estilo para o botão de usuário */
 #usuario-btn {
-    background-color: #28a745;
+    background-color: #F0EAFF;
 }
 
+/* Estilo para o botão de médico */
 #medico-btn {
-    background-color: #007bff;
+    background-color: #F0EAFF;
 }
 
+/* Estilo para a imagem dentro do botão */
+.opcao-btn img {
+    width: 40px; /* Tamanho da imagem */
+    margin-bottom: 5px; /* Espaço entre a imagem e o texto */
+}
+
+/* Estilo para o texto */
+.opcao-btn span {
+    font-size: 14px;
+    font-weight: 400;
+    color: #936CFB; /* Cor do texto */
+}
+
+/* Efeito ao passar o mouse */
 .opcao-btn:hover {
     opacity: 0.8;
+}
+
+.barraderolagem{
+    width: 770px; /* Largura da área */
+    height: 431px; /* Altura da área */
+    padding: 15px; /* Espaçamento interno */
+    overflow-y: auto; /* Barra de rolagem vertical */
+    overflow-x: hidden; /* Esconde a barra de rolagem horizontal */
+    border-radius: 8px; /* Bordas arredondadas */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 /* Mensagem de Sucesso */

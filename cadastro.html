@@ -26,112 +26,203 @@
         </div>
     </header><!--  MENU PARTE DE CIMA  -->
 
-    <div class="form-container">
-        <h2>Cadastro</h2>
+    <div class="Conteiner">
+
+            <!-- CAIXA ESQUERDA -->
+        <div class="caixaEsquerda">
+            <div>
+                <p class="texto-saude">
+                    Sua <strong id="amarelo">saúde</strong> e nossa <br>
+                    <span class="quadrado-roxo">experiência</span> juntos <br>
+                    para toda a <strong id="rosa">vida</strong>.
+                </p>
+            </div>
+        </div>
+        
+        <div class="form-container">
+        <div class="titulodapagina">
+            <img src="images\IconeLogo.svg" id="logoCadastro">
+            <h2>Junte-se a nós</h2>
+        </div>
+
         <form id="cadastro-form">
             <!-- Dados Comuns -->
             <div class="common-fields">
-                <label for="nome">Nome</label>
-                <input type="text" id="nome" name="nome" placeholder="Digite seu nome" required>
 
-                <label for="sobrenome">Sobrenome</label>
-                <input type="text" id="sobrenome" name="sobrenome" placeholder="Digite seu sobrenome" required>
+                <div class="estiloInputs">
 
-                <label for="email">E-mail</label>
-                <input type="email" id="email" name="email" placeholder="Digite seu e-mail" required>
+                    <div class="estiloInputs2">
+                        <label for="nome">Nome</label>
+                        <input type="text" id="nome" name="nome" placeholder="Digite seu nome" required>
+                    </div>
 
-                <label for="telefone">Telefone</label>
-                <input type="tel" id="telefone" name="telefone" placeholder="(XX) XXXXX-XXXX" required>
+                    <div class="estiloInputs2">
+                        <label for="sobrenome">Sobrenome</label>
+                        <input type="text" id="sobrenome" name="sobrenome" placeholder="Digite seu sobrenome" required>
+                    </div>
+                </div>
 
-                <label for="senha">Senha</label>
-                <input type="password" id="senha" name="senha" placeholder="Digite sua senha" required>
+                <div class="estiloInputs">
 
-                <label for="confirmarSenha">Confirmar Senha</label>
-                <input type="password" id="confirmarSenha" name="confirmarSenha" placeholder="Confirme sua senha" required>
+                    <div class="estiloInputs2">
+                        <label for="email">E-mail</label>
+                        <input type="email" id="email" name="email" placeholder="Digite seu e-mail" required>
+                    </div>
 
-                <button type="button" id="avancar-btn">Avançar</button>
+                    <div class="estiloInputs2">
+                        <label for="telefone">Telefone</label>
+                        <input type="tel" id="telefone" name="telefone" placeholder="(XX) XXXXX-XXXX" required>
+                    </div>
+                </div>
+
+                <div class="estiloInputs">
+
+                    <div class="estiloInputs2">
+                        <label for="senha">Senha</label>
+                        <input type="password" id="senha" name="senha" placeholder="Digite sua senha" required>
+                    </div>
+
+                    <div class="estiloInputs2">
+                        <label for="confirmarSenha">Confirmar Senha</label>
+                        <input type="password" id="confirmarSenha" name="confirmarSenha" placeholder="Confirme sua senha" required>
+                    </div>
+                </div>
+
+                    <button type="button" id="avancar-btn">Avançar</button>
+                    <p class="retornalogin">Já tem uma conta?<a href="login.html" class="loginlink"> Faça o Login!</a></p>
+              
+                
             </div>
 
             <!-- Escolha Usuário ou Médico -->
             <div class="escolha-tipo" style="display: none;">
-                <p>Você é:</p>
-                <div id="escolha-container">
-                    <button type="button" id="usuario-btn" class="opcao-btn" data-tipo="usuario">Usuário</button>
-                    <button type="button" id="medico-btn" class="opcao-btn" data-tipo="medico">Médico</button>
+                <p>Eu sou?</p>
+                    <div id="escolha-container">
+                        <button type="button" id="usuario-btn" class="opcao-btn" data-tipo="usuario">
+                            <img src="images\UsuarioC.png" alt="Usuário">
+                            <span>Usuário</span>
+                        </button>
+                        <button type="button" id="medico-btn" class="opcao-btn" data-tipo="medico">
+                            <img src="images\Profissional.png" alt="Médico">
+                            <span>Profissinal</span>
+                        </button>
                 </div>
             </div>
 
             <!-- Dados do Médico (Escondido inicialmente) -->
             <div class="medico-fields" style="display: none;">
-                <h3>Dados do Médico</h3>
 
-                <label for="cidade">Cidade</label>
-                <input type="text" id="cidade" name="cidade" placeholder="Cidade" required>
+                <div class="barraderolagem">
 
-                <label for="estado">Estado</label>
-                <input type="text" id="estado" name="estado" placeholder="Estado" required>
+                    <div class="enderecoMedico">
 
-                <label for="rua">Rua</label>
-                <input type="text" id="rua" name="rua" placeholder="Rua" required>
+                    <div class="estiloInputs">
+                        <div class="estiloInputs2">
+                            <label for="cidade">Cidade</label>
+                            <input type="text" id="cidade" name="cidade" placeholder="Cidade" required>
+                         </div>
 
-                <label for="bairro">Bairro</label>
-                <input type="text" id="bairro" name="bairro" placeholder="Bairro" required>
+                        <div class="estiloInputs2">
+                            <label for="estado">Estado</label>
+                            <input type="text" id="estado" name="estado" placeholder="Estado" required>
+                        </div>
+                    </div>
+                        
+                    <div class="estiloInputs">
+                        <div class="estiloInputs2">
+                            <label for="rua">Rua</label>
+                            <input type="text" id="rua" name="rua" placeholder="Rua" required>
+                        </div>
 
-                <label for="numero">Número</label>
-                <input type="text" id="numero" name="numero" placeholder="Número" required>
+                        <div class="estiloInputs2">
+                            <label for="bairro">Bairro</label>
+                            <input type="text" id="bairro" name="bairro" placeholder="Bairro" required>
+                        </div>
+                    </div>
 
-                <label for="cep">CEP</label>
-                <input type="text" id="cep" name="cep" placeholder="CEP" required>
+                    <div class="estiloInputs">
+                        <div class="estiloInputs2">
+                            <label for="numero">Número</label>
+                            <input type="text" id="numero" name="numero" placeholder="Número" required>
+                        </div>
 
-                <label for="formacao">Formação</label>
-                <select id="formacao" name="formacao" required>
-                    <option value="graduacao">Graduação</option>
-                    <option value="pos_graduacao">Pós-Graduação</option>
-                    <option value="mestrado">Mestrado</option>
-                    <option value="doutorado">Doutorado</option>
-                    <option value="especializacao">Especialização</option>
-                </select>
+                        <div class="estiloInputs2">
+                            <label for="cep">CEP</label>
+                            <input type="text" id="cep" name="cep" placeholder="CEP" required>
+                        </div>
+                    </div>
 
-                <label for="especialidade">Especialidade</label>
-                <select id="especialidade" name="especialidade" required>
-                    <option value="terapeuta_ocupacional">Terapeuta Ocupacional</option>
-                    <option value="fisioterapeuta">Fisioterapeuta</option>
-                    <option value="fonoaudiologo">Fonoaudiólogo</option>
-                    <option value="psicologo">Psicólogo</option>
-                    <option value="pedagogo">Pedagogo</option>
-                    <option value="educador_especial">Educador Especial</option>
-                    <option value="assistente_social">Assistente Social</option>
-                    <option value="enfermeiro">Enfermeiro</option>
-                    <option value="psiquiatra">Psiquiatra</option>
-                    <option value="neurologista">Neurologista</option>
-                    <option value="ortopedista">Ortopedista</option>
-                    <option value="pediatra">Pediatra</option>
-                    <option value="pedopsiquiatra">Pedopsiquiatra</option>
-                    <option value="nutricionista">Nutricionista</option>
-                    <option value="educador_fisico">Educador Físico</option>
-                    <option value="fonoaudiologo_infantil">Fonoaudiólogo Infantil</option>
-                    <option value="psicopedagogo">Psicopedagogo</option>
-                    <option value="medico_pediatra">Médico Pediatra</option>
-                    <option value="fisioterapeuta_pediatrico">Fisioterapeuta Pediátrico</option>
-                </select>
+                    </div>
 
-                <label for="sobre">Sobre</label>
-                <textarea id="sobre" name="sobre" rows="4" placeholder="Descreva brevemente sua experiência" maxlength="500" required></textarea>
 
-                <label for="cpf_cnpj">CPF ou CNPJ</label>
-                <input type="text" id="cpf_cnpj" name="cpf_cnpj" placeholder="Digite seu CPF ou CNPJ" required>
+                    <div class="estiloInputs">
 
-                <label for="registro_profissional">Registro Profissional</label>
-                <input type="text" id="registro_profissional" name="registro_profissional" placeholder="Registro Profissional" required>
+                        <div class="estiloInputs2">
+                            <label for="formacao">Formação</label>
+                            <select id="formacao" name="formacao" required>
+                                <option value="graduacao">Graduação</option>
+                                <option value="pos_graduacao">Pós-Graduação</option>
+                                <option value="mestrado">Mestrado</option>
+                                <option value="doutorado">Doutorado</option>
+                                <option value="especializacao">Especialização</option>
+                            </select>
+                        </div>
 
-                <label for="experiencia">Experiência Profissional</label>
-                <div id="experiencia-container">
-                    <div class="experiencia">
-                        <input type="text" name="local_trabalho" placeholder="Nome do local de trabalho">
-                        <input type="text" name="tempo_trabalho" placeholder="Tempo de trabalho">
+                        <div class="estiloInputs2">
+                            <label for="especialidade">Especialidade</label>
+                            <select id="especialidade" name="especialidade" required>
+                                <option value="terapeuta_ocupacional">Terapeuta Ocupacional</option>
+                                <option value="fisioterapeuta">Fisioterapeuta</option>
+                                <option value="fonoaudiologo">Fonoaudiólogo</option>
+                                <option value="psicologo">Psicólogo</option>
+                                <option value="pedagogo">Pedagogo</option>
+                                <option value="educador_especial">Educador Especial</option>
+                                <option value="assistente_social">Assistente Social</option>
+                                <option value="enfermeiro">Enfermeiro</option>
+                                <option value="psiquiatra">Psiquiatra</option>
+                                <option value="neurologista">Neurologista</option>
+                                <option value="ortopedista">Ortopedista</option>
+                                <option value="pediatra">Pediatra</option>
+                                <option value="pedopsiquiatra">Pedopsiquiatra</option>
+                                <option value="nutricionista">Nutricionista</option>
+                                <option value="educador_fisico">Educador Físico</option>
+                                <option value="fonoaudiologo_infantil">Fonoaudiólogo Infantil</option>
+                                <option value="psicopedagogo">Psicopedagogo</option>
+                                <option value="medico_pediatra">Médico Pediatra</option>
+                                <option value="fisioterapeuta_pediatrico">Fisioterapeuta Pediátrico</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="sobre">Sobre</label>
+                        <textarea id="sobre" name="sobre" rows="4" placeholder="Descreva brevemente sua experiência" maxlength="500" required></textarea>
+                    </div>
+
+                    <div class="estiloInputs">
+
+                        <div class="estiloInputs2">
+                            <label for="cpf_cnpj">CPF ou CNPJ</label>
+                            <input type="text" id="cpf_cnpj" name="cpf_cnpj" placeholder="Digite seu CPF ou CNPJ" required>
+                        </div>
+
+                        <div class="estiloInputs2">
+                            <label for="registro_profissional">Registro Profissional</label>
+                            <input type="text" id="registro_profissional" name="registro_profissional" placeholder="Registro Profissional" required>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="experiencia">Experiência Profissional</label>
+                        <div id="experiencia-container">
+                            <div class="experiencia">
+                                <input type="text" name="local_trabalho" placeholder="Nome do local de trabalho">
+                                <input type="text" name="tempo_trabalho" placeholder="Tempo de trabalho em anos">
+                            </div>
+                        </div>
+                        <button type="button" id="adicionar-experiencia">Adicionar Experiência</button>
                     </div>
                 </div>
-                <button type="button" id="adicionar-experiencia">Adicionar Experiência</button>
 
                 <button type="submit">Cadastrar</button>
             </div>
@@ -142,7 +233,10 @@
                 <p>Bem-vindo ao nosso sistema!</p>
             </div>
         </form>
+        </div>
+    
     </div>
+
 
     <footer>
         <div class="footer-top">
