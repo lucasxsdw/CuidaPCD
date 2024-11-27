@@ -1,14 +1,14 @@
 package com.poo.cuidapcd.entity;
 
 public class Usuario {
-    private Long id;
+    private int id;
     private String nome;
     private String email;
     private String senha;
     private String telefone;
     private String cpf;
     
-    public Usuario(Long id, String nome, String email, String senha, String telefone, String cpf) {
+    public Usuario(int id, String nome, String email, String senha, String telefone, String cpf) {
         this.id = id;
         this.nome = nome;
         this.email = email;
@@ -17,10 +17,10 @@ public class Usuario {
         this.cpf = cpf;
     }
     
-    public Long getId() {
+    public int getId() {
         return id;
     }
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
     public String getCpf() {

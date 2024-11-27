@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inicio - CuidaPcd</title>
-    <link rel="stylesheet" href="styles/global.css">
-    <link rel="stylesheet" href="styles/login.css">
+    <title>Login - CuidaPcd</title>
+    <link th:href="@{/Css/global.css}" rel="stylesheet" type="text/css">
+    <link th:href="@{/Css/login.css}" rel="stylesheet" type="text/css">
 </head>
 <body>
     <header> <!-- MENU PARTE DE CIMA -->
@@ -50,15 +50,17 @@
 
             <!-- Formulário -->
             <div>
-                <form id="loginForm" action="/login" method="POST" class="login-form">
+                <form id="loginForm" action="/loginAutenticar" method="POST" class="login-form">
                     <div class="input-container">
                         <img src="images/email.png" alt="Ícone Email" class="input-icon">
                         <input type="email" id="email" name="email" placeholder="Digite seu e-mail" required>
                     </div>
                     <div class="input-container">
                         <img src="images/Senha.png" alt="Ícone Senha" class="input-icon">
-                        <input type="password" id="password" name="password" placeholder="Digite sua senha" required>
+                        <input type="password" id="senha" name="senha" placeholder="Digite sua senha" required>
                     </div>
+                    <!-- Botão Entrar -->
+                    <button type="submit">Entrar</button>
                 </form>
             </div>
 
@@ -74,8 +76,7 @@
                 <img src="images\apple-logo-0.png" alt="Apple" id="apple">
             </div>
 
-            <!-- Botão Entrar -->
-            <button type="submit">Entrar</button>
+            
 
             <!-- Link Cadastre-se -->
             <h2 class="sem-conta">
@@ -162,13 +163,13 @@
     </script>
     -->
 
-    <script>
+    <!--<script>
         // Captura o formulário e envia os dados de login para o controlador via AJAX
         document.getElementById("loginForm").addEventListener("submit", function(event) {
             event.preventDefault(); // Impede o envio padrão do formulário
     
             var email = document.getElementById("email").value;
-            var password = document.getElementById("password").value;
+            var password = document.getElementById("senha").value;
     
             // Cria o objeto de login no formato esperado pelo controlador
             var loginRequest = {
@@ -198,5 +199,6 @@
             });
         });
     </script>
+-->
 </body>
 </html>
