@@ -92,23 +92,27 @@ public class MySQLConnectionController {
         } 
     }*/
 
-    public boolean verificarLogin(String email, String senha){
+    public boolean verificarLogin(String email, String senha) {
         boolean autenticado = false;
         String sql = "SELECT * FROM usuario WHERE email = ? AND senha = ?";
-
+        
         try (Connection connection = DriverManager.getConnection(dbUrl, dbUsername, dbPassword);
              PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
-                preparedStatement.setString(1, email);
-                preparedStatement.setString(2, senha);
-                try (ResultSet resultSet = preparedStatement.executeQuery()) {
-                    if (resultSet.next()) {
-                        // Se encontrou um registro, o login é válido
-                        autenticado = true;
-                    }
+            
+            preparedStatement.setString(1, email);
+            preparedStatement.setString(2, senha);
+    
+            try (ResultSet resultSet = preparedStatement.executeQuery()) {
+                if (resultSet.next()) {
+                    // Se encontrou um usuário, considera como autenticado
+                    autenticado = true;
                 }
+            }
+    
         } catch (SQLException e) {
             e.printStackTrace();
-        } 
+        }
+        
         return autenticado;
     }
 
