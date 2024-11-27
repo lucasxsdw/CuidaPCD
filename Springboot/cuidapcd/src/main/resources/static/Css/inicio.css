@@ -1,0 +1,354 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+
+/* CAIXA DO MAIN*/
+.caixa-roxa {
+    background-color: #1F3556;
+    margin: 0 auto;
+    border-radius: 30px;
+    height: 380px;
+    width: calc(100% - 80px);
+    display: flex;
+    justify-content:flex-start;
+    align-items: center;
+    background-image: url('../images/shape.png');
+    background-repeat: no-repeat;
+    background-position: right bottom;
+    background-size: 310px 310px;
+}
+
+.quadrado-roxo {
+    display: inline-block;
+    background-color: #6c63ff;; /* Fundo sólido roxo */
+    color: white; /* Cor do texto ajustada para contraste */
+    padding: 4px; /* Espaçamento interno */
+    border-radius: 4px; /* Cantos arredondados (opcional) */
+}
+
+#amarelo {
+    color: #FFCA6A;
+    font-weight: 600;
+}
+
+#rosa {
+    color: #F76EB6;
+    font-weight: 600;
+}
+
+.botoes-container {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.botao-branco {
+    background-color: #fff;
+    color: #555;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: 300;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.botao-branco:hover {
+    background-color: #6c63ff;
+    color: #ffffff;
+}
+
+.texto-saude {
+    color: #fff;
+    font-size: 38px;
+    font-weight: 500;
+    line-height: 1.5;
+    text-align: left;
+    margin-bottom: 20px;
+    word-wrap: break-word;
+    padding-left: 120px;
+}
+
+.caideseleção2{
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 40px;
+    padding-right: 40px;
+    justify-content: space-between;
+}
+
+#textSugestao{
+    font-size: 30px;
+    color: #1F3556;
+    padding-left: 40px;
+    padding-bottom: 10px;
+    padding-top: 50px;
+}
+
+.botõesselecao{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.botao-select{
+    background-color: #F0EAFF;
+    color: #6c63ff;
+    border-radius: 20px;
+    padding: 5px 20px;
+    font-size: 14px;
+    font-weight: 300;
+    border: none;
+}
+
+.botao-select:hover {
+    background-color: #6c63ff;
+    color: #ffffff;
+}
+
+.botao-mais{
+    background-color: #F0EAFF;
+    color: #6c63ff;
+    border-radius: 20px;
+    padding: 5px 20px;
+    font-size: 14px;
+    font-weight: 300;
+    border: none;
+} 
+
+.profissional{
+    margin: 0 auto;
+    height: auto; /* Ajuste automático da altura, se necessário */
+    width: calc(100% - 80px);
+    padding: 20px 0 30px; /* Espaçamento interno consistente */
+    display: flex;
+    gap: 30px;
+    justify-content: center; /* Centraliza verticalmente */
+    
+}
+
+.quadradoPro{
+    display: flex;
+    flex-direction: column; /* Alinha itens em uma coluna */
+    justify-content: center; /* Centraliza verticalmente */
+    align-items: center; /* Centraliza horizontalmente */
+    width: 334px;
+    height: 503px;
+    background-color: #ffffff;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+#iconelocal{
+    width: 12px;
+    height: 19px;
+}
+
+.foto{
+    width: 300px;
+    height: 210px;
+}
+
+#fotofoto{
+    width: 300px;
+    height: 210px;
+    border-radius: 10px;
+    padding-bottom: 20px;
+}
+
+.botao-profissional1{
+    background-color: #F0EAFF;
+    color: #6c63ff;
+    border-radius: 20px;
+    padding: 5px 20px;
+    font-size: 14px;
+    font-weight: 300;
+    border: none;
+}
+
+.botao-profissional{
+    background-color: #EAEAEA;
+    color: #6A6A6A;
+    border-radius: 20px;
+    padding: 5px 20px;
+    font-size: 14px;
+    font-weight: 300;
+    border: none;
+}
+
+
+#Nome {
+    font-size: 18pt;
+    font-weight: 600;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.sobremim{
+    width: 300px;
+}
+
+#sobre{
+    font-size: 8pt;
+    font-weight: 300;
+    color: #555;
+    text-align: justify;
+    padding-bottom: 10px
+
+}
+
+.local{
+    display: flex;
+    flex-wrap: wrap;
+    border-bottom: 2px solid #ccc; 
+}
+
+#localizacao{
+    font-size: 10pt;
+    color: #555;
+    padding-bottom: 10px;
+    padding-left: 10px;
+}
+
+.vermais{
+    padding-top: 20px;
+}
+.botao-vermais {
+    border-radius: 30px;
+    padding: 5px 75px;
+    border-color: #936CFB;
+    color: #936CFB;
+    background-color: #ffffff;
+}
+
+.botao-vermais:hover {
+    background-color: #936CFB;
+    color: #ffffff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    
+}
+
+
+.Titulo2 {
+    font-size: 30px;
+    color: #1F3556;
+    text-align: left;
+    position: relative;
+    margin-bottom: 20px;
+    padding-left: 50px;
+    padding-top: 80px;
+}
+
+.Titulo2::after {
+    content: "";
+    display: block;
+    width: 69px;
+    height: 5px;
+    background-color: #936CFB;
+    margin-top: 2px;
+}
+
+
+.Explorar {
+    display: flex;
+    flex-direction:row; /* Alinha itens em uma coluna */
+    justify-content: center; /* Centraliza verticalmente */
+    align-items: center; /* Centraliza horizontalmente */
+    gap: 30px;
+    padding-top: 50px;
+    padding-bottom: 80px;
+}
+
+.modulo{
+    display: flex;
+    flex-direction:row; /* Alinha itens em uma coluna */
+    justify-content: center; /* Centraliza verticalmente */
+    align-items: center; /* Centraliza horizontalmente */
+    width: 332px;
+    height: 154px;
+    background-color: #ffffff;
+    border-radius: 10px;
+}
+
+.imagemModulo{
+    width: 90px;
+}
+
+.escritasmodulo {
+    width: 187px;
+    height: 115px;
+    padding: 20px 20px;
+}
+
+.escritasmodulo h6 {
+    color: #1F3556;
+    font-size: 17px;
+    padding-bottom: 10px;
+    line-height: 1.2;
+}
+
+.escritasmodulo p {
+    color: #757575;
+    font-size: 10pt;
+    line-height: 1.2;
+}
+
+
+.barradefiltro{
+    position: absolute; /* Posição absoluta dentro do container */
+    top: 430px; /* Distância de 50px do topo do container */
+    left: 200px; /* Distância de 100px da esquerda do container */
+    width: 200px; /* Largura da segunda caixa */
+    z-index: 2; /* A caixa 2 terá prioridade e ficará acima da caixa 1 */
+    background-color: #ffffff;
+    margin: 0 auto;
+    border-radius: 15px;
+    height: 80px;
+    width: calc(100% - 400px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+
+}
+
+select {
+    background-color: #e0e0e0; /* Cor de fundo cinza claro */
+    width: 270px; /* Largura de 270px */
+    height: 36px; /* Altura de 36px */
+    border:none; /* Borda cinza clara */
+    border-radius: 5px; /* Bordas arredondadas */
+    padding: 5px 10px; /* Padding para o conteúdo dentro da caixa */
+    font-size: 14px; /* Tamanho da fonte */
+    color: #333; /* Cor do texto */
+    cursor: pointer; /* Mostra um cursor de ponteiro ao passar o mouse */
+}
+
+/* Estilo para a label (opcional) */
+label {
+    font-size: 14px;
+    margin-bottom: 8px;
+    color: #333;
+    display: block;
+}
+
+.btn-buscar {
+    background-color: #936CFB; /* Cor roxa */
+    color: white; /* Cor do texto */
+    border: none;
+    border-radius: 5px; /* Bordas arredondadas */
+    padding: 10px 20px; /* Espaciamento interno */
+    font-size: 16px; /* Tamanho da fonte */
+    cursor: pointer; /* Cursor de ponteiro */
+    display: flex;
+    align-items: center; /* Alinha o conteúdo verticalmente */
+    gap: 10px; /* Espaço entre o ícone e o texto */
+}
+
+/* Estilo do ícone */
+.btn-buscar img {
+    width: 18px;
+}
