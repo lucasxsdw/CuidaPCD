@@ -13,7 +13,7 @@ public class Profissional extends Usuario{
     private Endereco endereco;
     private Especialidade especialidade;
 
-    public Profissional(int id, String nome, String email, String senha, String telefone, String cpf,
+    public Profissional(Long id, String nome, String email, String senha, String telefone, String cpf,
     String formacao, String experiencia, String sobre, String cnpj,
     String registroProfissional, String arquivoCurriculo, String arquivoCertificado, String arquivoFoto, String rua, String bairro, 
     String cidade, String estado, String cep, String numero, Especialidade especialidade) {

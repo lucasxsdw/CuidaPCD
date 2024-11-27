@@ -16,7 +16,7 @@ public class PerfilController {
     private ProfissionalService profissionalService;
 
     @GetMapping("/perfil/{id}")
-    public String exibirPerfil(@PathVariable int id, Model model) {
+    public String exibirPerfil(@PathVariable Long id, Model model) {
         Profissional profissional = profissionalService.buscarUsuarioPorId(id);
         if (profissional == null) {
             throw new RuntimeException("Profissional não achado para o id: " + id);

@@ -15,7 +15,7 @@ public class ProfissionalService {
     @Autowired
     private ProfissionalDAO profDao;
 
-    public Profissional buscarUsuarioPorId(int id) {
+    public Profissional buscarUsuarioPorId(Long id) {
         Profissional profissional = profDao.buscarProfissionalPorId(id);
         if (profissional == null) {
             throw new RuntimeException("Profissional não encontrado para o id: " + id);

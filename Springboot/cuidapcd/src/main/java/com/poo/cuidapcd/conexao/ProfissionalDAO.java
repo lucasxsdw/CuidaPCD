@@ -45,7 +45,7 @@ public class ProfissionalDAO {
         } 
     }
 
-    public Profissional buscarProfissionalPorId(int idProfissional) {
+    public Profissional buscarProfissionalPorId(Long idProfissional) {
     Profissional profissional = null;
 
     String sql = """
@@ -83,11 +83,11 @@ public class ProfissionalDAO {
     try (Connection connection = DriverManager.getConnection(dbUrl, dbUsername, dbPassword);
     PreparedStatement statement = connection.prepareStatement(sql)) {
 
-        statement.setInt(1, idProfissional);
+        statement.setLong(1, idProfissional);
 
         try (ResultSet resultSet = statement.executeQuery()) {
             if (resultSet.next()) {
-                int id = resultSet.getInt("usuario_id");
+                Long id = resultSet.getLong("usuario_id");
                 String nome = resultSet.getString("usuario_nome");
                 String email = resultSet.getString("usuario_email");
                 String telefone = resultSet.getString("usuario_telefone");
