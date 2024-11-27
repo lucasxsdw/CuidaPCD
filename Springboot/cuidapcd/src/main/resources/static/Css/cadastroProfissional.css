@@ -1,19 +1,21 @@
 .Conteiner {
     max-width: 1600px;
-    margin: 0 auto; 
+    margin: 0 auto;
     padding: 20px;
     display: flex;
-    gap: 20px; 
-    justify-content: center; 
-    align-items: center; 
-    height: 100vh; 
-    flex-wrap: wrap; 
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* A altura total da tela */
+    flex-wrap: wrap;
+    overflow-y: auto; /* Adiciona a barra de rolagem vertical */
 }
 
 
 .caixaEsquerda {
-    width: 367px; 
-    height: 700px; 
+    flex: 1;
+    max-width: 30%;
+    height: 100%; /* Ajusta a altura para caber na tela */
     background-color: #1F3556;
     color: white;
     border-radius: 10px;
@@ -26,14 +28,17 @@
     background-position: right bottom;
     background-size: 250px 250px;
     padding-top: 120px;
+    overflow: hidden; /* Garante que a caixa esquerda não exiba a rolagem */
 }
+
 
 /* Container geral do formulário */
 .container-form {
     display: flex;
     flex-direction: column;
     width: 100%;
-    
+    max-height: 85vh; /* Define a altura máxima para o formulário */
+    overflow-y: auto; /* Barra de rolagem no formulário */
 }
 
 /* Divisão em duas partes iguais */
@@ -115,9 +120,8 @@
 
 
 .login-form {
-    margin-top: 30px;
-    width: 400%;
-    max-width: 680px; 
+    width: 1000%;
+    max-width: 670px; 
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -243,5 +247,24 @@ button[type="submit"]:hover {
         width: 100%;
         margin-bottom: 20px;
     }
+}
+
+/* Barra de rolagem personalizada */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
 }
 
