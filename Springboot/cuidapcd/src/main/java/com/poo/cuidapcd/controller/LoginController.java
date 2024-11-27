@@ -16,10 +16,9 @@ public class LoginController {
     @Autowired
     private MySQLConnectionController usuarioService;
 
-    // Exibe a tela de login
     @GetMapping("/login")
     public String login() {
-        return "login";  // Aqui você pode retornar o nome da sua página HTML de login
+        return "login";
     }
 
     // Processa o login
@@ -27,22 +26,18 @@ public class LoginController {
     public String autenticarLogin(@RequestParam("email") String email,
                                    @RequestParam("senha") String senha,
                                    RedirectAttributes redirectAttributes) {
-        // Chama o serviço para verificar o login
         boolean autenticado = usuarioService.verificarLogin(email, senha);
 
-        // Se o login for bem-sucedido
         if (autenticado) {
-            // Redireciona para a página principal ou para a página desejada
-            return "redirect:/index";  // Ou outra página que você queira redirecionar após login
+            return "redirect:/index";
         } else {
-            // Se o login falhar, exibe uma mensagem de erro
             redirectAttributes.addFlashAttribute("erro", "Usuário ou senha inválidos.");
-            return "redirect:/login";  // Retorna para a página de login
+            return "redirect:/login";
         }
     }
 
     @GetMapping("/index")
     public String logado() {
-        return "index";  // Aqui você pode retornar o nome da sua página HTML de login
+        return "index";
     }
 }

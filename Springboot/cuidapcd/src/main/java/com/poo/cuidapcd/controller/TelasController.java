@@ -9,16 +9,16 @@ public class TelasController {
 
     @GetMapping("/SobreNos")
     public String SobreNos() {
-        return "sobrenos";  // Aqui você pode retornar o nome da sua página HTML de login
+        return "sobrenos";
     }
 
     @GetMapping("/Politica")
     public String telaPolitica() {
-        return "politicadeprivacidade";  // Aqui você pode retornar o nome da sua página HTML de login
+        return "politicadeprivacidade";
     }
 
     @GetMapping("/BuscarProfissional")
     public String telaBuscar() {
-        return "buscarProfissional";  // Aqui você pode retornar o nome da sua página HTML de login
+        return "buscarProfissional";
     }
 }

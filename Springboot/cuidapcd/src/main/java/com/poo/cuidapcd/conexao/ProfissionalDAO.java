@@ -107,7 +107,7 @@ public class ProfissionalDAO {
                 String cep = resultSet.getString("endereco_cep");
                 String numero = resultSet.getString("endereco_numero");
                 profissional = new Profissional(
-                    id, nome, email, "", telefone, cpf,  // A senha pode ser vazia ou preenchida conforme necessário
+                    id, nome, email, "", telefone, cpf, 
                     formacao, experiencia, sobre, cnpj, registroProfissional,
                     arquivoCurriculo, arquivoCertificado, arquivoFoto, rua, bairro, cidade, estado, cep, numero, null
                 );

@@ -104,7 +104,6 @@ public class MySQLConnectionController {
     
             try (ResultSet resultSet = preparedStatement.executeQuery()) {
                 if (resultSet.next()) {
-                    // Se encontrou um usuário, considera como autenticado
                     autenticado = true;
                 }
             }
