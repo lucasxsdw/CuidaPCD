@@ -1,5 +1,7 @@
 package com.poo.cuidapcd.controller;
 
+import java.util.ArrayList;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,5 +25,20 @@ public class PerfilController {
         }
         model.addAttribute("profissional", profissional);
         return "perfilProfissional";
+    }
+
+    //TESTE BINHO PARA PERFIL DE USUARIO
+    @GetMapping("/api/profissionais")
+    public List<Profissional> getProfissionais() {
+        // Simule uma busca por múltiplos profissionais (o DAO deve ser ajustado se necessário)
+        List<Profissional> profissionais = new ArrayList<>();
+        // Adicione IDs dos profissionais que deseja buscar
+        for (int i = 1; i <= 5; i++) { // Exemplo para buscar os primeiros 5
+            Profissional profissional = profissionalDAO.buscarProfissionalPorId((long) i);
+            if (profissional != null) {
+                profissionais.add(profissional);
+            }
+        }
+        return profissionais;
     }
 }

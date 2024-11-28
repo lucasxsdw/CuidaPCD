@@ -1,12 +1,14 @@
 package com.poo.cuidapcd.service;
 
-
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.poo.cuidapcd.conexao.ProfissionalDAO;
 import com.poo.cuidapcd.entity.Profissional;
+
+import entity.Profissional;
+import dao.ProfissionalDAO;
+
+import java.util.List;
 
 
 @Service
@@ -23,4 +25,13 @@ public class ProfissionalService {
         
         return profissional;
     }
+
+
+    public List<Profissional> findAll() {
+        return profissionalDAO.findAll();
+    }
+
+
+
+
 }
