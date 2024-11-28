@@ -1,13 +1,14 @@
 package com.poo.cuidapcd.controller;
 
-import entity.Profissional;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import service.ProfissionalService;
 
-import java.util.List;
+import com.poo.cuidapcd.entity.Profissional;
+import com.poo.cuidapcd.service.ProfissionalService;
 
 @RestController
 @RequestMapping("/api/profissionais") // URL base da API

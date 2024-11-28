@@ -1,6 +1,7 @@
 package com.poo.cuidapcd.controller;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -8,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
+import com.poo.cuidapcd.conexao.ProfissionalDAO;
 import com.poo.cuidapcd.entity.Profissional;
 import com.poo.cuidapcd.service.ProfissionalService;
 
@@ -16,6 +18,9 @@ public class PerfilController {
 
     @Autowired
     private ProfissionalService profissionalService;
+    
+    @Autowired
+    private ProfissionalDAO profissionalDao;
 
     @GetMapping("/perfil/{id}")
     public String exibirPerfil(@PathVariable Long id, Model model) {
@@ -34,7 +39,7 @@ public class PerfilController {
         List<Profissional> profissionais = new ArrayList<>();
         // Adicione IDs dos profissionais que deseja buscar
         for (int i = 1; i <= 5; i++) { // Exemplo para buscar os primeiros 5
-            Profissional profissional = profissionalDAO.buscarProfissionalPorId((long) i);
+            Profissional profissional = profissionalDao.buscarProfissionalPorId((long) i);
             if (profissional != null) {
                 profissionais.add(profissional);
             }

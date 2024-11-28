@@ -5,8 +5,6 @@ import org.springframework.stereotype.Service;
 import com.poo.cuidapcd.conexao.ProfissionalDAO;
 import com.poo.cuidapcd.entity.Profissional;
 
-import entity.Profissional;
-import dao.ProfissionalDAO;
 
 import java.util.List;
 
@@ -28,7 +26,7 @@ public class ProfissionalService {
 
 
     public List<Profissional> findAll() {
-        return profissionalDAO.findAll();
+        return profDao.findAll();
     }
 
 
