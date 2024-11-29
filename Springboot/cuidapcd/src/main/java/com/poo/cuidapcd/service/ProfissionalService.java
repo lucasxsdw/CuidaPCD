@@ -25,9 +25,9 @@ public class ProfissionalService {
     }
 
 
-    public List<Profissional> findAll() {
-        return profDao.findAll();
-    }
+ //   public List<Profissional> findAll() {
+   //     return profDao.findAll();
+   // }
 
 
 
