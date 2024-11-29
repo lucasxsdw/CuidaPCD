@@ -7,6 +7,16 @@
 
 }
 
+#profissional{
+    margin: 0 auto;
+    height: auto; /* Ajuste automático da altura, se necessário */
+    width: calc(100% - 80px);
+    padding: 20px 0 30px; /* Espaçamento interno consistente */
+    display: flex;
+    gap: 30px;
+    justify-content: center; /* Centraliza verticalmente */
+}
+
 .profissional1{
     margin: 0 auto;
     height: auto; /* Ajuste automático da altura, se necessário */

@@ -3,12 +3,14 @@ package com.poo.cuidapcd.conexao;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Repository;
 
 import com.poo.cuidapcd.entity.Profissional;
+import com.poo.cuidapcd.entity.Usuario;
 
 @Repository
 public class UsuarioDAO {
@@ -39,4 +41,27 @@ public class UsuarioDAO {
             e.printStackTrace();
         } 
     }
-}
+
+    public Usuario encontrarUsuario(String email, String senha){
+        String sql = "SELECT id AS id_usuario FROM usuario WHERE email = ? and senha = ?";
+
+        Usuario usuario = null ;
+        
+        try (Connection connection = DriverManager.getConnection(dbUrl, dbUsername, dbPassword);
+        PreparedStatement statement = connection.prepareStatement(sql)) {
+            statement.setString(1, email);
+            statement.setString(2, senha);
+    
+            try (ResultSet resultSet = statement.executeQuery()) {
+            if (resultSet.next()) {
+                Long id = resultSet.getLong("id_usuario");
+                usuario = new Usuario(id, null, null, null, null, null);
+            }
+        }
+            } catch (SQLException e) {
+            e.printStackTrace();
+            }
+            return usuario;
+        }
+    }
+

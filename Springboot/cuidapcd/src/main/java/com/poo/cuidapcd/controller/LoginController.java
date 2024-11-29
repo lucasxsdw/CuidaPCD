@@ -6,12 +6,21 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.poo.cuidapcd.conexao.UsuarioDAO;
+
 
 @Controller
 public class LoginController {
 
     @Autowired
     private MySQLConnectionController usuarioService;
+
+    //@Autowired
+    //@Lazy
+    //private LoginController logged;
+
+    @Autowired
+    private UsuarioDAO user;
 
     @GetMapping("/login")
     public String login() {
@@ -26,9 +35,14 @@ public class LoginController {
         boolean autenticado = usuarioService.verificarLogin(email, senha);
 
         if (autenticado) {
+            //return logar(user.encontrarUsuario(email, senha, session));
+            //Usuario usuario = user.encontrarUsuario(email, senha);
+            //session.setAttribute("usuario", usuario);
+            //return new ModelAndView("redirect:/index");
             return "redirect:/index";
         } else {
             redirectAttributes.addFlashAttribute("erro", "Usuário ou senha inválidos.");
+            //ModelAndView negado = new ModelAndView("redirect:/login");
             return "redirect:/login";
         }
     }
@@ -37,4 +51,13 @@ public class LoginController {
     public String logado() {
         return "index";
     }
+
+    //public ModelAndView logar(Usuario usuario, HttpSession session) {
+
+        //session.setAttribute("usuario", usuario);
+        //ModelAndView modelAndView = new ModelAndView("redirect:/index");
+        //modelAndView.addObject("usuario", usuario);
+
+        //return modelAndView;
+    //}
 }

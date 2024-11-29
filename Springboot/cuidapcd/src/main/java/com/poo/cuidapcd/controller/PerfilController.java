@@ -1,8 +1,5 @@
 package com.poo.cuidapcd.controller;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -33,7 +30,7 @@ public class PerfilController {
     }
 
     //TESTE BINHO PARA PERFIL DE USUARIO
-    @GetMapping("/api/profissionais")
+   /*  @GetMapping("/api/profissionais")
     public List<Profissional> getProfissionais() {
         // Simule uma busca por múltiplos profissionais (o DAO deve ser ajustado se necessário)
         List<Profissional> profissionais = new ArrayList<>();
@@ -45,5 +42,5 @@ public class PerfilController {
             }
         }
         return profissionais;
-    }
+    }*/
 }

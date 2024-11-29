@@ -24,10 +24,10 @@ async function carregarProfissionais() {
                 </div>
                 <div class="local">
                     <img src="images/Local png.png" id="iconelocal">
-                    <p id="localizacao">${profissional.rua}, ${profissional.numero}, ${profissional.cidade} - ${profissional.estado}</p>
+                    <p id="localizacao">${profissional.endereco.rua}, ${profissional.endereco.numero}, ${profissional.endereco.cidade} - ${profissional.endereco.estado}</p>
                 </div>
                 <div class="vermais">
-                    <button class="botao-vermais">Ver Mais</button>
+                    <a href= "/perfil/${profissional.id}"> <button class="botao-vermais">Ver Mais</button> </a>
                 </div>
             `;
             container.appendChild(div);

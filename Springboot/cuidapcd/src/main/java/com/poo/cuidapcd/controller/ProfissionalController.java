@@ -18,8 +18,8 @@ public class ProfissionalController {
     private ProfissionalService profissionalService; // Serviço que gerencia a lógica dos profissionais
 
     // Endpoint para obter todos os profissionais
-  //  @GetMapping
-  //  public List<Profissional> getProfissionais() {
-  //      return profissionalService.findAll(); // Chama o serviço para pegar todos os profissionais
-  //  }
+    @GetMapping
+    public List<Profissional> getProfissionais() {
+        return profissionalService.listarProfissionais(); // Chama o serviço para pegar todos os profissionais
+    }
 }
