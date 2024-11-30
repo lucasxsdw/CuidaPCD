@@ -8,7 +8,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import com.poo.cuidapcd.conexao.ProfissionalDAO;
 import com.poo.cuidapcd.entity.Profissional;
+import com.poo.cuidapcd.entity.Usuario;
 import com.poo.cuidapcd.service.ProfissionalService;
+
+import jakarta.servlet.http.HttpSession;
 
 @Controller
 public class PerfilController {
@@ -20,12 +23,19 @@ public class PerfilController {
     private ProfissionalDAO profissionalDao;
 
     @GetMapping("/perfil/{id}")
-    public String exibirPerfil(@PathVariable Long id, Model model) {
+    public String exibirPerfil(@PathVariable Long id, Model model, HttpSession session) {
         Profissional profissional = profissionalService.buscarUsuarioPorId(id);
         if (profissional == null) {
             throw new RuntimeException("Profissional não achado para o id: " + id);
         }
         model.addAttribute("profissional", profissional);
+
+        Usuario usuario = (Usuario) session.getAttribute("usuario");
+    
+        if (usuario != null) {
+        // O usuário está logado, adiciona o objeto ao modelo para a view
+            model.addAttribute("usuario", usuario);
+        }
         return "perfilProfissional";
     }
 

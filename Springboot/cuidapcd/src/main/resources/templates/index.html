@@ -20,10 +20,26 @@
                 <li><a href="/SobreNos">Sobre Nós</a></li>
             </ul>
         </nav>
-        <div class="botões">
+        <!-- <div class="botões">
             <a href="/formulario"><button class="botãoCadastro">Cadastre-se</button></a>
             <a href= "/login"> <button class="botãoLogin">Login</button> </a>
         </div>
+        -->
+        <div class="botões">
+            <!-- Verifica se o usuário está logado -->
+            <a th:if="${usuario == null}" href="/formulario">
+                <button class="botãoCadastro">Cadastre-se</button>
+            </a>
+            <a th:if="${usuario == null}" href="/login">
+                <button class="botãoLogin">Login</button>
+            </a>
+        
+            <!-- Se o usuário estiver logado, exibe o ícone de perfil -->
+            <a th:if="${usuario != null}" href="/perfil/${usuario.id}">
+                <img th:src="@{'/images/FACEBOOK.svg}" alt="Foto de Perfil" class="profile-icon">
+            </a>
+        </div>
+        
     </header><!--  MENU PARTE DE CIMA  -->
 
     <div class="caixa-roxa"> <!--  CAIXA ROXA E BOTÕES  -->
