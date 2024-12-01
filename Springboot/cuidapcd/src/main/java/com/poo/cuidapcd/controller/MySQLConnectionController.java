@@ -114,10 +114,12 @@ public String receberFormularioProfissional(@ModelAttribute Profissional profiss
 
 @PostMapping("/cadastroProfissional")
 public String receberFormularioProfissional(@ModelAttribute Profissional profissional,
-                                             @RequestParam("perfilFoto") MultipartFile fotoPerfil) {
+                                             @RequestParam("perfilFoto") MultipartFile fotoPerfil,
+                                             @RequestParam("certificado") MultipartFile certificado,
+                                             @RequestParam("curriculo") MultipartFile curriculo) {
     try {
 
-        boolean unicoUsuario = usuariodao.verificarCadastroUsuario(profissional.getEmail(), profissional.getSenha(), profissional.getCpf());
+        boolean unicoUsuario = usuariodao.verificarCadastroUsuario(profissional.getEmail(), profissional.getSenha(), profissional.getCpf(), profissional.getTelefone());
         boolean unicoProfissional = profissionaldao.verificarCadastroProfissional(profissional.getRegistroProfissional(), profissional.getCnpj());
 
         if(unicoUsuario && unicoProfissional){
@@ -143,6 +145,30 @@ public String receberFormularioProfissional(@ModelAttribute Profissional profiss
             // Atualiza o caminho da foto no objeto profissional
             profissional.setArquivoFoto(fileName);
         }
+
+        if (!curriculo.isEmpty()) {
+            // Gera um nome único para o arquivo
+            String fileName = UUID.randomUUID() + "_" + curriculo.getOriginalFilename();
+            Path filePath = uploadPath.resolve(fileName);
+            
+            // Salva o arquivo
+            Files.write(filePath, curriculo.getBytes());
+            
+            // Atualiza o caminho da foto no objeto profissional
+            profissional.setArquivoCurriculo(fileName);
+        }
+
+        if (!certificado.isEmpty()) {
+            // Gera um nome único para o arquivo
+            String fileName = UUID.randomUUID() + "_" + certificado.getOriginalFilename();
+            Path filePath = uploadPath.resolve(fileName);
+            
+            // Salva o arquivo
+            Files.write(filePath, certificado.getBytes());
+            
+            // Atualiza o caminho da foto no objeto profissional
+            profissional.setArquivoCertificado(fileName);
+        }
         
         
         // Salva o usuário e o profissional
@@ -166,7 +192,7 @@ public String receberFormularioCliente(@ModelAttribute Cliente cliente,
                                              @RequestParam("perfilFoto") MultipartFile fotoPerfil) {
     try {
 
-        boolean unicoUsuario = usuariodao.verificarCadastroUsuario(cliente.getEmail(), cliente.getSenha(), cliente.getCpf());
+        boolean unicoUsuario = usuariodao.verificarCadastroUsuario(cliente.getEmail(), cliente.getSenha(), cliente.getCpf(), cliente.getTelefone());
 
         if(unicoUsuario){
 

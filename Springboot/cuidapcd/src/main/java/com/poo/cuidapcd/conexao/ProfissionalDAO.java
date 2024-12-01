@@ -28,7 +28,7 @@ public class ProfissionalDAO {
 
     public void cadastrarProfissional(Profissional profissional){
 
-        String sqlProf = "INSERT INTO profissional (id, formacao, experiencia, sobre, cnpj, registroProfissional, arquivoCurriculo, arquivoCertificado, arquivoFoto) VALUES ((SELECT id FROM usuario WHERE cpf = ?), ?, ?, ?, ?, ?, ?, ?, ?)";
+        String sqlProf = "INSERT INTO profissional (id, formacao, experiencia, sobre, cnpj, registroProfissional, arquivoCurriculo, arquivoCertificado, arquivoFoto, especialidade, especialidadeDescricao) VALUES ((SELECT id FROM usuario WHERE cpf = ?), ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         try (Connection connection = DriverManager.getConnection(dbUrl, dbUsername, dbPassword);
              PreparedStatement preparedStatement = connection.prepareStatement(sqlProf)) {
@@ -42,6 +42,8 @@ public class ProfissionalDAO {
                 preparedStatement.setString(7, profissional.getArquivoCurriculo());
                 preparedStatement.setString(8, profissional.getArquivoCertificado());
                 preparedStatement.setString(9, profissional.getArquivoFoto());
+                preparedStatement.setString(10, profissional.getEspecialidade().name());
+                preparedStatement.setString(11, profissional.getEspecialidade().getDescricao());
                 preparedStatement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
