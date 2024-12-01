@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.poo.cuidapcd.conexao.ClienteDAO;
 import com.poo.cuidapcd.conexao.EnderecoDAO;
 import com.poo.cuidapcd.conexao.ProfissionalDAO;
 import com.poo.cuidapcd.conexao.UsuarioDAO;
@@ -39,6 +40,9 @@ public class MySQLConnectionController {
 
     @Autowired
     EnderecoDAO enderecodao;
+
+    @Autowired
+    ClienteDAO clientedao;
 
   //config img
    // @Value("${file.upload-dir}")
@@ -112,36 +116,92 @@ public String receberFormularioProfissional(@ModelAttribute Profissional profiss
 public String receberFormularioProfissional(@ModelAttribute Profissional profissional,
                                              @RequestParam("perfilFoto") MultipartFile fotoPerfil) {
     try {
-        // Define o diretório de upload
-        String uploadDir = "uploads/"; // Diretório fora de src/
-        Path uploadPath = Paths.get(uploadDir);
-        
-        // Garante que o diretório de upload exista
-        if (!Files.exists(uploadPath)) {
-            Files.createDirectories(uploadPath); // Cria o diretório se não existir
-        }
 
+        boolean unicoUsuario = usuariodao.verificarCadastroUsuario(profissional.getEmail(), profissional.getSenha(), profissional.getCpf());
+        boolean unicoProfissional = profissionaldao.verificarCadastroProfissional(profissional.getRegistroProfissional(), profissional.getCnpj());
+
+        if(unicoUsuario && unicoProfissional){
+
+            // Define o diretório de upload
+            String uploadDir = "uploads/"; // Diretório fora de src/
+            Path uploadPath = Paths.get(uploadDir);
+            
+            // Garante que o diretório de upload exista
+            if (!Files.exists(uploadPath)) {
+                Files.createDirectories(uploadPath); // Cria o diretório se não existir
+        }
+        
         // Verifica se a foto foi enviada
         if (!fotoPerfil.isEmpty()) {
             // Gera um nome único para o arquivo
             String fileName = UUID.randomUUID() + "_" + fotoPerfil.getOriginalFilename();
             Path filePath = uploadPath.resolve(fileName);
-
+            
             // Salva o arquivo
             Files.write(filePath, fotoPerfil.getBytes());
-
+            
             // Atualiza o caminho da foto no objeto profissional
             profissional.setArquivoFoto(fileName);
         }
-
-       
+        
+        
         // Salva o usuário e o profissional
-        usuariodao.cadastrarUsuario(profissional);
+        usuariodao.cadastrarUsuarioProfissional(profissional);
         profissionaldao.cadastrarProfissional(profissional);
         enderecodao.cadastrarEndereco(profissional);
-
+        
         // Retorna sucesso
         return "redirect:/login"; // ou o nome da página de sucesso
+        } else {
+            return "redirect:/formulario"; // ou o nome da página de erro
+        }
+    } catch (IOException e) {
+        e.printStackTrace();
+        return "redirect:/formulario"; // ou o nome da página de erro
+    }
+}
+
+@PostMapping("/cadastroCliente")
+public String receberFormularioCliente(@ModelAttribute Cliente cliente,
+                                             @RequestParam("perfilFoto") MultipartFile fotoPerfil) {
+    try {
+
+        boolean unicoUsuario = usuariodao.verificarCadastroUsuario(cliente.getEmail(), cliente.getSenha(), cliente.getCpf());
+
+        if(unicoUsuario){
+
+            // Define o diretório de upload
+            String uploadDir = "uploads/"; // Diretório fora de src/
+            Path uploadPath = Paths.get(uploadDir);
+            
+            // Garante que o diretório de upload exista
+            if (!Files.exists(uploadPath)) {
+                Files.createDirectories(uploadPath); // Cria o diretório se não existir
+        }
+        
+        // Verifica se a foto foi enviada
+        if (!fotoPerfil.isEmpty()) {
+            // Gera um nome único para o arquivo
+            String fileName = UUID.randomUUID() + "_" + fotoPerfil.getOriginalFilename();
+            Path filePath = uploadPath.resolve(fileName);
+            
+            // Salva o arquivo
+            Files.write(filePath, fotoPerfil.getBytes());
+            
+            // Atualiza o caminho da foto no objeto profissional
+            cliente.setArquivoFoto(fileName);
+        }
+        
+        
+        // Salva o usuário e o profissional
+        usuariodao.cadastrarUsuarioCliente(cliente);
+        clientedao.cadastrarCliente(cliente);
+        
+        // Retorna sucesso
+        return "redirect:/login"; // ou o nome da página de sucesso
+        } else {
+            return "redirect:/formulario"; // ou o nome da página de erro
+        }
     } catch (IOException e) {
         e.printStackTrace();
         return "redirect:/formulario"; // ou o nome da página de erro

@@ -224,7 +224,28 @@ public class ProfissionalDAO {
     }
 }
 
+public boolean verificarCadastroProfissional(String registro, String cnpj) {
+    boolean unico = true;
+    String sql = "SELECT * FROM profissional WHERE registroProfissional = ? OR cnpj = ?";
+    
+    try (Connection connection = DriverManager.getConnection(dbUrl, dbUsername, dbPassword);
+         PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+        
+        preparedStatement.setString(1, registro);
+        preparedStatement.setString(2, cnpj);
 
+        try (ResultSet resultSet = preparedStatement.executeQuery()) {
+            if (resultSet.next()) {
+                unico = false;
+            }
+        }
+
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+    
+    return unico;
+}
 
 
 

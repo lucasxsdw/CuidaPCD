@@ -34,6 +34,7 @@ public class ClienteDAO {
                 u.telefone AS usuario_telefone,
                 u.cpf AS usuario_cpf,
                 c.preferencias AS cliente_preferencias
+                c.arquivoFoto AS arquivo_foto
             FROM 
                 Usuario u
             JOIN 
@@ -55,7 +56,8 @@ public class ClienteDAO {
                     String telefone = resultSet.getString("usuario_telefone");
                     String cpf = resultSet.getString("usuario_cpf");
                     String preferencias = resultSet.getString("cliente_preferencias");
-                    cliente = new Cliente(id, nome, email, email, telefone, cpf, preferencias);
+                    String arquivoFoto = resultSet.getString("arquivo_foto");
+                    cliente = new Cliente(id, nome, email, email, telefone, cpf, preferencias, arquivoFoto);
                 }
             }
         } catch (SQLException e) {
@@ -64,5 +66,21 @@ public class ClienteDAO {
     
         return cliente;
         } 
+
+        public void cadastrarCliente(Cliente cliente){
+
+        String sqlProf = "INSERT INTO cliente (id, preferencias, arquivoFoto) VALUES ((SELECT id FROM usuario WHERE cpf = ?), ?, ?)";
+
+        try (Connection connection = DriverManager.getConnection(dbUrl, dbUsername, dbPassword);
+             PreparedStatement preparedStatement = connection.prepareStatement(sqlProf)) {
+                System.out.println("profissional cpf: " +cliente.getCpf());
+                preparedStatement.setString(1, cliente.getCpf());
+                preparedStatement.setString(2, cliente.getPreferencias());
+                preparedStatement.setString(3, cliente.getArquivoFoto());
+                preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } 
+    }
     
 }

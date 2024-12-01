@@ -9,6 +9,7 @@ import java.sql.SQLException;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Repository;
 
+import com.poo.cuidapcd.entity.Cliente;
 import com.poo.cuidapcd.entity.Profissional;
 import com.poo.cuidapcd.entity.Usuario;
 
@@ -24,7 +25,7 @@ public class UsuarioDAO {
     @Value("${spring.datasource.password}")
     private String dbPassword;
 
-    public void cadastrarUsuario(Profissional profissional){
+    public void cadastrarUsuarioProfissional(Profissional profissional){
 
         String sqlUsuario = "INSERT INTO usuario (nome, email, senha, telefone, cpf) VALUES (?, ?, ?, ?, ?)";
 
@@ -35,6 +36,24 @@ public class UsuarioDAO {
             preparedStatement.setString(3, profissional.getSenha());
             preparedStatement.setString(4, profissional.getTelefone());
             preparedStatement.setString(5, profissional.getCpf());
+            preparedStatement.executeUpdate();
+            
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } 
+    }
+
+    public void cadastrarUsuarioCliente(Cliente cliente){
+
+        String sqlUsuario = "INSERT INTO usuario (nome, email, senha, telefone, cpf) VALUES (?, ?, ?, ?, ?)";
+
+        try (Connection connection = DriverManager.getConnection(dbUrl, dbUsername, dbPassword);
+             PreparedStatement preparedStatement = connection.prepareStatement(sqlUsuario)) {
+            preparedStatement.setString(1, cliente.getNome());
+            preparedStatement.setString(2, cliente.getEmail());
+            preparedStatement.setString(3, cliente.getSenha());
+            preparedStatement.setString(4, cliente.getTelefone());
+            preparedStatement.setString(5, cliente.getCpf());
             preparedStatement.executeUpdate();
             
         } catch (SQLException e) {
@@ -83,6 +102,30 @@ public class UsuarioDAO {
                 e.printStackTrace();
                 }
                 return id;
+            }
+
+            public boolean verificarCadastroUsuario(String email, String senha, String cpf) {
+                boolean unico = true;
+                String sql = "SELECT * FROM usuario WHERE email = ? OR senha = ? OR cpf = ?";
+                
+                try (Connection connection = DriverManager.getConnection(dbUrl, dbUsername, dbPassword);
+                     PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+                    
+                    preparedStatement.setString(1, email);
+                    preparedStatement.setString(2, senha);
+                    preparedStatement.setString(3, cpf);
+            
+                    try (ResultSet resultSet = preparedStatement.executeQuery()) {
+                        if (resultSet.next()) {
+                            unico = false;
+                        }
+                    }
+            
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+                
+                return unico;
             }
     }
     
