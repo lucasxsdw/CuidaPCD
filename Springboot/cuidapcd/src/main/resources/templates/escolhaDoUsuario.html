@@ -12,7 +12,7 @@
 
     <header> <!--  MENU PARTE DE CIMA  -->
         <div class="logo">
-           <a href="/index"> <h1> <img src="../static/images/Logo.png" alt="Logo" /> </h1> </a>
+           <a href="/index"> <h1> <img th:src="@{/images/Logo.png}" alt="Logo" /> </h1> </a>
         </div>
 
         <nav>
@@ -23,7 +23,7 @@
             </ul>
         </nav>
         <div class="botões">
-            <a href="/formulario"><button class="botãoCadastro">Cadastre-se</button></a>
+            <a href="/Cadastro"><button class="botãoCadastro">Cadastre-se</button></a>
             <a href= "/login"> <button class="botãoLogin">Login</button> </a>
         </div>
     </header><!--  MENU PARTE DE CIMA  -->
@@ -54,10 +54,10 @@
                 <h1>Quem sou eu?</h1>
             </div>
 
-            <a th:if="${usuario == null}" href="/cadastroCliente" class="button-link">
+            <a th:if="${usuario == null}" href="/CadastrarProfissional" class="button-link">
                 <button type="submit">Profissional</button>
             </a>
-            <a href="" class="button-link">
+            <a href="/CadastrarCliente" class="button-link">
                 <button type="submit">Cliente </button>
             </a>
              
@@ -73,7 +73,7 @@
             <hr class="linha-cinza">
             <div class="footer-content">
                 <div class="footer-logo-texto">
-                    <img src="../static/images/Logo.png" alt="Logo CuidaPcd" class="footer-logo">
+                    <img th:src="@{/images/Logo.png}" alt="Logo CuidaPcd" class="footer-logo">
                     <p class="footer-descricao">
                         O CuidaPcd é uma plataforma que visa conectar pessoas com deficiência e suas famílias a profissionais qualificados para atender suas necessidades.
                     </p>
@@ -97,9 +97,9 @@
                         </div>    
                         <a href="#email">Email: Exemplo@exemplo.com</a>
                         <div class="imagens-rodape"> 
-                            <img id="instagram" th:src="@{images\INSTAGRAM.svg}" alt="logo Instagram">
-                            <img id="facebook" th:src="@{images\FACEBOOK.svg}" alt="logo facebook">
-                            <img id="x"  th:src="@{images\X.svg}" alt="logo X">
+                            <img id="instagram" th:src="@{/images\INSTAGRAM.svg}" alt="logo Instagram">
+                            <img id="facebook" th:src="@{/images\FACEBOOK.svg}" alt="logo facebook">
+                            <img id="x"  th:src="@{/images\X.svg}" alt="logo X">
                         </div>
                     </div>
                 </div>
