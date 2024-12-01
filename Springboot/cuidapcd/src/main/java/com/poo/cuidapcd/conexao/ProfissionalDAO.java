@@ -11,6 +11,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Repository;
 
+import com.poo.cuidapcd.entity.Especialidade;
 import com.poo.cuidapcd.entity.Profissional;
 
 @Repository
@@ -62,13 +63,14 @@ public class ProfissionalDAO {
             u.cpf AS usuario_cpf,
             p.formacao AS profissional_formacao,
             p.experiencia AS profissional_experiencia,
-            p.regiaoDeAtendimento AS profissional_regiao,
             p.sobre AS profissional_sobre,
             p.cnpj AS profissional_cnpj,
             p.registroProfissional AS profissional_registro,
             p.arquivoCurriculo AS profissional_curriculo,
             p.arquivoCertificado AS profissional_certificado,
             p.arquivoFoto AS profissional_foto,
+            p.especialidade AS especialidade,
+            p.especialidadeDescricao AS descricao,
             e.rua AS endereco_rua,
             e.numero AS endereco_numero,
             e.bairro AS endereco_bairro,
@@ -111,10 +113,11 @@ public class ProfissionalDAO {
                 String estado = resultSet.getString("endereco_estado");
                 String cep = resultSet.getString("endereco_cep");
                 String numero = resultSet.getString("endereco_numero");
+                Especialidade especialidade = Especialidade.valueOf(resultSet.getString("especialidade"));
                 profissional = new Profissional(
                     id, nome, email, "", telefone, cpf, 
                     formacao, experiencia, sobre, cnpj, registroProfissional,
-                    arquivoCurriculo, arquivoCertificado, arquivoFoto, rua, bairro, cidade, estado, cep, numero, null
+                    arquivoCurriculo, arquivoCertificado, arquivoFoto, rua, bairro, cidade, estado, cep, numero, especialidade
                 );
             }
         }

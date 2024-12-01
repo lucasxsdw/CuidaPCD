@@ -21,7 +21,7 @@
             </ul>
         </nav>
         <div class="botões">
-            <a href="/formulario"><button class="botãoCadastro">Cadastre-se</button></a>
+            <a href="/Cadastro"><button class="botãoCadastro">Cadastre-se</button></a>
             <a href= "/login"> <button class="botãoLogin">Login</button> </a>
         </div>
     </header><!--  MENU PARTE DE CIMA  -->
@@ -53,7 +53,7 @@
             </div>
 
             <div class="container-form">
-                <form id="loginForm" action="/cadastroProfissional" method="POST" class="login-form" enctype="multipart/form-data">
+                <form id="loginForm" action="/cadastroCliente" method="POST" class="login-form" enctype="multipart/form-data">
                     <!-- Divisão em duas colunas -->
                     <div class="form-sections">
                         <!-- Primeira coluna -->
@@ -81,7 +81,7 @@
               <div class="form-section">
                 <div class="input-group">
                     <label for="numero">Telefone:</label>
-                    <input type="text" id="numero" name="numero" placeholder="Digite seu endereço" required>
+                    <input type="text" id="telefone" name="telefone" placeholder="Ex: 5577912345678" required>
                 </div>
                
                 <div class="input-group">
@@ -102,7 +102,7 @@
                     <div class="campo-arquivos">
                     <div class="input-group">
                         <label for="arquivoFoto">Foto:</label>
-                        <input type="file" id="perfilFoto" name="perfilFoto">
+                        <input type="file" id="perfilFoto" name="perfilFoto" required>
                     </div>
                 </div>
                     

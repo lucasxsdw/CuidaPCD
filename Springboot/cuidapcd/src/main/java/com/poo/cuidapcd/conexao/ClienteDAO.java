@@ -33,7 +33,7 @@ public class ClienteDAO {
                 u.email AS usuario_email,
                 u.telefone AS usuario_telefone,
                 u.cpf AS usuario_cpf,
-                c.preferencias AS cliente_preferencias
+                c.preferencias AS cliente_preferencias,
                 c.arquivoFoto AS arquivo_foto
             FROM 
                 Usuario u

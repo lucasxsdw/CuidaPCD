@@ -52,4 +52,14 @@ public class TelasController {
     public String paginaInicial(){
         return "redirect:/index";
     }
+
+    @GetMapping("/CadastrarCliente")
+    public String cadastroCliente(){
+        return "cadastroCliente";
+    }
+
+    @GetMapping("/Cadastro")
+    public String cadastro(){
+        return "escolhaDoUsuario";
+    }
 }
