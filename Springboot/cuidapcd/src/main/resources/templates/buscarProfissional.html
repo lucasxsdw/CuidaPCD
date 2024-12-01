@@ -36,8 +36,8 @@
             </a>
         
             <!-- Se o usuário estiver logado, exibe o ícone de perfil -->
-            <a th:if="${usuario != null}" href="/perfil/${usuario.id}">
-                <img th:src="@{'/images/FACEBOOK.svg}" alt="Foto de Perfil" class="profile-icon">
+            <a th:if="${usuario != null}" th:href="@{/perfil/{id}(id=${usuario.id})}">
+                <img th:src="@{/{filename}(filename=${usuario.arquivoFoto})}" alt="Foto de Perfil"  width="50" class="profile-icon">
             </a>
         </div>
     </header><!--  MENU PARTE DE CIMA  -->

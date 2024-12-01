@@ -35,8 +35,8 @@
             </a>
         
             <!-- Se o usuário estiver logado, exibe o ícone de perfil -->
-            <a th:if="${usuario != null}" href="/perfil/${usuario.id}">
-                <img th:src="@{'/images/FACEBOOK.svg}" alt="Foto de Perfil" class="profile-icon">
+            <a th:if="${usuario != null}" th:href="@{/perfil/{id}(id=${usuario.id})}">
+                <img th:src="@{/{filename}(filename=${usuario.arquivoFoto})}" alt="Foto de Perfil"  width="50" class="profile-icon">
             </a>
         </div>
     </header><!--  MENU PARTE DE CIMA  -->
@@ -53,7 +53,7 @@
 
     <div class="nomeEfuncao">
         <h2 id="nome"><span th:text="${profissional.nome}"></span></h2>
-        <h6 id="funcao">PSICOLÓGO  |   CRP-BA: 00000-0</h6>
+        <h6 id="funcao"><span th:text="${profissional.formacao}"></span>  |   <span th:text="${profissional.registroProfissional}"></span></h6>
     </div>
 
 
@@ -147,7 +147,7 @@
             <hr class="linha-cinza">
             <div class="footer-content">
                 <div class="footer-logo-texto">
-                    <img th:src="@{images/Logo.png}" alt="Logo CuidaPcd" class="footer-logo">
+                    <img th:src="@{/images/Logo.png}" alt="Logo CuidaPcd" class="footer-logo">
                     <p class="footer-descricao">
                         O CuidaPcd é uma plataforma que visa conectar pessoas com deficiência e suas famílias a profissionais qualificados para atender suas necessidades.
                     </p>
@@ -171,9 +171,9 @@
                         </div>    
                         <a href="#email">Email: Exemplo@exemplo.com</a>
                         <div class="imagens-rodape"> 
-                            <img id="instagram" th:src="@{images\INSTAGRAM.svg}" alt="logo Instagram">
-                            <img id="facebook" th:src="@{images\FACEBOOK.svg}" alt="logo facebook">
-                            <img id="x"  th:src="@{images\X.svg}" alt="logo X">
+                            <img id="instagram" th:src="@{/images\INSTAGRAM.svg}" alt="logo Instagram">
+                            <img id="facebook" th:src="@{/images\FACEBOOK.svg}" alt="logo facebook">
+                            <img id="x"  th:src="@{/images\X.svg}" alt="logo X">
                         </div>
                     </div>
                 </div>

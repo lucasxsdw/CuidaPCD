@@ -63,5 +63,27 @@ public class UsuarioDAO {
             }
             return usuario;
         }
+
+        public Long buscarUsuario(String email, String senha){
+            String sql = "SELECT id AS id_usuario FROM usuario WHERE email = ? and senha = ?";
+    
+            Long id = null ;
+            
+            try (Connection connection = DriverManager.getConnection(dbUrl, dbUsername, dbPassword);
+            PreparedStatement statement = connection.prepareStatement(sql)) {
+                statement.setString(1, email);
+                statement.setString(2, senha);
+        
+                try (ResultSet resultSet = statement.executeQuery()) {
+                if (resultSet.next()) {
+                    id = resultSet.getLong("id_usuario");
+                }
+            }
+                } catch (SQLException e) {
+                e.printStackTrace();
+                }
+                return id;
+            }
     }
+    
 

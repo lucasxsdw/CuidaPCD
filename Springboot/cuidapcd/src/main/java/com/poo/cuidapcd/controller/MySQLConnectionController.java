@@ -335,7 +335,7 @@ public String receberFormularioProfissional(@ModelAttribute Profissional profiss
     public void receberFormularioCliente(@ModelAttribute Cliente cliente) {
 
         String sqlUsuario = "INSERT INTO usuario (nome, email, senha, telefone, cpf) VALUES (?, ?, ?, ?, ?)";
-        String sqlCliente = "INSERT INTO cliente (id, cpf, preferencias) VALUES ((SELECT id FROM usuario WHERE cpf = ?), ?, ?)";
+        String sqlCliente = "INSERT INTO cliente (id, preferencias) VALUES ((SELECT id FROM usuario WHERE cpf = ?), ?)";
 
         try (Connection connection = DriverManager.getConnection(dbUrl, dbUsername, dbPassword);
              PreparedStatement preparedStatement = connection.prepareStatement(sqlUsuario)) {
@@ -352,8 +352,7 @@ public String receberFormularioProfissional(@ModelAttribute Profissional profiss
         try (Connection connection = DriverManager.getConnection(dbUrl, dbUsername, dbPassword);
              PreparedStatement preparedStatement = connection.prepareStatement(sqlCliente)) {
                 preparedStatement.setString(1, cliente.getCpf());
-                preparedStatement.setString(2, cliente.getCpf());
-                preparedStatement.setString(3, cliente.getPreferencias());
+                preparedStatement.setString(2, cliente.getPreferencias());
                 preparedStatement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();

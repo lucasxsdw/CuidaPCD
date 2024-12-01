@@ -7,7 +7,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.poo.cuidapcd.conexao.ClienteDAO;
+import com.poo.cuidapcd.conexao.ProfissionalDAO;
 import com.poo.cuidapcd.conexao.UsuarioDAO;
+import com.poo.cuidapcd.entity.Cliente;
+import com.poo.cuidapcd.entity.Profissional;
 import com.poo.cuidapcd.entity.Usuario;
 
 import jakarta.servlet.http.HttpSession;
@@ -26,6 +30,12 @@ public class LoginController {
     @Autowired
     private UsuarioDAO user;
 
+    @Autowired
+    private ProfissionalDAO profDAO;
+
+    @Autowired
+    private ClienteDAO clienteDAO;
+
     @GetMapping("/login")
     public String login() {
         return "login";
@@ -41,8 +51,15 @@ public class LoginController {
 
         if (autenticado) {
             //return logar(user.encontrarUsuario(email, senha, session));
-            Usuario usuario = user.encontrarUsuario(email, senha);
-            session.setAttribute("usuario", usuario);
+            Profissional profissional = profDAO.buscarProfissionalPorId(user.buscarUsuario(email, senha));
+            if(profissional != null){
+                session.setAttribute("usuario", profissional);
+            } else {
+                Cliente cliente = clienteDAO.buscarClientePorId(user.buscarUsuario(email, senha));
+                session.setAttribute("usuario", cliente);
+            }
+            //Usuario usuario = user.encontrarUsuario(email, senha);
+            
             //return new ModelAndView("redirect:/index");
             return "redirect:/index";
         } else {
@@ -73,4 +90,11 @@ public class LoginController {
 
         //return modelAndView;
     //}
+
+    @GetMapping("/deslogar")
+    public String deslogar(HttpSession session) {
+        session.invalidate();
+        return "redirect:/index";
+    }
+    
 }
