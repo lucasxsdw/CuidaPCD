@@ -9,7 +9,7 @@ public class Profissional extends Usuario{
     private String registroProfissional;
     private String arquivoCurriculo;
     private String arquivoCertificado;
-    private String arquivoFoto;
+    private String arquivoFoto; // Link para o arquivo no servidor
     private Endereco endereco;
     private Especialidade especialidade;
 
@@ -29,6 +29,12 @@ public class Profissional extends Usuario{
         this.endereco = new Endereco(rua, bairro, cidade, estado, cep, numero);
         this.especialidade = especialidade;
     }
+
+  //conf img
+  //  public Profissional() {
+  //      super(null, null, null, null, null, null); // Chama o construtor completo da classe Usuario com valores nulos
+  //  }
+//
     public String getFormacao() {
         return formacao;
     }

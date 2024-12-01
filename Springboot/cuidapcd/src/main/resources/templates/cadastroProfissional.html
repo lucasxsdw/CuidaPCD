@@ -52,7 +52,7 @@
             </div>
 
             <div class="container-form">
-                <form id="loginForm" action="/cadastroProfissional" method="POST" class="login-form">
+                <form id="loginForm" action="/cadastroProfissional" method="POST" class="login-form" enctype="multipart/form-data">
                     <!-- Divisão em duas colunas -->
                     <div class="form-sections">
                         <!-- Primeira coluna -->
@@ -146,17 +146,17 @@
                     <div class="campo-arquivos">
                         <div class="input-group">
                             <label for="arquivoCurriculo">Currículo:</label>
-                            <input type="file" id="arquivoCurriculo" name="arquivoCurriculo">
+                            <input type="file" id="curriculo" name="curriculo">
                         </div>
 
                         <div class="input-group">
-                            <label for="arquivoCertificado">Foto:</label>
-                            <input type="file" id="arquivoCertificado" name="arquivoCertificado">
+                            <label for="arquivoFoto">Foto:</label>
+                            <input type="file" id="perfilFoto" name="perfilFoto">
                         </div>
 
                         <div class="input-group">
                             <label for="certificado">Certificado:</label>
-                            <input type="file" id="certificado" name="arquivo">
+                            <input type="file" id="certificado" name="certificado">
                         </div>
                     </div>
                     

@@ -1,10 +1,15 @@
 package com.poo.cuidapcd.controller;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -12,7 +17,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.poo.cuidapcd.conexao.EnderecoDAO;
 import com.poo.cuidapcd.conexao.ProfissionalDAO;
@@ -32,6 +39,11 @@ public class MySQLConnectionController {
 
     @Autowired
     EnderecoDAO enderecodao;
+
+  //config img
+   // @Value("${file.upload-dir}")
+    //private String uploadDir;
+
     
     @Value("${spring.datasource.url}")
     private String dbUrl;
@@ -61,7 +73,86 @@ public class MySQLConnectionController {
         return "cadastroProfissional";
     }
 
-    @PostMapping("/cadastroProfissional")
+/* config img
+@PostMapping("/cadastroProfissional")
+public String receberFormularioProfissional(@ModelAttribute Profissional profissional,
+                                             @RequestParam("perfilFoto") MultipartFile fotoPerfil,  
+                                              @RequestParam("curriculo") MultipartFile curriculo, 
+                                               @RequestParam("certificado") MultipartFile certificado) {
+    try {
+        // Verifica se a foto foi enviada
+        if (!fotoPerfil.isEmpty()) {
+            // Salva a foto no diretório
+            String fileName = UUID.randomUUID() + "_" + fotoPerfil.getOriginalFilename();
+            Path filePath = Paths.get(uploadDir + fileName);
+            Files.createDirectories(filePath.getParent()); // Garante que o diretório existe
+            Files.write(filePath, fotoPerfil.getBytes()); // Escreve o arquivo no diretório
+
+            // Atualiza o caminho da foto no profissional
+            profissional.setArquivoFoto(fileName);
+        }
+
+        // Salva o usuário e o profissional
+        usuariodao.cadastrarUsuario(profissional);
+        profissionaldao.cadastrarProfissional(profissional);
+        enderecodao.cadastrarEndereco(profissional);
+
+        // Retorna sucesso
+        return "redirect:/login"; // ou o nome da página de sucesso
+    } catch (IOException e) {
+        e.printStackTrace();
+        return "redirect:/formulario"; // ou o nome da página de erro
+    }
+}
+*/
+//
+
+
+@PostMapping("/cadastroProfissional")
+public String receberFormularioProfissional(@ModelAttribute Profissional profissional,
+                                             @RequestParam("perfilFoto") MultipartFile fotoPerfil) {
+    try {
+        // Define o diretório de upload
+        String uploadDir = "uploads/"; // Diretório fora de src/
+        Path uploadPath = Paths.get(uploadDir);
+        
+        // Garante que o diretório de upload exista
+        if (!Files.exists(uploadPath)) {
+            Files.createDirectories(uploadPath); // Cria o diretório se não existir
+        }
+
+        // Verifica se a foto foi enviada
+        if (!fotoPerfil.isEmpty()) {
+            // Gera um nome único para o arquivo
+            String fileName = UUID.randomUUID() + "_" + fotoPerfil.getOriginalFilename();
+            Path filePath = uploadPath.resolve(fileName);
+
+            // Salva o arquivo
+            Files.write(filePath, fotoPerfil.getBytes());
+
+            // Atualiza o caminho da foto no objeto profissional
+            profissional.setArquivoFoto(filePath.toString());
+        }
+
+       
+        // Salva o usuário e o profissional
+        usuariodao.cadastrarUsuario(profissional);
+        profissionaldao.cadastrarProfissional(profissional);
+        enderecodao.cadastrarEndereco(profissional);
+
+        // Retorna sucesso
+        return "redirect:/login"; // ou o nome da página de sucesso
+    } catch (IOException e) {
+        e.printStackTrace();
+        return "redirect:/formulario"; // ou o nome da página de erro
+    }
+}
+
+
+
+
+
+/*@PostMapping("/cadastroProfissional")
     public void receberFormularioProfissional(@ModelAttribute Profissional profissional) {
         usuariodao.cadastrarUsuario(profissional);
 
@@ -73,7 +164,7 @@ public class MySQLConnectionController {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-    }
+    }*/
 
     /*public void insertUsuario( String nome, String email, String senha, String telefone, String cpf) {
 

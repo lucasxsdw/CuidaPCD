@@ -42,7 +42,11 @@
     </header><!--  MENU PARTE DE CIMA  -->
 
     <div class="caixa-roxa"> <!--  CAIXA ROXA E BOTÕES  -->
-        <div class="circulo"></div>
+
+        <div class="circulo">
+            <img th:src="@{/{filename}(filename=${profissional.arquivoFoto})}" alt="Foto de Perfil" width="200">
+
+        </div>
     </div> <!--  CAIXA ROXA E BOTÕES  -->
 
     <div class="conteiner">
