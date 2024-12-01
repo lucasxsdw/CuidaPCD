@@ -131,7 +131,7 @@ public String receberFormularioProfissional(@ModelAttribute Profissional profiss
             Files.write(filePath, fotoPerfil.getBytes());
 
             // Atualiza o caminho da foto no objeto profissional
-            profissional.setArquivoFoto(filePath.toString());
+            profissional.setArquivoFoto(fileName);
         }
 
        
