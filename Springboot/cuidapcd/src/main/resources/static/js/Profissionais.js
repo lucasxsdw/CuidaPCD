@@ -9,7 +9,7 @@ async function carregarProfissionais() {
             div.className = 'quadradoPro';
             div.innerHTML = `
                 <div class="foto">
-                    <img src="data:image/jpeg;base64,${profissional.arquivoFoto}" id="fotofoto">
+                    <img src="http://localhost:8080/${profissional.arquivoFoto}" alt="Foto de Perfil" width="200" id="fotofoto">
                 </div>
                 <div class="botoesPro">
                     <button class="botao-profissional">${profissional.formacao || 'Formação não informada'}</button>
