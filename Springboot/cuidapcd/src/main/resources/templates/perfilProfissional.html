@@ -44,7 +44,7 @@
     <div class="caixa-roxa"> <!--  CAIXA ROXA E BOTÕES  -->
 
         <div class="circulo">
-            <img th:src="@{/{filename}(filename=${profissional.arquivoFoto})}" alt="Foto de Perfil" width="200">
+            <img class="foto" th:src="@{/{filename}(filename=${profissional.arquivoFoto})}" alt="Foto de Perfil">
             <!--<img src="http://localhost:8080/${profissional.arquivoFoto}" alt="Foto de Perfil" width="200">-->
         </div>
     </div> <!--  CAIXA ROXA E BOTÕES  -->
@@ -66,16 +66,16 @@
         <h4 class="titulos">Formação e Experiencia</h4>
         <div class="divformação">
             <div class="formação">
-                <div class="escolaridade"><img src="images\Graduação.png">
+                <div class="escolaridade"><img th:src="@{/images\Graduação.png}">
                 <h6>Graduação</h6></div>
 
-                <div class="escolaridade"><img src="images\pós graduação.png">
+                <div class="escolaridade"><img th:src="@{/images\pós graduação.png}">
                 <h6>Pós-Graduação</h6></div>
 
-                <div class="escolaridade"><img src="images\Doutorado.png">
+                <div class="escolaridade"><img th:src="@{/images\Doutorado.png}">
                 <h6>Doutorado</h6></div>
 
-                <div class="escolaridade"><img src="images\Especialização.png">
+                <div class="escolaridade"><img th:src="@{/images\Especialização.png}">
                 <h6>Especialização</h6></div>
                 
             </div>
@@ -112,17 +112,29 @@
         <h4 class="titulos">Formação e Experiencia - Arquivos</h4>
         <div class="areadedownload">
             <div class="curriculo">
-                <button class="btn-download">
-                    <i class="fas fa-arrow-down"></i> <!-- Ícone de seta para baixo -->
+                <!--<button class="btn-download" >
+                    <i class="fas fa-arrow-down"></i>  Ícone de seta para baixo 
                     Curriculo
-                </button>
+                </button>-->
+                <a th:href="@{/{filename}(filename=${profissional.arquivoCurriculo})}" class="btn-download" download>
+                    <button type="button">
+                        <i class="fas fa-arrow-down"></i> <!-- Ícone de seta para baixo -->
+                        Currículo
+                    </button>
+                </a>
             </div>
 
             <div class="certificados">
-                <button class="btn-download">
-                    <i class="fas fa-arrow-down"></i> <!-- Ícone de seta para baixo -->
+                <!-- <button class="btn-download">
+                    <i class="fas fa-arrow-down"></i>  Ícone de seta para baixo 
                     Certificados
-                </button>
+                </button>-->
+                <a th:href="@{/{filename}(filename=${profissional.arquivoCertificado})}" class="btn-download" download>
+                    <button type="button">
+                        <i class="fas fa-arrow-down"></i> <!-- Ícone de seta para baixo -->
+                        Currículo
+                    </button>
+                </a>
             </div>
             
         </div>
