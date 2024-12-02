@@ -72,7 +72,7 @@ public class MySQLConnectionController {
         }
     }
 
-    @GetMapping("/formulario")
+    @GetMapping("/CadastrarProfissional")
     public String mostrarFormulario() {
         return "cadastroProfissional";
     }
@@ -179,11 +179,11 @@ public String receberFormularioProfissional(@ModelAttribute Profissional profiss
         // Retorna sucesso
         return "redirect:/login"; // ou o nome da página de sucesso
         } else {
-            return "redirect:/formulario"; // ou o nome da página de erro
+            return "redirect:/CadastrarProfissional"; // ou o nome da página de erro
         }
     } catch (IOException e) {
         e.printStackTrace();
-        return "redirect:/formulario"; // ou o nome da página de erro
+        return "redirect:/CadastrarProfissional"; // ou o nome da página de erro
     }
 }
 
@@ -226,11 +226,11 @@ public String receberFormularioCliente(@ModelAttribute Cliente cliente,
         // Retorna sucesso
         return "redirect:/login"; // ou o nome da página de sucesso
         } else {
-            return "redirect:/formulario"; // ou o nome da página de erro
+            return "redirect:/CadastrarCliente"; // ou o nome da página de erro
         }
-    } catch (IOException e) {
+    } catch (IOException e) {   
         e.printStackTrace();
-        return "redirect:/formulario"; // ou o nome da página de erro
+        return "redirect:/CadastrarCliente"; // ou o nome da página de erro
     }
 }
 
