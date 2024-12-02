@@ -26,6 +26,12 @@
     z-index: 2; /* A caixa 2 terá prioridade e ficará acima da caixa 1 */
 }
 
+.foto {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+}
+
 .btn-download {
     display: flex;
     align-items: center;

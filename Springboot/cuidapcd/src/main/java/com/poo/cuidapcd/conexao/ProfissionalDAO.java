@@ -10,6 +10,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Repository;
+import org.springframework.web.bind.annotation.ModelAttribute;
 
 import com.poo.cuidapcd.entity.Especialidade;
 import com.poo.cuidapcd.entity.Profissional;
@@ -205,7 +206,7 @@ public class ProfissionalDAO {
 
 //config img
  // Método para atualizar um profissional
- public void atualizarProfissional(Profissional profissional) {
+ /*public void atualizarProfissional(Profissional profissional) {
     String sql = """
         UPDATE profissional 
         SET formacao = ?, experiencia = ?, sobre = ?, cnpj = ?, registroProfissional = ?, 
@@ -229,7 +230,7 @@ public class ProfissionalDAO {
     } catch (SQLException e) {
         e.printStackTrace();
     }
-}
+}*/
 
 public boolean verificarCadastroProfissional(String registro, String cnpj) {
     boolean unico = true;
@@ -254,7 +255,25 @@ public boolean verificarCadastroProfissional(String registro, String cnpj) {
     return unico;
 }
 
+public void atualizarProfissional(@ModelAttribute Profissional profissional) {
+    String sql = """
+        UPDATE profissional 
+        SET formacao = ?, experiencia = ?, sobre = ?
+        WHERE id = ?
+    """;
 
+    try (Connection connection = DriverManager.getConnection(dbUrl, dbUsername, dbPassword);
+         PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+        preparedStatement.setString(1, profissional.getFormacao());
+        preparedStatement.setString(2, profissional.getExperiencia());
+        preparedStatement.setString(3, profissional.getSobre());
+        preparedStatement.setLong(4, profissional.getId()); // Define o ID para a cláusula WHERE
+
+        preparedStatement.executeUpdate();
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+}
 
 
 //
