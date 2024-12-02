@@ -1,5 +1,5 @@
-.caixa-roxa {
-    background-color: #b8b8b8;
+/*.caixa-roxa {
+    background-color:  #383347;
     margin: 0 auto;
     border-radius: 30px;
     height: 380px;
@@ -7,29 +7,64 @@
     display: flex;
     justify-content:center;
     align-items: center;
+} */
+
+.texto-saude {
+    color: #fff;
+    font-size: 38px;
+    font-weight: 500;
+    line-height: 1.5;
+    text-align: left;
+    margin-bottom: 20px;
+    word-wrap: break-word;
+    padding-left: 120px;
+}
+
+.caixa-roxa {
+    background-color: #1F3556;
+    margin: 0 auto;
+    border-radius: 30px;
+    height: 380px;
+    width: calc(100% - 80px);
+    display: flex;
+    justify-content:flex-start;
+    align-items: center;
+    background-image: url('../images/shape.png');
+    background-repeat: no-repeat;
+    background-position: right bottom;
+    background-size: 310px 310px;
 }
 
 .conteiner{
     max-width: calc(100% - 80px);
     margin: 20px auto;
     padding: 20px;
+} 
+
+.quadrado-roxo {
+    display: inline-block;
+    background-color: #6c63ff;; /* Fundo sólido roxo */
+    color: white; /* Cor do texto ajustada para contraste */
+    padding: 4px; /* Espaçamento interno */
+    border-radius: 4px; /* Cantos arredondados (opcional) */
 }
 
-
-.circulo {
-    width: 300px; /* Largura do círculo */
-    height: 300px; /* Altura do círculo */
-    background-color: #797979; /* Cor do círculo */
-    border-radius: 50%; /* Torna o elemento um círculo */
-    position: absolute; /* Posição absoluta dentro do container */
-    top: 330px; /* Distância de 50px do topo do container */
-    z-index: 2; /* A caixa 2 terá prioridade e ficará acima da caixa 1 */
+#amarelo {
+    color: #FFCA6A;
+    font-weight: 600;
 }
 
+#rosa {
+    color: #F76EB6;
+    font-weight: 600;
+}
 .foto {
     width: 300px;
-    height: 300px;
+    height: 270px;
+    margin-bottom: -90px;
+    margin-top: 310px;
     border-radius: 50%;
+    margin-left: 100px;
 }
 
 .btn-download {
@@ -176,3 +211,13 @@ img{
 }
 
 
+#whats{
+    height: 60px;
+    width: 60px;
+    margin-left: 48%;
+}
+
+.paragrafo-agende{
+   text-align: center;
+   color: rgb(92, 150, 6);
+}
