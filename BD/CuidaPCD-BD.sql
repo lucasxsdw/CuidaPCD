@@ -1,4 +1,107 @@
+
 drop database if exists CuidaPCD;
+create database CuidaPCD;
+use CuidaPCD;
+
+create table Usuario (
+id int auto_increment,
+nome TEXT,
+email varchar(255) Unique,
+senha TEXT,
+telefone varchar(15) Unique,
+cpf varchar(15) Unique,
+primary key(id)
+);
+
+create table Cliente(
+id int,
+preferencias TEXT,
+arquivoFoto varchar(500),
+primary key (id),
+FOREIGN KEY (id) REFERENCES Usuario(id)
+);
+
+create table Profissional(
+formacao TEXT,
+experiencia TEXT,
+sobre TEXT,
+id int,
+cnpj varchar(20) Unique,
+registroProfissional varchar(30) Unique,
+arquivoCurriculo varchar(500),
+arquivoFoto varchar(500),
+arquivoCertificado varchar(500),
+especialidade ENUM(
+        'PSICOLOGIA_CLINICA', 
+        'PSICOLOGIA_INFANTIL', 
+        'NEUROPSICOLOGIA', 
+        'PSICOLOGIA_ORGANIZACIONAL', 
+        'PSICOTERAPIA_COGNITIVA', 
+        'PSICOLOGIA_ESCOLAR',
+        'CARDIOLOGIA', 
+        'NEUROLOGIA', 
+        'PEDIATRIA', 
+        'GERIATRIA', 
+        'DERMATOLOGIA', 
+        'FISIOTERAPIA_DESPORTIVA', 
+        'FISIOTERAPIA_RESPIRATORIA', 
+        'FISIOTERAPIA_NEUROFUNCIONAL', 
+        'FISIOTERAPIA_PEDIATRICA', 
+        'FISIOTERAPIA_GERIATRICA', 
+        'NUTRICAO_CLINICA', 
+        'NUTRICAO_ESPORTIVA', 
+        'NUTRICAO_MATERNO_INFANTIL', 
+        'NUTRICAO_VEGETARIANA', 
+        'NUTRICAO_ONCOLOGICA', 
+        'ODONTOPEDIATRIA', 
+        'ORTODONTIA', 
+        'IMPLANTODONTIA', 
+        'PERIODONTIA', 
+        'ODONTOLOGIA_ESTETICA'),
+especialidadeDescricao varchar(100),
+primary key (id),
+FOREIGN KEY (id) REFERENCES Usuario(id)
+);
+
+create table Especialidade(
+id int,
+nome TEXT,
+descricao TEXT,
+FOREIGN KEY (id) REFERENCES Profissional(id)
+);
+
+create table Avaliacao(
+idCliente int,
+idProfissional int,
+nota int,
+comentario TEXT,
+dataAvaliacao datetime,
+primary key (idCliente, idProfissional),
+FOREIGN KEY (idProfissional) REFERENCES Profissional(id),
+FOREIGN KEY (idCliente) REFERENCES Cliente(id)
+);
+
+create table Endereco(
+id int,
+rua TEXT,
+numero TEXT,
+bairro TEXT,
+cidade TEXT,
+estado TEXT,
+cep TEXT,
+primary key(id),
+FOREIGN KEY (id) REFERENCES Profissional(id)
+);
+
+create table Notificacao(
+id int,
+mensagem TEXT,
+tipoNotificacao TEXT,
+dataHora datetime,
+FOREIGN KEY (id) REFERENCES Usuario(id)
+);
+
+/*drop database if exists CuidaPCD;
 create database CuidaPCD;
 use CuidaPCD;
 
@@ -72,5 +175,6 @@ mensagem TEXT,
 tipoNotificacao TEXT,
 dataHora datetime,
 FOREIGN KEY (id) REFERENCES Usuario(id)
-);
+);*/
+
 
