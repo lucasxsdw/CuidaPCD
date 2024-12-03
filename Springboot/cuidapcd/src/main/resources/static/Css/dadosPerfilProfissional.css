@@ -195,8 +195,22 @@
     background-color: #7A5BDB;
 }
 
+.button-link-2{
+    margin-top: 20px;
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #936CFB;
+    color: white;
+    text-decoration: none;
+    border-radius: 10px;
+    text-align: center;
+    transition: background-color 0.3s ease;
+    font-size: 14px;
+}
 
-
+.button-link-2:hover {
+    background-color: #7A5BDB;
+}
 
 @media (max-width: 768px) {
     .Conteiner {
