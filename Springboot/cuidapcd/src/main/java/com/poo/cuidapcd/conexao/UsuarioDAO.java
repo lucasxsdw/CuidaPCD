@@ -104,17 +104,16 @@ public class UsuarioDAO {
                 return id;
             }
 
-            public boolean verificarCadastroUsuario(String email, String senha, String cpf, String telefone) {
+            public boolean verificarCadastroUsuario(String email, String cpf, String telefone) {
                 boolean unico = true;
-                String sql = "SELECT * FROM usuario WHERE email = ? OR senha = ? OR cpf = ? Or telefone = ?";
+                String sql = "SELECT * FROM usuario WHERE email = ? OR cpf = ? Or telefone = ?";
                 
                 try (Connection connection = DriverManager.getConnection(dbUrl, dbUsername, dbPassword);
                      PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
                     
                     preparedStatement.setString(1, email);
-                    preparedStatement.setString(2, senha);
-                    preparedStatement.setString(3, cpf);
-                    preparedStatement.setString(4, telefone);
+                    preparedStatement.setString(2, cpf);
+                    preparedStatement.setString(3, telefone);
             
                     try (ResultSet resultSet = preparedStatement.executeQuery()) {
                         if (resultSet.next()) {

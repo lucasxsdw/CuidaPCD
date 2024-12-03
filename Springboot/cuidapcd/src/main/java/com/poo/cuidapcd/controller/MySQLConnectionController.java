@@ -123,7 +123,7 @@ public String receberFormularioProfissional(@ModelAttribute Profissional profiss
                                              @RequestParam("curriculo") MultipartFile curriculo) {
     try {
 
-        boolean unicoUsuario = usuariodao.verificarCadastroUsuario(profissional.getEmail(), profissional.getSenha(), profissional.getCpf(), profissional.getTelefone());
+        boolean unicoUsuario = usuariodao.verificarCadastroUsuario(profissional.getEmail(), profissional.getCpf(), profissional.getTelefone());
         boolean unicoProfissional = profissionaldao.verificarCadastroProfissional(profissional.getRegistroProfissional(), profissional.getCnpj());
 
         if(unicoUsuario && unicoProfissional){
@@ -196,7 +196,7 @@ public String receberFormularioCliente(@ModelAttribute Cliente cliente,
                                              @RequestParam("perfilFoto") MultipartFile fotoPerfil) {
     try {
 
-        boolean unicoUsuario = usuariodao.verificarCadastroUsuario(cliente.getEmail(), cliente.getSenha(), cliente.getCpf(), cliente.getTelefone());
+        boolean unicoUsuario = usuariodao.verificarCadastroUsuario(cliente.getEmail(), cliente.getCpf(), cliente.getTelefone());
 
         if(unicoUsuario){
 

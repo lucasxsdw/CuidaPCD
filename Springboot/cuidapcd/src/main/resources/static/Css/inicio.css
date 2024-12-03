@@ -125,32 +125,46 @@
     border: none;
 } 
 
-.profissional{
-    margin: 0 auto;
-    height: auto; /* Ajuste automático da altura, se necessário */
-    width: calc(100% - 80px);
-    padding: 20px 0 30px; /* Espaçamento interno consistente */
+
+.profissional {
+    width: 100%;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+   
+}
+
+#profissional {
     display: flex;
-    gap: 30px;
-    justify-content: center; /* Centraliza verticalmente */
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 10px;
+    background-color: #fff;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     
 }
 
-#profissional{
-    margin: 0 auto;
-    height: auto; /* Ajuste automático da altura, se necessário */
-    width: calc(100% - 80px);
-    padding: 20px 0 30px; /* Espaçamento interno consistente */
-    display: flex;
-    gap: 30px;
-    justify-content: center; /* Centraliza verticalmente */
+
+/*#profissional > div {
+    flex: 1 0  1 22%;
+    margin: 10px; 
+    transition: all 0.3s ease; 
 }
 
+#profissional > div.hidden {
+    display: none; 
+}*/
+
+
 .quadradoPro{
+    margin-bottom: 30px;
     display: flex;
-    flex-direction: column; /* Alinha itens em uma coluna */
-    justify-content: center; /* Centraliza verticalmente */
-    align-items: center; /* Centraliza horizontalmente */
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center; 
     width: 334px;
     height: 503px;
     background-color: #ffffff;
@@ -205,6 +219,8 @@
 
 .sobremim{
     width: 300px;
+    height: 150px;
+    overflow: auto;
 }
 
 #sobre{
@@ -233,6 +249,7 @@
     padding-top: 20px;
 }
 .botao-vermais {
+    margin-bottom: 30px;
     border-radius: 30px;
     padding: 5px 75px;
     border-color: #936CFB;
