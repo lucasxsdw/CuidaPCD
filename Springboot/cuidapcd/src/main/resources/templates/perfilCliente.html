@@ -103,7 +103,7 @@
                         </div>
                     </div>
                </div>                           
-               <a  href="perfilClienteAtualizarDados.html" class="button-link">Editar Informações</a>
+               <a  th:href="@{/Usuario/Editar/{id}(id=${usuario.id})}" class="button-link">Editar Informações</a>
             </form>
             </div>
         </div>
@@ -139,9 +139,9 @@
                         </div>    
                         <a href="#email">Email: Exemplo@exemplo.com</a>
                         <div class="imagens-rodape"> 
-                            <img id="instagram" th:src="@{images\INSTAGRAM.svg}" alt="logo Instagram">
-                            <img id="facebook" th:src="@{images\FACEBOOK.svg}" alt="logo facebook">
-                            <img id="x"  th:src="@{images\X.svg}" alt="logo X">
+                            <img id="instagram" th:src="@{/images\INSTAGRAM.svg}" alt="logo Instagram">
+                            <img id="facebook" th:src="@{/images\FACEBOOK.svg}" alt="logo facebook">
+                            <img id="x"  th:src="@{/images\X.svg}" alt="logo X">
                         </div>
                     </div>
                 </div>

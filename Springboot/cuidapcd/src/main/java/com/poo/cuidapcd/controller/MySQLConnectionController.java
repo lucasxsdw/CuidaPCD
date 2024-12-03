@@ -467,7 +467,7 @@ public String receberFormularioCliente(@ModelAttribute Cliente cliente,
     @PostMapping("/Usuario/Editar/EnviarCliente/{id}")
     public String atualizarCliente(@PathVariable Long id, @ModelAttribute Cliente cliente, HttpSession session) {
         usuariodao.atualizarUsuario(id, cliente.getNome());
-        clientedao.atualizarCliente(id, dbUsername);
+        clientedao.atualizarCliente(id, cliente.getPreferencias());
         return "redirect:/deslogar";
     }
     

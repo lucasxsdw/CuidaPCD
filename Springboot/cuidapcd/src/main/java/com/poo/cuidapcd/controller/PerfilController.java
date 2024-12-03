@@ -47,7 +47,7 @@ public class PerfilController {
             if(profissional != null){
                 return "dadosPerfilProfissional";
             } else {
-                return "perfilUsuario";
+                return "perfilCliente";
             }
     }
 
