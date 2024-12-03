@@ -7,7 +7,7 @@
     <link th:href="@{/Css/global.css}" rel="stylesheet" type="text/css">
     <link th:href="@{/Css/inicio.css}" rel="stylesheet" type="text/css">
     <script th:src="@{/js/menuSuspenso.js}"></script>
-    <script src="Profissionais.js"></script> 
+    <script th:src="@{/js/ProfissionaisFiltro.js}"></script> 
 </head>
 <body>
     <header> <!--  MENU PARTE DE CIMA  -->
@@ -68,199 +68,55 @@
         <div class="form-group">
             <label for="estado">Estado</label>
             <select id="estado" name="estado" class="form-control">
-                <option value="AC">Acre</option>
-                <option value="AL">Alagoas</option>
-                <option value="AP">Amapá</option>
-                <option value="AM">Amazonas</option>
-                <option value="BA">Bahia</option>
-                <option value="CE">Ceará</option>
-                <option value="DF">Distrito Federal</option>
-                <option value="ES">Espírito Santo</option>
-                <option value="GO">Goiás</option>
-                <option value="MA">Maranhão</option>
-                <option value="MT">Mato Grosso</option>
-                <option value="MS">Mato Grosso do Sul</option>
-                <option value="MG">Minas Gerais</option>
-                <option value="PA">Pará</option>
-                <option value="PB">Paraíba</option>
-                <option value="PR">Paraná</option>
-                <option value="PE">Pernambuco</option>
-                <option value="PI">Piauí</option>
-                <option value="RJ">Rio de Janeiro</option>
-                <option value="RN">Rio Grande do Norte</option>
-                <option value="RS">Rio Grande do Sul</option>
-                <option value="RO">Rondônia</option>
-                <option value="RR">Roraima</option>
-                <option value="SC">Santa Catarina</option>
-                <option value="SP">São Paulo</option>
-                <option value="SE">Sergipe</option>
-                <option value="TO">Tocantins</option>
+                <option value="">Selecione</option>
+                <option value="Acre">Acre</option>
+                <option value="Alagoas">Alagoas</option>
+                <option value="Amapá">Amapá</option>
+                <option value="Amazonas">Amazonas</option>
+                <option value="Bahia">Bahia</option>
+                <option value="Ceará">Ceará</option>
+                <option value="Distrito Federal">Distrito Federal</option>
+                <option value="Espírito Santo">Espírito Santo</option>
+                <option value="Goiás">Goiás</option>
+                <option value="Maranhão">Maranhão</option>
+                <option value="Mato Grosso">Mato Grosso</option>
+                <option value="Mato Grosso do Sul">Mato Grosso do Sul</option>
+                <option value="Minas Gerais">Minas Gerais</option>
+                <option value="Pará">Pará</option>
+                <option value="Paraíba">Paraíba</option>
+                <option value="Paraná">Paraná</option>
+                <option value="Pernambuco">Pernambuco</option>
+                <option value="Piauí">Piauí</option>
+                <option value="Rio de Janeiro">Rio de Janeiro</option>
+                <option value="Rio Grande do Norte">Rio Grande do Norte</option>
+                <option value="Rio Grande do Sul">Rio Grande do Sul</option>
+                <option value="Rondônia">Rondônia</option>
+                <option value="Roraima">Roraima</option>
+                <option value="Santa Catarina">Santa Catarina</option>
+                <option value="São Paulo">São Paulo</option>
+                <option value="Sergipe">Sergipe</option>
+                <option value="Tocantins">Tocantins</option>
             </select>
         </div>
 
         <div class="form-group">
             <label for="cidade">Cidade</label>
-    <select id="cidade" name="cidade" class="form-control">
-        <option value="Abaré">Abaré</option>
-        <option value="Acajutiba">Acajutiba</option>
-        <option value="Adustina">Adustina</option>
-        <option value="Água Fria">Água Fria</option>
-        <option value="Aiquara">Aiquara</option>
-        <option value="Alagoinhas">Alagoinhas</option>
-        <option value="Alcobaça">Alcobaça</option>
-        <option value="Abaré">Abaré</option>
-        <option value="Amargosa">Amargosa</option>
-        <option value="Andaraí">Andaraí</option>
-        <option value="Angical">Angical</option>
-        <option value="Antas">Antas</option>
-        <option value="Antonio Cardoso">Antônio Cardoso</option>
-        <option value="Aracatu">Aracatu</option>
-        <option value="Aramari">Aramari</option>
-        <option value="Aurelino Leal">Aurelino Leal</option>
-        <option value="Baianópolis">Baianópolis</option>
-        <option value="Banzaê">Banzaê</option>
-        <option value="Barra">Barra</option>
-        <option value="Barra do Choça">Barra do Choça</option>
-        <option value="Barra do Mendes">Barra do Mendes</option>
-        <option value="Barrocas">Barrocas</option>
-        <option value="Belmonte">Belmonte</option>
-        <option value="Belo Campo">Belo Campo</option>
-        <option value="Boa Nova">Boa Nova</option>
-        <option value="Boa Vista do Tupim">Boa Vista do Tupim</option>
-        <option value="Bom Jesus da Lapa">Bom Jesus da Lapa</option>
-        <option value="Bom Jesus da Serra">Bom Jesus da Serra</option>
-        <option value="Bonito">Bonito</option>
-        <option value="Boquira">Boquira</option>
-        <option value="Botuporã">Botuporã</option>
-        <option value="Brumado">Brumado</option>
-        <option value="Caatiba">Caatiba</option>
-        <option value="Camaçari">Camaçari</option>
-        <option value="Campo Alegre de Lourdes">Campo Alegre de Lourdes</option>
-        <option value="Campo Formoso">Campo Formoso</option>
-        <option value="Canarana">Canarana</option>
-        <option value="Candeias">Candeias</option>
-        <option value="Candido Motta">Cândido Motta</option>
-        <option value="Cansanção">Cansanção</option>
-        <option value="Capim Grosso">Capim Grosso</option>
-        <option value="Caraíbas">Caraíbas</option>
-        <option value="Caravelas">Caravelas</option>
-        <option value="Cardeal da Silva">Cardeal da Silva</option>
-        <option value="Carinhanha">Carinhanha</option>
-        <option value="Castro Alves">Castro Alves</option>
-        <option value="Catolândia">Catolândia</option>
-        <option value="Catu">Catu</option>
-        <option value="Cipó">Cipó</option>
-        <option value="Coaraci">Coaraci</option>
-        <option value="Cocos">Cocos</option>
-        <option value="Conceição da Feira">Conceição da Feira</option>
-        <option value="Conceição do Almeida">Conceição do Almeida</option>
-        <option value="Conde">Conde</option>
-        <option value="Contendas do Sincorá">Contendas do Sincorá</option>
-        <option value="Coração de Maria">Coração de Maria</option>
-        <option value="Crisópolis">Crisópolis</option>
-        <option value="Cristópolis">Cristópolis</option>
-        <option value="Curitiba">Curitiba</option>
-        <option value="Dias d'Ávila">Dias d'Ávila</option>
-        <option value="Dom Basílio">Dom Basílio</option>
-        <option value="Elísio Medrado">Elísio Medrado</option>
-        <option value="Encruzilhada">Encruzilhada</option>
-        <option value="Esplanada">Esplanada</option>
-        <option value="Euclides da Cunha">Euclides da Cunha</option>
-        <option value="Fátima">Fátima</option>
-        <option value="Feira de Santana">Feira de Santana</option>
-        <option value="Filadélfia">Filadélfia</option>
-        <option value="Gandu">Gandu</option>
-        <option value="Governador Mangabeira">Governador Mangabeira</option>
-        <option value="Guaratinga">Guaratinga</option>
-        <option value="Heliópolis">Heliópolis</option>
-        <option value="Ibicaraí">Ibicaraí</option>
-        <option value="Ibipitanga">Ibipitanga</option>
-        <option value="Ibiquera">Ibiquera</option>
-        <option value="Ibititá">Ibititá</option>
-        <option value="Ibotirama">Ibotirama</option>
-        <option value="Ichu">Ichu</option>
-        <option value="Igaporã">Igaporã</option>
-        <option value="Ilhéus">Ilhéus</option>
-        <option value="Inhambupe">Inhambupe</option>
-        <option value="Ipiau">Ipiau</option>
-        <option value="Ipirá">Ipirá</option>
-        <option value="Iraquara">Iraquara</option>
-        <option value="Iramaia">Iramaia</option>
-        <option value="Irecê">Irecê</option>
-        <option value="Itabela">Itabela</option>
-        <option value="Itaberaba">Itaberaba</option>
-        <option value="Itabuna">Itabuna</option>
-        <option value="Itacaré">Itacaré</option>
-        <option value="Itaetê">Itaetê</option>
-        <option value="Itagi">Itagi</option>
-        <option value="Itagibá">Itagibá</option>
-        <option value="Itaipu">Itaipu</option>
-        <option value="Itaparica">Itaparica</option>
-        <option value="Itapé">Itapé</option>
-        <option value="Itapetinga">Itapetinga</option>
-        <option value="Itapicuru">Itapicuru</option>
-        <option value="Itiruçu">Itiruçu</option>
-        <option value="Itinga">Itinga</option>
-        <option value="Jaguaripe">Jaguaripe</option>
-        <option value="Jandaíra">Jandaíra</option>
-        <option value="Jequié">Jequié</option>
-        <option value="Jeremoabo">Jeremoabo</option>
-        <option value="Jiquiriçá">Jiquiriçá</option>
-        <option value="Jitaúna">Jitaúna</option>
-        <option value="Laje">Laje</option>
-        <option value="Lauro de Freitas">Lauro de Freitas</option>
-        <option value="Lençóis">Lençóis</option>
-        <option value="Licínio de Almeida">Licínio de Almeida</option>
-        <option value="Livramento de Nossa Senhora">Livramento de Nossa Senhora</option>
-        <option value="Luzilândia">Luzilândia</option>
-        <option value="Macajuba">Macajuba</option>
-        <option value="Macaúbas">Macaúbas</option>
-        <option value="Malhada">Malhada</option>
-        <option value="Malhada de Pedras">Malhada de Pedras</option>
-        <option value="Mata de São João">Mata de São João</option>
-        <option value="Medeiros Neto">Medeiros Neto</option>
-        <option value="Miguel Calmon">Miguel Calmon</option>
-        <option value="Milagres">Milagres</option>
-        <option value="Mirangaba">Mirangaba</option>
-        <option value="Mucugê">Mucugê</option>
-        <option value="Mucuri">Mucuri</option>
-        <option value="Mundo Novo">Mundo Novo</option>
-        <option value="Muritiba">Muritiba</option>
-        <option value="Mutuípe">Mutuípe</option>
-        <option value="Nazaré">Nazaré</option>
-        <option value="Nossa Senhora do Socorro">Nossa Senhora do Socorro</option>
-        <option value="Nova Soure">Nova Soure</option>
-        <option value="Olindina">Olindina</option>
-        <option value="Oliveira dos Brejinhos">Oliveira dos Brejinhos</option>
-        <option value="Ourolândia">Ourolândia</option>
-        <option value="Paratinga">Paratinga</option>
-        <option value="Paripiranga">Paripiranga</option>
-        <option value="Pau Brasil">Pau Brasil</option>
-        <option value="Paulo Afonso">Paulo Afonso</option>
-        <option value="Pedrão">Pedrão</option>
-        <option value="Piatã">Piatã</option>
-        <option value="Pilão Arcado">Pilão Arcado</option>
-        <option value="Pindaí">Pindaí</option>
-        <option value="Pojuca">Pojuca</option>
-        <option value="Prado">Prado</option>
-        <option value="Presidente Jânio Quadros">Presidente Jânio Quadros</option>
-        <option value="Queimadas">Queimadas</option>
-        <option value="Rafael Jambeiro">Rafael Jambeiro</option>
-        <option value="Riacho de Santana">Riacho de Santana</option>
-        <option value="Ribeira do Pombal">Ribeira do Pombal</option>
-        <option value="Rodelas">Rodelas</option>
-        <option value="Ruá">Ruá</option>
-    </select>
+            <select id="cidade" name="cidade" class="form-control">
+                <option value="">Selecione</option>
+                <!-- As cidades serão preenchidas dinamicamente aqui -->
+            </select>
         </div>
 
         <div class="form-group">
-            <label for="profissao">Profissão</label>
-            <select id="profissao" name="profissao" class="form-control">
+            <label for="formacao">Formação</label>
+            <select id="formacao" name="formacao" class="form-control">
+                <option value="">Selecione</option>
                 <option value="terapeuta_ocupacional">Terapeuta Ocupacional</option>
                 <option value="fisioterapeuta">Fisioterapeuta</option>
                 <option value="fonoaudiologo">Fonoaudiólogo</option>
                 <option value="psicologo">Psicólogo</option>
                 <option value="pedagogo">Pedagogo</option>
+                <option value="psicologia">Psicologia</option>
                 <option value="educador_especial">Educador Especial</option>
                 <option value="assistente_social">Assistente Social</option>
                 <option value="enfermeiro">Enfermeiro</option>
@@ -303,112 +159,8 @@
     </div>
 
     <div class="profissional">
-
-        <div class="quadradoPro">
-            <div class="foto">
-                <img src="images\MEDICOFOTOTESTE.jpg" id="fotofoto">
-            </div>
-            <div class="botoesPro">
-                <button class="botao-profissional">Profissão</button>
-                <button class="botao-profissional">12 km</button>
-                <button class="botao-profissional1">Disponível</button>
-            </div>
-            <div>
-                <h6 id="Nome">Dr. De Paula Cortez</h6>
-            </div>
-            <div class="sobremim">
-                <p id="sobre"> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-            </div>
-            <div class="local">
-                <img src="images\Local png.png" id="iconelocal">
-                <p id="localizacao">Av. Santos Dumont, N° 428, Guanambi-BA</p>
-            </div>
-            <div class="vermais">
-                <button class="botao-vermais">Ver Mais</button>
-            </div>
-        </div>
-
-
-
-        <div class="quadradoPro">
-            <div class="foto">
-                <img src="images\MEDICOFOTOTESTE2.jpg" id="fotofoto">
-            </div>
-            <div class="botoesPro">
-                <button class="botao-profissional">Profissão</button>
-                <button class="botao-profissional">12 km</button>
-                <button class="botao-profissional1">Disponível</button>
-            </div>
-            <div>
-                <h6 id="Nome">Dr.a Analis Cunha</h6>
-            </div>
-            <div class="sobremim">
-                <p id="sobre"> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-            </div>
-            <div class="local">
-                <img src="images\Local png.png" id="iconelocal">
-                <p id="localizacao">Av. Santos Dumont, N° 428, Guanambi-BA</p>
-            </div>
-            <div class="vermais">
-                <button class="botao-vermais">Ver Mais</button>
-            </div>
-
-        </div>
-
-
-
-
-        <div class="quadradoPro">
-            <div class="foto">
-                <img src="images\MEDICOFOTOTESTE3.jpg" id="fotofoto">
-            </div>
-            <div class="botoesPro">
-                <button class="botao-profissional">Profissão</button>
-                <button class="botao-profissional">12 km</button>
-                <button class="botao-profissional1">Disponível</button>
-            </div>
-            <div>
-                <h6 id="Nome">Dr.a Fernanda Souza</h6>
-            </div>
-            <div class="sobremim">
-                <p id="sobre"> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-            </div>
-            <div class="local">
-                <img src="images\Local png.png" id="iconelocal">
-                <p id="localizacao">Av. Santos Dumont, N° 428, Guanambi-BA</p>
-            </div>
-            <div class="vermais">
-                <button class="botao-vermais">Ver Mais</button>
-            </div>
-
-        </div>
-
-
-
-        <div class="quadradoPro">
-            <div class="foto">
-                <img src="images\MEDICOFOTOTESTE4.jpg" id="fotofoto">
-            </div>
-            <div class="botoesPro">
-                <button class="botao-profissional">Profissão</button>
-                <button class="botao-profissional">12 km</button>
-                <button class="botao-profissional1">Disponível</button>
-            </div>
-            <div>
-                <h6 id="Nome">Dr. Antonio Resende</h6>
-            </div>
-            <div class="sobremim">
-                <p id="sobre"> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-            </div>
-            <div class="local">
-                <img src="images\Local png.png" id="iconelocal">
-                <p id="localizacao">Av. Santos Dumont, N° 428, Guanambi-BA</p>
-            </div>
-            <div class="vermais">
-                <button class="botao-vermais">Ver Mais</button>
-            </div>
-
-        </div>
+        <div id="profissional"></div>
+      
     </div>
 
 
@@ -508,6 +260,6 @@
     </footer> <!--  RODAPÉ  -->
     
 
-
+    <script th:src="@{/js/cidades.js}"></script>
 </body>
 </html>
