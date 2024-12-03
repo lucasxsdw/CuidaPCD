@@ -33,9 +33,9 @@ public class ProfissionalService {
 //setArquivoFoto
 
 // Método para salvar ou atualizar o profissional
-public void atualizarProfissional(Profissional profissional) {
-    profDao.atualizarProfissional(profissional);
-}
+//public void atualizarProfissional(Profissional profissional) {
+    //profDao.atualizarProfissional(profissional);
+//}
 
 
 //

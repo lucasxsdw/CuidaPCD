@@ -82,14 +82,14 @@
             </div>
 
             <div class="container-form">
-                <form id="loginForm" action="/cadastroProfissional" method="POST" class="login-form" enctype="multipart/form-data" value="">
+                <form id="loginForm" action="/Usuario/Editar/EnviarCliente/${usuario.id}" method="POST" class="login-form" enctype="multipart/form-data" value="">
                    
                     <div class="form-sections">
                         <!-- Primeira coluna -->
                         <div class="form-section">
                             <div class="input-group">
                                 <label for="nome">Nome:</label>
-                                <input type="text" id="nome" name="nome" placeholder="Digite seu nome" required>
+                                <input type="text" id="nome" name="nome" placeholder="Digite seu nome" value="${usuario.nome}" required>
                             </div>
                             
                         </div>
@@ -98,12 +98,13 @@
                         <div class="form-section">
                             <div class="input-group">
                                 <label for="nome">Preferências:</label>
-                                <input type="text" id="prefe" name="nome" placeholder="Digite suas preferências" required>
+                                <input type="text" id="prefe" name="nome" placeholder="Digite suas preferências" value="${usuario.preferencias}" required>
                             </div>
                         </div>
                     </div>
                </div>                           
-               <button type="submit">Salvar Informações</button>            </form>
+               <button type="submit">Salvar Informações</button>   
+             </form>
             </div>
         </div>
     </div>
