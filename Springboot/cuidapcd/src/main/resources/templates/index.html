@@ -39,11 +39,11 @@
         
             <!-- Se o usuário estiver logado, exibe o ícone de perfil -->
             <div th:if="${usuario != null}" class="profile-container">
-                <img th:src="@{/{filename}(filename=${usuario.arquivoFoto})}" alt="Foto de Perfil" width="50" class="profile-icon" id="profile-icon">
+                <img  th:src="@{/{filename}(filename=${usuario.arquivoFoto})}" alt="Foto de Perfil" width="50" class="profile-icon" id="profile-icon">
                 <!-- Menu suspenso -->
                 <div class="profile-menu" id="profile-menu">
                     <div class="menu-header">
-                        <img th:src="@{/{filename}(filename=${usuario.arquivoFoto})}" alt="Foto de Perfil" class="menu-profile-pic">
+                        <img  th:src="@{/{filename}(filename=${usuario.arquivoFoto})}" alt="Foto de Perfil" class="menu-profile-pic">
                         <p th:text="${usuario.nome}"></p>
                     </div>
                     <a th:href="@{/perfil/{id}(id=${usuario.id})}">Dados da conta</a>

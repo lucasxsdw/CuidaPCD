@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Perfil - CuidaPcd</title>
     <link href="../static/Css/global.css" rel="stylesheet" type="text/css">
-    <link href="../static/Css/perfilUsuario.css" rel="stylesheet" type="text/css">
+    <link href="../static/Css/perfilClienteAtualizarDados.css" rel="stylesheet" type="text/css">
 </head>
 <body>
     <header> <!--  MENU PARTE DE CIMA  -->
@@ -48,7 +48,7 @@
             -->
             <div class="LogoLogin">
                 <img src="../static/images/iconeLogo.svg" alt="Logo da empresa">
-                <h1>Meus Dados</h1>
+                <h1>Editar Dados</h1>
             </div>
 
             <div class="container-form">
@@ -58,39 +58,22 @@
                         <!-- Primeira coluna -->
                         <div class="form-section">
                             <div class="input-group">
-                                <label for="name">Nome:</label>
-                                <div class="data-display">Lucas Ryan Gomes da Silva</div>
+                                <label for="nome">Nome:</label>
+                                <input type="text" id="nome" name="nome" placeholder="Digite seu nome" required>
                             </div>
                             
-                            <div class="input-group">
-                                <label for="cidade">Cidade:</label>
-                                <div class="data-display">São Paulo</div>
-                            </div>
-                
-                            <div class="input-group">
-                                <label for="estado">Estado:</label>
-                                <div class="data-display">SP</div>
-                            </div>
                         </div>
                 
                         <!-- Segunda coluna -->
                         <div class="form-section">
                             <div class="input-group">
-                                <label for="bairro">Bairro:</label>
-                                <div class="data-display">Vila Mariana</div>
+                                <label for="nome">Preferências:</label>
+                                <input type="text" id="prefe" name="nome" placeholder="Digite suas preferências" required>
                             </div>
-                            
-                            <div class="input-group">
-                                <label for="rua">Rua:</label>
-                                <div class="data-display">Rua das Flores</div>
-                            </div>
-                
-                            
                         </div>
                     </div>
                </div>                           
-               <a  href="perfilAtualizarDadosUsuario.html" class="button-link">Editar Informações</a>
-            </form>
+               <button type="submit">Salvar Informações</button>            </form>
             </div>
         </div>
     </div>

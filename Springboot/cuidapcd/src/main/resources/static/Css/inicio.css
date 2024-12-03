@@ -11,7 +11,11 @@
 .profile-icon {
     cursor: pointer;
     border-radius: 50%;
+   
+   
 }
+
+
 
 .profile-menu {
     display: none;

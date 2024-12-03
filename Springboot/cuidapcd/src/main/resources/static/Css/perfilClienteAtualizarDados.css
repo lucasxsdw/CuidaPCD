@@ -1,5 +1,5 @@
 .Conteiner {
-    max-width: 1600px;
+    max-width: 1400px;
     margin: 0 auto;
     padding: 20px;
     display: flex;
@@ -14,8 +14,8 @@
 
 .caixaEsquerda {
     flex: 1;
-    max-width: 30%;
-    height: 100%; /* Ajusta a altura para caber na tela */
+    max-width: 300px;
+    height: 500px; /* Ajusta a altura para caber na tela */
     background-color: #1F3556;
     color: white;
     border-radius: 10px;
@@ -27,41 +27,48 @@
     background-repeat: no-repeat;
     background-position: right bottom;
     background-size: 250px 250px;
-    padding-top: 120px;
+    padding-top: 90px;
     overflow: hidden; /* Garante que a caixa esquerda não exiba a rolagem */
 }
 
 
-/* Container geral do formulário */
 .container-form {
     display: flex;
     flex-direction: column;
     width: 100%;
-    max-height: 85vh; /* Define a altura máxima para o formulário */
-    overflow-y: auto; /* Barra de rolagem no formulário */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    height: 100%; 
+    overflow: hidden; 
 }
 
-/* Divisão em duas partes iguais */
+
 .form-sections {
     display: flex;
-    gap: 10px; 
-    flex-wrap: wrap; /* Permite que as colunas se ajustem em telas menores */
-    justify-content: space-between;
+    justify-content: space-between; 
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.form-section {
+    flex: 1;
+    min-width: 300px; 
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px; 
+    height: 75px;
     
 }
 
-/* Cada seção ocupa 50% */
-.form-section {
-    flex: 1; /* Ocupa metade do espaço disponível */
-    max-width: 48%; 
-}
-
-/* Alinha os campos no formulário */
-.input-group {
-    display: flex;
-    flex-direction: row;
-    margin-bottom: 15px;
-    margin-left: 30px;
+.input-group label {
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+    font-size: 14px;
 }
 
 
@@ -74,8 +81,8 @@
 
 .caixaDireita {
     max-width: 900px;
-    width: 90%; 
-    height: 700px; 
+    width: 800px; 
+    height: 500px; 
     background-color: white;
     border-radius: 10px;
     padding: 20px;
@@ -88,25 +95,17 @@
 }
 
 
-/*.close-icon {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    cursor: pointer;
-    width: 15px;
-    height: 15px;
-  
-}*/
+
 
 .LogoLogin {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 20px;
+    
 }
 
 .LogoLogin img {
-   
+    margin-top: 10px;
     width: 80px;
     height: 80px;
    
@@ -116,46 +115,31 @@
     font-size: 24px;
     color: #333;
     font-weight: 600;
+    
 }
 
-
 .login-form {
-    margin-top: 20px;
-    width: 1000%;
-    max-width: 670px; 
+    width: 100%;
+    max-height: 500px; /* Limita a altura para caber na caixa */
+    overflow-y: auto; /* Adiciona barra de rolagem vertical */
+    padding: 10px;
     display: flex;
     flex-direction: column;
     gap: 10px;
-    align-items: center;
+    
 }
 
 
-
-.input-group {
-    display: flex;
-    align-items: center;
-    justify-content: space-between; /* Para espaçar label e input */
-    gap: 10px; /* Espaçamento entre o rótulo e o campo */
-    width: 100%; /* Certifica-se de ocupar a largura disponível */
-}
-
-
-.input-group label {
-    flex: 1; 
-    text-align: right; 
-    font-size: 14px; 
-    margin-right: 10px; 
-}
 
 .input-group input {
-    flex: 2; /* Dá mais espaço ao campo em relação ao rótulo */
-    padding: 5px;
-    font-size: 14px;
-    border: none;
-    background-color: #F5F5F5;
-    border-radius: 10px;
     height: 44px;
+    border: none;
     outline: none;
+    padding: 10px;
+    font-size: 14px;
+    border-radius: 10px;
+    background-color: #F5F5F5;
+    transition: background-color 0.3s ease;
 }
 
 
@@ -167,7 +151,7 @@ input[type="email"], input[type="password"] {
     padding: 5px;
     font-size: 14px;
     border-radius: 10px;
-    height: 44px; 
+    height: 60px; 
 }
 
 
@@ -216,10 +200,12 @@ input[type="text"]:focus {
     height: 20px;
 }
 
-
-.button[type="submit"] {
+button[type="submit"] {
+    position: sticky; /* Fixa o botão na parte inferior do contêiner */
+    left: 50%;
+    transform: translateX(-50%); /* Centraliza horizontalmente */
     width: 100%;
-    max-width: 266px;
+    max-width: 200px;
     padding: 10px;
     background-color: #936CFB;
     color: white;
@@ -227,14 +213,16 @@ input[type="text"]:focus {
     border-radius: 10px;
     cursor: pointer;
     font-size: 14px;
-    margin-bottom: 40px;
-    margin-left: 190px;
     transition: background-color 0.3s ease;
+    z-index: 1000;
+    margin-top: -220px;
+    margin-left: 200px;
 }
 
-.button[type="submit"]:hover {
-    background-color: #7A5BDB; 
+button[type="submit"]:hover {
+    background-color: #7A5BDB;
 }
+
 
 
 
@@ -249,23 +237,3 @@ input[type="text"]:focus {
         margin-bottom: 20px;
     }
 }
-
-/* Barra de rolagem personalizada */
-::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
-}
-
-::-webkit-scrollbar-thumb {
-    background-color: rgba(0, 0, 0, 0.3);
-    border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background-color: rgba(0, 0, 0, 0.5);
-}
-
-::-webkit-scrollbar-track {
-    background-color: #f1f1f1;
-}
-

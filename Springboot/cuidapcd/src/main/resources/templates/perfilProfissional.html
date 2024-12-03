@@ -42,12 +42,25 @@
     </header><!--  MENU PARTE DE CIMA  -->
 
     <div class="caixa-roxa"> <!--  CAIXA ROXA E BOTÕES  -->
+        <p class="texto-saude">
+            Sua <strong id="amarelo">saúde</strong> e nossa <br>
+            <span class="quadrado-roxo">experiência</span> juntos <br>
+            para toda a <strong id="rosa">vida</strong>.
+        </p>
 
         <div class="circulo">
             <img class="foto" th:src="@{/{filename}(filename=${profissional.arquivoFoto})}" alt="Foto de Perfil">
             <!--<img src="http://localhost:8080/${profissional.arquivoFoto}" alt="Foto de Perfil" width="200">-->
         </div>
-    </div> <!--  CAIXA ROXA E BOTÕES  -->
+    </div>
+
+   <!--   <div class="caixa-roxa">   CAIXA ROXA E BOTÕES  
+
+        <div class="circulo">
+            <img class="foto" th:src="@{/{filename}(filename=${profissional.arquivoFoto})}" alt="Foto de Perfil">
+        <img src="http://localhost:8080/${profissional.arquivoFoto}" alt="Foto de Perfil" width="200">
+        </div>
+    </div> CAIXA ROXA E BOTÕES  -->
 
     <div class="conteiner">
 
@@ -139,6 +152,12 @@
             
         </div>
 
+        <div class="containerContato">
+           <h1>Entre em contato</h1>
+           <a href="https://w.app/jIeESB"> <img id="whats"  th:src="@{/images/iconeWhats.jpeg}" alt="Logo CuidaPcd" class="footer-logo"></a>  
+           <p class="paragrafo-agende">Agende sua consulta</p>
+        </div>
+
         <h4 class="titulos">Local de Atendimento</h4>
 
         <div class="map-container">
@@ -164,6 +183,8 @@
                         O CuidaPcd é uma plataforma que visa conectar pessoas com deficiência e suas famílias a profissionais qualificados para atender suas necessidades.
                     </p>
                 </div>
+
+                
                 <div class="footer-categorias">
                     <div class="categoria">
                         <h3>Empresa</h3>
@@ -180,12 +201,15 @@
                         <div id= "informacoes">
                             <a id="numero">Numero - (00) 9 9999-9999</a>
                             <a id="horario">Segunda - sexta (08:00AM ás 18:00PM)</a>
-                        </div>    
+                        </div>   
+                        
                         <a href="#email">Email: Exemplo@exemplo.com</a>
                         <div class="imagens-rodape"> 
                             <img id="instagram" th:src="@{/images\INSTAGRAM.svg}" alt="logo Instagram">
                             <img id="facebook" th:src="@{/images\FACEBOOK.svg}" alt="logo facebook">
                             <img id="x"  th:src="@{/images\X.svg}" alt="logo X">
+                           
+
                         </div>
                     </div>
                 </div>

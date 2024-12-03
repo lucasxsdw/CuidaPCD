@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Perfil - CuidaPcd</title>
     <link href="../static/Css/global.css" rel="stylesheet" type="text/css">
-    <link href="../static/Css/perfilUsuario.css" rel="stylesheet" type="text/css">
+    <link href="../static/Css/PerfilAtualizarDados.css" rel="stylesheet" type="text/css">
 </head>
 <body>
     <header> <!--  MENU PARTE DE CIMA  -->
@@ -48,50 +48,67 @@
             -->
             <div class="LogoLogin">
                 <img src="../static/images/iconeLogo.svg" alt="Logo da empresa">
-                <h1>Meus Dados</h1>
+                <h1>Editar dados</h1>
             </div>
-
+            
             <div class="container-form">
-                <form id="loginForm" action="/cadastroProfissional" method="POST" class="login-form" enctype="multipart/form-data" value="">
-                   
+                <form id="atualizarDadosForm" action="/cadastroProfissional" method="POST" class="login-form" enctype="multipart/form-data">
                     <div class="form-sections">
                         <!-- Primeira coluna -->
                         <div class="form-section">
                             <div class="input-group">
-                                <label for="name">Nome:</label>
-                                <div class="data-display">Lucas Ryan Gomes da Silva</div>
+                                <label for="nome">Nome:</label>
+                                <input type="text" id="nome" name="nome" placeholder="Digite seu nome" required>
                             </div>
-                            
+            
                             <div class="input-group">
                                 <label for="cidade">Cidade:</label>
-                                <div class="data-display">São Paulo</div>
+                                <input type="text" id="cidade" name="cidade" placeholder="Digite sua cidade" required>
                             </div>
-                
+            
                             <div class="input-group">
                                 <label for="estado">Estado:</label>
-                                <div class="data-display">SP</div>
+                                <input type="text" id="estado" name="estado" placeholder="Digite seu estado" required>
                             </div>
+
+                            
+                            <div class="input-group">
+                                <label for="formacao">Formação:</label>
+                                <input type="text" id="formacao" name="formacao" placeholder="Digite sua formação" required>
+                            </div>
+
                         </div>
-                
+            
                         <!-- Segunda coluna -->
                         <div class="form-section">
+                           
                             <div class="input-group">
                                 <label for="bairro">Bairro:</label>
-                                <div class="data-display">Vila Mariana</div>
+                                <input type="text" id="bairro" name="bairro" placeholder="Digite seu bairro" required>
+                            </div>
+
+                            <div class="input-group">
+                                <label for="rua">Rua:</label>
+                                <input type="text" id="rua" name="rua" placeholder="Digite sua rua" required>
                             </div>
                             
                             <div class="input-group">
-                                <label for="rua">Rua:</label>
-                                <div class="data-display">Rua das Flores</div>
+                                <label for="experiencia">Experiência:</label>
+                                <input type="text" id="experiencia" name="experiencia" placeholder="Digite sua experiência" required>
                             </div>
-                
                             
+                            <div class="input-group">
+                                <label for="sobre">Sobre:</label>
+                                <input type="text" id="sobre" name="sobre" placeholder="Fale um pouco sobre você" required>
+                            </div>
+                            
+                            </div> 
                         </div>
                     </div>
-               </div>                           
-               <a  href="perfilAtualizarDadosUsuario.html" class="button-link">Editar Informações</a>
-            </form>
-            </div>
+            
+                    <button type="submit">Salvar Informações</button>
+                </form>
+            </div>            
         </div>
     </div>
 
