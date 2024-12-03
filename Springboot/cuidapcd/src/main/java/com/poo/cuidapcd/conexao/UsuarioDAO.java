@@ -150,7 +150,22 @@ public class UsuarioDAO {
         }
     }
 
-
+    public void deletarUsuario(Long id) {
+        String sql = """
+            DELETE 
+            FROM Usuario 
+            WHERE id = ?;
+        """;
+    
+        try (Connection connection = DriverManager.getConnection(dbUrl, dbUsername, dbPassword);
+             PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+                preparedStatement.setLong(1, id); 
+    
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
     //
 
 

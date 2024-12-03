@@ -470,5 +470,11 @@ public String receberFormularioCliente(@ModelAttribute Cliente cliente,
         clientedao.atualizarCliente(id, cliente.getPreferencias());
         return "redirect:/deslogar";
     }
+
+    @GetMapping("/Deletar/{id}")
+    public String deletarUsuario(@PathVariable Long id, HttpSession session) {
+        usuariodao.deletarUsuario(id);
+        return "redirect:/deslogar";
+    }
     
 }

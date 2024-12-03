@@ -29,13 +29,12 @@ public class ProfissionalDAO {
 
     public void cadastrarProfissional(Profissional profissional){
 
-        String sqlProf = "INSERT INTO profissional (id, formacao, experiencia, sobre, cnpj, registroProfissional, arquivoCurriculo, arquivoCertificado, arquivoFoto, especialidade, especialidadeDescricao) VALUES ((SELECT id FROM usuario WHERE cpf = ?), ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        String sqlProf = "INSERT INTO profissional (id, formacao, experiencia, sobre, cnpj, registroProfissional, arquivoCurriculo, arquivoCertificado, arquivoFoto, especialidade, especialidadeDescricao) VALUES ((SELECT id FROM usuario WHERE cpf = ?), ?, ?, ?, ?, ?, ?, ?, ?, (SELECT nome FROM especialidade WHERE nome = ?), (SELECT descricao FROM especialidade WHERE descricao = ?))";
 
         try (Connection connection = DriverManager.getConnection(dbUrl, dbUsername, dbPassword);
              PreparedStatement preparedStatement = connection.prepareStatement(sqlProf)) {
-                System.out.println("profissional cpf: " +profissional.getCpf());
                 preparedStatement.setString(1, profissional.getCpf());
-                preparedStatement.setString(2, profissional.getFormacao());
+                preparedStatement.setString(2, profissional.getFormacao()); 
                 preparedStatement.setString(3, profissional.getExperiencia());
                 preparedStatement.setString(4, profissional.getSobre());
                 preparedStatement.setString(5, profissional.getCnpj());
