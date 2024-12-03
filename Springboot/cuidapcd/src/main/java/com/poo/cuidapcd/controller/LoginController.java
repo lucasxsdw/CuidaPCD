@@ -53,10 +53,10 @@ public class LoginController {
             //return logar(user.encontrarUsuario(email, senha, session));
             Profissional profissional = profDAO.buscarProfissionalPorId(user.buscarUsuario(email, senha));
             if(profissional != null){
-                session.setAttribute("usuario", profissional);
+                session.setAttribute("usuarioProfissional", profissional);
             } else {
                 Cliente cliente = clienteDAO.buscarClientePorId(user.buscarUsuario(email, senha));
-                session.setAttribute("usuario", cliente);
+                session.setAttribute("usuarioCliente", cliente);
             }
             //Usuario usuario = user.encontrarUsuario(email, senha);
             
