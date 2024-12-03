@@ -128,6 +128,35 @@ public class UsuarioDAO {
                 
                 return unico;
             }
+
+
+
+
+             // config lucas 
+      public void atualizarUsuario(Long id, String nome) {
+        String sql = """
+            UPDATE usuario 
+            SET nome = ?
+            WHERE id = ?
+        """;
+    
+        try (Connection connection = DriverManager.getConnection(dbUrl, dbUsername, dbPassword);
+             PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+                preparedStatement.setString(1, nome); 
+                preparedStatement.setLong(2, id); 
+    
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    //
+
+
+
+            
     }
     
 

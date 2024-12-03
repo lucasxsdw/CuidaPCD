@@ -456,7 +456,12 @@ public String receberFormularioCliente(@ModelAttribute Cliente cliente,
     public String atualizarProfissional(@PathVariable long id, @ModelAttribute Profissional profissional, HttpSession session) {
         usuariodao.atualizarUsuario(id, profissional.getNome());
         profissionaldao.atualizarProfissional(id, profissional);
-        enderecodao.atualizarEndereco(id, profissional);
+        enderecodao.atualizarEndereco(
+            id,
+            profissional.getEndereco().getCidade(),  // Extraindo cidade do objeto Profissional
+            profissional.getEndereco().getBairro(),  // Extraindo bairro
+            profissional.getEndereco().getRua(),     // Extraindo rua
+            profissional.getEndereco().getEstado());
         return "redirect:/deslogar";
     }
     

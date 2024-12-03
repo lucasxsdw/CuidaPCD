@@ -82,5 +82,26 @@ public class ClienteDAO {
             e.printStackTrace();
         } 
     }
+
+    
+     // config lucas 
+     public void atualizarCliente(Long id, String preferencias) {
+        String sql = """
+            UPDATE Cliente 
+            SET preferencias = ?
+            WHERE id = ?
+        """;
+    
+        try (Connection connection = DriverManager.getConnection(dbUrl, dbUsername, dbPassword);
+             PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+                preparedStatement.setString(1, preferencias);   
+                preparedStatement.setLong(2, id); 
+    
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    //
     
 }

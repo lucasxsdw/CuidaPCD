@@ -40,4 +40,27 @@ public class EnderecoDAO {
         } 
 
     }
+
+
+     // config lucas 
+     public void atualizarEndereco(Long id, String cidade, String bairro, String rua, String estado) {
+        String sql = """
+            UPDATE Endereco 
+            SET cidade = ?, bairro = ?, rua = ?, estado = ?
+            WHERE id = ?
+        """;
+    
+        try (Connection connection = DriverManager.getConnection(dbUrl, dbUsername, dbPassword);
+             PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+                preparedStatement.setString(1, cidade); 
+                preparedStatement.setString(2, bairro); 
+                preparedStatement.setString(3, rua);
+                preparedStatement.setString(4, estado);  
+                preparedStatement.setLong(5, id); 
+    
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }
