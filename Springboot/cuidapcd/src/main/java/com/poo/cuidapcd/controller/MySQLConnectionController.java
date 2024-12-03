@@ -31,8 +31,6 @@ import com.poo.cuidapcd.entity.Profissional;
 
 import jakarta.servlet.http.HttpSession;
 
-import org.springframework.web.bind.annotation.RequestBody;
-
 
 //Isso aqui vai virar o DAO, so é o controller por enquanto pra testar se ta funcionando a conexão de um modo mais rapido as
 @Controller
@@ -453,7 +451,7 @@ public String receberFormularioCliente(@ModelAttribute Cliente cliente,
     }
 
     @PostMapping("/Usuario/Editar/Enviar/{id}")
-    public String atualizarProfissional(@PathVariable long id, @ModelAttribute Profissional profissional, HttpSession session) {
+    public String atualizarProfissional(@PathVariable Long id, @ModelAttribute Profissional profissional, HttpSession session) {
         usuariodao.atualizarUsuario(id, profissional.getNome());
         profissionaldao.atualizarProfissional(id, profissional);
         enderecodao.atualizarEndereco(
@@ -465,7 +463,12 @@ public String receberFormularioCliente(@ModelAttribute Cliente cliente,
         return "redirect:/deslogar";
     }
     
-    public void atualizarProfissional(Profissional profissional) {
-       
+
+    @PostMapping("/Usuario/Editar/EnviarCliente/{id}")
+    public String atualizarCliente(@PathVariable Long id, @ModelAttribute Cliente cliente, HttpSession session) {
+        usuariodao.atualizarUsuario(id, cliente.getNome());
+        clientedao.atualizarCliente(id, dbUsername);
+        return "redirect:/deslogar";
     }
+    
 }
