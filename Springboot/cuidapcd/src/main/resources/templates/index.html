@@ -6,6 +6,7 @@
     <title>Inicio - CuidaPcd</title>
     <link th:href="@{/Css/global.css}" rel="stylesheet" type="text/css">
     <link th:href="@{/Css/inicio.css}" rel="stylesheet" type="text/css">
+    <link th:href="@{/Css/menuSuspenso.css}" rel="stylesheet" type="text/css">
     <script th:src="@{/js/menuSuspenso.js}"></script>
     <script th:src="@{/js/ProfissionaisFiltro.js}"></script> 
 </head>
@@ -30,36 +31,23 @@
   <!------------------------menu suspenso----------------------------->    
         <div class="botões">
             <!-- Verifica se o usuário está logado  -->
-            <a th:if="${usuarioProfissional == null and usuarioCliente == null}" href="/Cadastro">
+             <a th:if="${usuario == null}" href="/Cadastro">
                 <button class="botãoCadastro">Cadastre-se</button>
             </a>
-            <a th:if="${usuarioProfissional == null and usuarioCliente == null}" href="/login">
+            <a th:if="${usuario == null}" href="/login">
                 <button class="botãoLogin">Login</button>
             </a>
         
             <!-- Se o usuário estiver logado, exibe o ícone de perfil -->
-            <div th:if="${usuarioProfissional != null}" class="profile-container">
-                <img  th:src="@{/{filename}(filename=${usuarioProfissional.arquivoFoto})}" alt="Foto de Perfil" width="50" class="profile-icon" id="profile-icon">
+            <div th:if="${usuario != null}" class="profile-container">
+                <img  th:src="@{/{filename}(filename=${usuario.arquivoFoto})}" alt="Foto de Perfil" width="50" class="profile-icon" id="profile-icon">
                 <!-- Menu suspenso -->
                 <div class="profile-menu" id="profile-menu">
                     <div class="menu-header">
-                        <img  th:src="@{/{filename}(filename=${usuarioProfissional.arquivoFoto})}" alt="Foto de Perfil" class="menu-profile-pic">
+                        <img  th:src="@{/{filename}(filename=${usuario.arquivoFoto})}" alt="Foto de Perfil" class="menu-profile-pic">
                         <p th:text="${usuario.nome}"></p>
                     </div>
-                    <a th:href="@{/perfil/{id}(id=${usuarioProfissional.id})}">Dados da conta</a>
-                    <a href="/deslogar">Sair</a>
-                </div>
-            </div>
-
-            <div th:if="${usuarioCliente != null}" class="profile-container">
-                <img  th:src="@{/{filename}(filename=${usuarioProfissional.arquivoFoto})}" alt="Foto de Perfil" width="50" class="profile-icon" id="profile-icon">
-                <!-- Menu suspenso -->
-                <div class="profile-menu" id="profile-menu">
-                    <div class="menu-header">
-                        <img  th:src="@{/{filename}(filename=${usuarioCliente.arquivoFoto})}" alt="Foto de Perfil" class="menu-profile-pic">
-                        <p th:text="${usuario.nome}"></p>
-                    </div>
-                    <a th:href="@{/perfil/{id}(id=${usuarioCliente.id})}">Dados da conta</a>
+                    <a th:href="@{/Usuario/{id}(id=${usuario.id})}">Dados da conta</a>
                     <a href="/deslogar">Sair</a>
                 </div>
             </div>

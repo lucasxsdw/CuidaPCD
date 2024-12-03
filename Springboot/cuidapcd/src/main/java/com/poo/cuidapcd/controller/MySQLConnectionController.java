@@ -16,6 +16,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -27,6 +28,11 @@ import com.poo.cuidapcd.conexao.ProfissionalDAO;
 import com.poo.cuidapcd.conexao.UsuarioDAO;
 import com.poo.cuidapcd.entity.Cliente;
 import com.poo.cuidapcd.entity.Profissional;
+
+import jakarta.servlet.http.HttpSession;
+
+import org.springframework.web.bind.annotation.RequestBody;
+
 
 //Isso aqui vai virar o DAO, so é o controller por enquanto pra testar se ta funcionando a conexão de um modo mais rapido as
 @Controller
@@ -444,5 +450,17 @@ public String receberFormularioCliente(@ModelAttribute Cliente cliente,
             e.printStackTrace();
         } 
         
+    }
+
+    @PostMapping("/Usuario/Editar/Enviar/{id}")
+    public String atualizarProfissional(@PathVariable long id, @ModelAttribute Profissional profissional, HttpSession session) {
+        usuariodao.atualizarUsuario(id, profissional.getNome());
+        profissionaldao.atualizarProfissional(id, profissional);
+        enderecodao.atualizarEndereco(id, profissional);
+        return "redirect:/deslogar";
+    }
+    
+    public void atualizarProfissional(Profissional profissional) {
+       
     }
 }

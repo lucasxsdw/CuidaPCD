@@ -4,13 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Perfil - CuidaPcd</title>
-    <link href="../static/Css/global.css" rel="stylesheet" type="text/css">
-    <link href="../static/Css/dadosPerfilProfissional.css" rel="stylesheet" type="text/css">
+    <link th:href="@{/Css/global.css}" rel="stylesheet" type="text/css">
+    <link th:href="@{/Css/dadosPerfilProfissional.css}" rel="stylesheet" type="text/css">
+    <link th:href="@{/Css/menuSuspenso.css}" rel="stylesheet" type="text/css">
+    <script th:src="@{/js/menuSuspenso.js}"></script>
 </head>
 <body>
     <header> <!--  MENU PARTE DE CIMA  -->
         <div class="logo">
-           <a href="/index"><h1> <img src="../static/images/Logo.png" alt="Logo" /> </h1> </a>
+           <a href="/index">   <h1> <img th:src="@{/images/Logo.png}" alt="Logo" /> </h1> </a>
         </div>
         <nav>
             <ul class="lista">
@@ -19,10 +21,38 @@
                 <li><a href="/SobreNos">Sobre Nós</a></li>
             </ul>
         </nav>
-        <div class="botões">
-            <a href="/Cadastro"><button class="botãoCadastro">Cadastre-se</button></a>
+        <!-- <div class="botões">
+            <a href="/formulario"><button class="botãoCadastro">Cadastre-se</button></a>
             <a href= "/login"> <button class="botãoLogin">Login</button> </a>
         </div>
+        -->
+
+  <!------------------------menu suspenso----------------------------->    
+        <div class="botões">
+            <!-- Verifica se o usuário está logado  -->
+             <a th:if="${usuario == null}" href="/Cadastro">
+                <button class="botãoCadastro">Cadastre-se</button>
+            </a>
+            <a th:if="${usuario == null}" href="/login">
+                <button class="botãoLogin">Login</button>
+            </a>
+        
+            <!-- Se o usuário estiver logado, exibe o ícone de perfil -->
+            <div th:if="${usuario != null}" class="profile-container">
+                <img  th:src="@{/{filename}(filename=${usuario.arquivoFoto})}" alt="Foto de Perfil" width="50" class="profile-icon" id="profile-icon">
+                <!-- Menu suspenso -->
+                <div class="profile-menu" id="profile-menu">
+                    <div class="menu-header">
+                        <img  th:src="@{/{filename}(filename=${usuario.arquivoFoto})}" alt="Foto de Perfil" class="menu-profile-pic">
+                        <p th:text="${usuario.nome}"></p>
+                    </div>
+                    <a th:href="@{/Usuario/{id}(id=${usuario.id})}">Dados da conta</a>
+                    <a href="/deslogar">Sair</a>
+                </div>
+            </div>
+        </div>
+    <!------------------------menu suspenso----------------------------->     
+        
     </header><!--  MENU PARTE DE CIMA  -->
 
 
@@ -47,34 +77,34 @@
             <img src="images\fechar.png" alt="Fechar" class="close-icon">
             -->
             <div class="LogoLogin">
-                <img src="../static/images/iconeLogo.svg" alt="Logo da empresa">
+                <img th:src="@{/images/iconeLogo.svg}" alt="Logo da empresa">
                 <h1>Meus Dados</h1>
             </div>
 
             <div class="container-form">
-                <form id="loginForm" action="/cadastroProfissional" method="POST" class="login-form" enctype="multipart/form-data" value="">
+                <form id="loginForm"  class="login-form" enctype="multipart/form-data" value="">
                    
                     <div class="form-sections">
                         <!-- Primeira coluna -->
                         <div class="form-section">
                             <div class="input-group">
                                 <label for="name">Nome:</label>
-                                <div class="data-display">Lucas Ryan Gomes da Silva</div>
+                                <div class="data-display"><span th:text="${usuario.nome}"></span></div>
                             </div>
                             
                             <div class="input-group">
                                 <label for="cidade">Cidade:</label>
-                                <div class="data-display">São Paulo</div>
+                                <div class="data-display"><span th:text="${usuario.endereco.cidade}"></div>
                             </div>
                 
                             <div class="input-group">
                                 <label for="estado">Estado:</label>
-                                <div class="data-display">SP</div>
+                                <div class="data-display"><span th:text="${usuario.endereco.estado}"></div>
                             </div>
 
                             <div class="input-group">
                                 <label for="formacao">Formação:</label>
-                                <div class="data-display">Graduação em Psicologia</div>
+                                <div class="data-display"><span th:text="${usuario.formacao}"></div>
                             </div>
                             
                                                       
@@ -84,29 +114,29 @@
                         <div class="form-section">
                             <div class="input-group">
                                 <label for="bairro">Bairro:</label>
-                                <div class="data-display">Vila Mariana</div>
+                                <div class="data-display"><span th:text="${usuario.endereco.bairro}"></div>
                             </div>
                             
                             <div class="input-group">
                                 <label for="rua">Rua:</label>
-                                <div class="data-display">Rua das Flores</div>
+                                <div class="data-display"><span th:text="${usuario.endereco.rua}"></div>
                             </div>
 
                             <div class="input-group">
                                 <label for="experiencia">Experiência:</label>
-                                <div class="data-display-experiencia">Atuação clínica com 3 anos de experiência em atendimentos individuais e em grupo</div>
+                                <div class="data-display-experiencia"><span th:text="${usuario.experiencia}"></div>
                             </div>
                             
                             <div class="input-group">
                                 <label for="sobre">Sobre:</label>
-                                <div class="data-display-sobre">Psicóloga focada em promover o bem-estar mental e emocional, com ênfase em terapia cognitivo-comportamental.</div>
+                                <div class="data-display-sobre"><span th:text="${usuario.sobre}"></div>
                             </div>
                 
                             
                         </div>
                     </div>
                </div>                           
-               <a  href="atualizarDadosProfissional.html" class="button-link">Editar Informações</a>
+               <a  th:href="@{/Usuario/Editar/{id}(id=${usuario.id})}" class="button-link">Editar Informações</a>
             </form>
             </div>
         </div>
@@ -118,7 +148,7 @@
             <hr class="linha-cinza">
             <div class="footer-content">
                 <div class="footer-logo-texto">
-                    <img src="../static/images/Logo.png" alt="Logo CuidaPcd" class="footer-logo">
+                    <img th:src="@{/images/Logo.png}" alt="Logo CuidaPcd" class="footer-logo">
                     <p class="footer-descricao">
                         O CuidaPcd é uma plataforma que visa conectar pessoas com deficiência e suas famílias a profissionais qualificados para atender suas necessidades.
                     </p>

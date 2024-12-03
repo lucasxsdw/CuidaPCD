@@ -10,7 +10,6 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Repository;
-import org.springframework.web.bind.annotation.ModelAttribute;
 
 import com.poo.cuidapcd.entity.Especialidade;
 import com.poo.cuidapcd.entity.Profissional;
@@ -255,7 +254,8 @@ public boolean verificarCadastroProfissional(String registro, String cnpj) {
     return unico;
 }
 
-public void atualizarProfissional(@ModelAttribute Profissional profissional) {
+
+public void atualizarProfissional(Long id, Profissional profissional) {
     String sql = """
         UPDATE profissional 
         SET formacao = ?, experiencia = ?, sobre = ?

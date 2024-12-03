@@ -20,7 +20,7 @@ public class PerfilController {
     private ProfissionalService profissionalService;
     
     @Autowired
-    private ProfissionalDAO profissionalDao;
+    private ProfissionalDAO profDAO;
 
     @GetMapping("/perfil/{id}")
     public String exibirPerfil(@PathVariable Long id, Model model, HttpSession session) {
@@ -37,6 +37,30 @@ public class PerfilController {
             model.addAttribute("usuario", usuario);
         }
         return "perfilProfissional";
+    }
+
+    @GetMapping("/Usuario/{id}")
+    public String exibirPerfilUsuario(@PathVariable Long id, Model model, HttpSession session){
+        Profissional profissional = profDAO.buscarProfissionalPorId(id);
+        Object usuario = session.getAttribute("usuario");
+        model.addAttribute("usuario", usuario);
+            if(profissional != null){
+                return "dadosPerfilProfissional";
+            } else {
+                return "perfilUsuario";
+            }
+    }
+
+    @GetMapping("/Usuario/Editar/{id}")
+    public String editarPerfilUsuario(@PathVariable Long id, Model model, HttpSession session){
+        Profissional profissional = profDAO.buscarProfissionalPorId(id);
+        Object usuario = session.getAttribute("usuario");
+        model.addAttribute("usuario", usuario);
+            if(profissional != null){
+                return "atualizarDadosProfissional";
+            } else {
+                return "perfilClienteAtualizarDados";
+            }
     }
 
     //TESTE BINHO PARA PERFIL DE USUARIO
