@@ -202,7 +202,6 @@ public class ProfissionalDAO {
     return profissionais;
 }
 
-        preparedStatement.setString(5, profissional.getRegistroProfissional());
 
 public boolean verificarCadastroProfissional(String registro, String cnpj) {
     boolean unico = true;
