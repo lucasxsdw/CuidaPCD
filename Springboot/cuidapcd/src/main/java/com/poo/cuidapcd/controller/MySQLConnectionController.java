@@ -32,7 +32,7 @@ import com.poo.cuidapcd.entity.Profissional;
 import jakarta.servlet.http.HttpSession;
 
 
-//Isso aqui vai virar o DAO, so é o controller por enquanto pra testar se ta funcionando a conexão de um modo mais rapido as
+
 @Controller
 public class MySQLConnectionController {
     
@@ -48,9 +48,7 @@ public class MySQLConnectionController {
     @Autowired
     ClienteDAO clientedao;
 
-  //config img
-   // @Value("${file.upload-dir}")
-    //private String uploadDir;
+  
 
     
     @Value("${spring.datasource.url}")
@@ -81,39 +79,6 @@ public class MySQLConnectionController {
         return "cadastroProfissional";
     }
 
-/* config img
-@PostMapping("/cadastroProfissional")
-public String receberFormularioProfissional(@ModelAttribute Profissional profissional,
-                                             @RequestParam("perfilFoto") MultipartFile fotoPerfil,  
-                                              @RequestParam("curriculo") MultipartFile curriculo, 
-                                               @RequestParam("certificado") MultipartFile certificado) {
-    try {
-        // Verifica se a foto foi enviada
-        if (!fotoPerfil.isEmpty()) {
-            // Salva a foto no diretório
-            String fileName = UUID.randomUUID() + "_" + fotoPerfil.getOriginalFilename();
-            Path filePath = Paths.get(uploadDir + fileName);
-            Files.createDirectories(filePath.getParent()); // Garante que o diretório existe
-            Files.write(filePath, fotoPerfil.getBytes()); // Escreve o arquivo no diretório
-
-            // Atualiza o caminho da foto no profissional
-            profissional.setArquivoFoto(fileName);
-        }
-
-        // Salva o usuário e o profissional
-        usuariodao.cadastrarUsuario(profissional);
-        profissionaldao.cadastrarProfissional(profissional);
-        enderecodao.cadastrarEndereco(profissional);
-
-        // Retorna sucesso
-        return "redirect:/login"; // ou o nome da página de sucesso
-    } catch (IOException e) {
-        e.printStackTrace();
-        return "redirect:/formulario"; // ou o nome da página de erro
-    }
-}
-*/
-//
 
 
 @PostMapping("/cadastroProfissional")
@@ -128,66 +93,64 @@ public String receberFormularioProfissional(@ModelAttribute Profissional profiss
 
         if(unicoUsuario && unicoProfissional){
 
-            // Define o diretório de upload
-            String uploadDir = "uploads/"; // Diretório fora de src/
+            String uploadDir = "uploads/"; 
             Path uploadPath = Paths.get(uploadDir);
             
-            // Garante que o diretório de upload exista
             if (!Files.exists(uploadPath)) {
-                Files.createDirectories(uploadPath); // Cria o diretório se não existir
+                Files.createDirectories(uploadPath); 
         }
         
-        // Verifica se a foto foi enviada
+        
         if (!fotoPerfil.isEmpty()) {
-            // Gera um nome único para o arquivo
+            
             String fileName = UUID.randomUUID() + "_" + fotoPerfil.getOriginalFilename();
             Path filePath = uploadPath.resolve(fileName);
             
-            // Salva o arquivo
+          
             Files.write(filePath, fotoPerfil.getBytes());
             
-            // Atualiza o caminho da foto no objeto profissional
+          
             profissional.setArquivoFoto(fileName);
         }
 
         if (!curriculo.isEmpty()) {
-            // Gera um nome único para o arquivo
+            
             String fileName = UUID.randomUUID() + "_" + curriculo.getOriginalFilename();
             Path filePath = uploadPath.resolve(fileName);
             
-            // Salva o arquivo
+            
             Files.write(filePath, curriculo.getBytes());
             
-            // Atualiza o caminho da foto no objeto profissional
+           
             profissional.setArquivoCurriculo(fileName);
         }
 
         if (!certificado.isEmpty()) {
-            // Gera um nome único para o arquivo
+          
             String fileName = UUID.randomUUID() + "_" + certificado.getOriginalFilename();
             Path filePath = uploadPath.resolve(fileName);
             
-            // Salva o arquivo
+           
             Files.write(filePath, certificado.getBytes());
             
-            // Atualiza o caminho da foto no objeto profissional
+            
             profissional.setArquivoCertificado(fileName);
         }
         
         
-        // Salva o usuário e o profissional
+  
         usuariodao.cadastrarUsuarioProfissional(profissional);
         profissionaldao.cadastrarProfissional(profissional);
         enderecodao.cadastrarEndereco(profissional);
         
-        // Retorna sucesso
-        return "redirect:/login"; // ou o nome da página de sucesso
+        
+        return "redirect:/login";
         } else {
-            return "redirect:/CadastrarProfissional"; // ou o nome da página de erro
+            return "redirect:/CadastrarProfissional"; 
         }
     } catch (IOException e) {
         e.printStackTrace();
-        return "redirect:/CadastrarProfissional"; // ou o nome da página de erro
+        return "redirect:/CadastrarProfissional"; 
     }
 }
 
@@ -200,78 +163,46 @@ public String receberFormularioCliente(@ModelAttribute Cliente cliente,
 
         if(unicoUsuario){
 
-            // Define o diretório de upload
-            String uploadDir = "uploads/"; // Diretório fora de src/
+            
+            String uploadDir = "uploads/";
             Path uploadPath = Paths.get(uploadDir);
             
-            // Garante que o diretório de upload exista
+            
             if (!Files.exists(uploadPath)) {
-                Files.createDirectories(uploadPath); // Cria o diretório se não existir
+                Files.createDirectories(uploadPath); 
         }
         
-        // Verifica se a foto foi enviada
+        
         if (!fotoPerfil.isEmpty()) {
-            // Gera um nome único para o arquivo
+            
             String fileName = UUID.randomUUID() + "_" + fotoPerfil.getOriginalFilename();
             Path filePath = uploadPath.resolve(fileName);
             
-            // Salva o arquivo
+            
             Files.write(filePath, fotoPerfil.getBytes());
             
-            // Atualiza o caminho da foto no objeto profissional
+           
             cliente.setArquivoFoto(fileName);
         }
         
         
-        // Salva o usuário e o profissional
+       
         usuariodao.cadastrarUsuarioCliente(cliente);
         clientedao.cadastrarCliente(cliente);
         
-        // Retorna sucesso
-        return "redirect:/login"; // ou o nome da página de sucesso
+      
+        return "redirect:/login"; 
         } else {
-            return "redirect:/CadastrarCliente"; // ou o nome da página de erro
+            return "redirect:/CadastrarCliente";
         }
     } catch (IOException e) {   
         e.printStackTrace();
-        return "redirect:/CadastrarCliente"; // ou o nome da página de erro
+        return "redirect:/CadastrarCliente";
     }
 }
 
 
 
-
-
-/*@PostMapping("/cadastroProfissional")
-    public void receberFormularioProfissional(@ModelAttribute Profissional profissional) {
-        usuariodao.cadastrarUsuario(profissional);
-
-        int delayInSeconds = 2;
-        try {
-            Thread.sleep(delayInSeconds * 1000);
-            profissionaldao.cadastrarProfissional(profissional);
-            enderecodao.cadastrarEndereco(profissional);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-    }*/
-
-    /*public void insertUsuario( String nome, String email, String senha, String telefone, String cpf) {
-
-        String sql = "INSERT INTO usuario (nome, email, senha, telefone, cpf) VALUES (?, ?, ?, ?, ?)";
-
-        try (Connection connection = DriverManager.getConnection(dbUrl, dbUsername, dbPassword);
-             PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
-            preparedStatement.setString(1, nome);
-            preparedStatement.setString(2, email);
-            preparedStatement.setString(3, senha);
-            preparedStatement.setString(4, telefone);
-            preparedStatement.setString(5, cpf);
-            preparedStatement.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } 
-    }*/
 
     public boolean verificarLogin(String email, String senha) {
         boolean autenticado = false;
@@ -297,127 +228,6 @@ public String receberFormularioCliente(@ModelAttribute Cliente cliente,
     }
 
 
-   /* public void cadastrarUsuario(Profissional profissional){
-
-        String sqlUsuario = "INSERT INTO usuario (nome, email, senha, telefone, cpf) VALUES (?, ?, ?, ?, ?)";
-
-        try (Connection connection = DriverManager.getConnection(dbUrl, dbUsername, dbPassword);
-             PreparedStatement preparedStatement = connection.prepareStatement(sqlUsuario)) {
-            preparedStatement.setString(1, profissional.getNome());
-            preparedStatement.setString(2, profissional.getEmail());
-            preparedStatement.setString(3, profissional.getSenha());
-            preparedStatement.setString(4, profissional.getTelefone());
-            preparedStatement.setString(5, profissional.getCpf());
-            preparedStatement.executeUpdate();
-            
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } 
-    }
-
-    public void cadastrarProfissional(Profissional profissional){
-
-        String sqlProf = "INSERT INTO profissional (id, formacao, experiencia, sobre, cnpj, registro_profissional, arquivo_curriculo, arquivo_certificado, arquivo_foto, cpf) VALUES ((SELECT id FROM usuario WHERE cpf = ?), ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-
-        try (Connection connection = DriverManager.getConnection(dbUrl, dbUsername, dbPassword);
-             PreparedStatement preparedStatement = connection.prepareStatement(sqlProf)) {
-                preparedStatement.setString(1, profissional.getCpf());
-                preparedStatement.setString(2, profissional.getFormacao());
-                preparedStatement.setString(3, profissional.getExperiencia());
-                preparedStatement.setString(4, profissional.getSobre());
-                preparedStatement.setString(5, profissional.getCnpj());
-                preparedStatement.setString(6, profissional.getRegistroProfissional());
-                preparedStatement.setString(7, profissional.getArquivoCurriculo());
-                preparedStatement.setString(8, profissional.getArquivoCertificado());
-                preparedStatement.setString(9, profissional.getArquivoFoto());
-                preparedStatement.setString(10, profissional.getCpf());
-                preparedStatement.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } 
-    }
-
-    public void cadastrarEndereco(Profissional profissional){
-        String sqlEndereco = "INSERT INTO endereco (id, rua, bairro, cidade, cep, estado, numero) VALUES ((SELECT id FROM usuario WHERE cpf = ?), ?, ?, ?, ?, ?, ?)";
-
-        try (Connection connection = DriverManager.getConnection(dbUrl, dbUsername, dbPassword);
-             PreparedStatement preparedStatement = connection.prepareStatement(sqlEndereco)) {
-            preparedStatement.setString(1, profissional.getCpf());
-            preparedStatement.setString(2, profissional.getEndereco().getRua());
-            preparedStatement.setString(3, profissional.getEndereco().getBairro());
-            preparedStatement.setString(4, profissional.getEndereco().getCidade());
-            preparedStatement.setString(5, profissional.getEndereco().getCep());
-            preparedStatement.setString(6, profissional.getEndereco().getEstado());
-            preparedStatement.setString(7, profissional.getEndereco().getNumero());
-            preparedStatement.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } 
-
-    }*/
-
-    /*@PostMapping("/cadastroProfissional")
-    public void receberFormularioProfissional(@ModelAttribute Profissional profissional) {
-
-        String sqlUsuario = "INSERT INTO usuario (nome, email, senha, telefone, cpf) VALUES (?, ?, ?, ?, ?)";
-        String sqlProf = "INSERT INTO profissional (id, formacao, experiencia, sobre, cnpj, registro_profissional, arquivo_curriculo, arquivo_certificado, arquivo_foto, cpf) VALUES ((SELECT id FROM usuario WHERE cpf = ?), ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-        String sqlEndereco = "INSERT INTO endereco (id, rua, bairro, cidade, cep, estado, numero) VALUES ((SELECT id FROM usuario WHERE cpf = ?), ?, ?, ?, ?, ?, ?)";
-        //String sqlEspecialidade = "INSERT INTO especialidade (id, nomeEspecialidade, descricao) VALUES ((SELECT id FROM usuario WHERE cpf = ?), ?, ?)";
-
-        try (Connection connection = DriverManager.getConnection(dbUrl, dbUsername, dbPassword);
-             PreparedStatement preparedStatement = connection.prepareStatement(sqlUsuario)) {
-            preparedStatement.setString(1, profissional.getNome());
-            preparedStatement.setString(2, profissional.getEmail());
-            preparedStatement.setString(3, profissional.getSenha());
-            preparedStatement.setString(4, profissional.getTelefone());
-            preparedStatement.setString(5, profissional.getCpf());
-            preparedStatement.executeUpdate();
-            
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } 
-
-        try (Connection connection = DriverManager.getConnection(dbUrl, dbUsername, dbPassword);
-             PreparedStatement preparedStatement = connection.prepareStatement(sqlProf)) {
-                preparedStatement.setString(1, profissional.getCpf());
-                preparedStatement.setString(2, profissional.getFormacao());
-                preparedStatement.setString(3, profissional.getExperiencia());
-                preparedStatement.setString(4, profissional.getSobre());
-                preparedStatement.setString(5, profissional.getCnpj());
-                preparedStatement.setString(6, profissional.getRegistroProfissional());
-                preparedStatement.setString(7, profissional.getArquivoCurriculo());
-                preparedStatement.setString(8, profissional.getArquivoCertificado());
-                preparedStatement.setString(9, profissional.getArquivoFoto());
-                preparedStatement.setString(10, profissional.getCpf());
-                preparedStatement.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } 
-
-        try (Connection connection = DriverManager.getConnection(dbUrl, dbUsername, dbPassword);
-             PreparedStatement preparedStatement = connection.prepareStatement(sqlEndereco)) {
-            preparedStatement.setString(1, profissional.getCpf());
-            preparedStatement.setString(2, profissional.getEndereco().getRua());
-            preparedStatement.setString(3, profissional.getEndereco().getBairro());
-            preparedStatement.setString(4, profissional.getEndereco().getCidade());
-            preparedStatement.setString(5, profissional.getEndereco().getCep());
-            preparedStatement.setString(6, profissional.getEndereco().getEstado());
-            preparedStatement.setString(7, profissional.getEndereco().getNumero());
-            preparedStatement.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } 
-
-        /*try (Connection connection = DriverManager.getConnection(dbUrl, dbUsername, dbPassword);
-             PreparedStatement preparedStatement = connection.prepareStatement(sqlEspecialidade)) {
-            preparedStatement.setString(1, profissional.getCpf());
-            preparedStatement.setString(2, profissional.getEspecialidade().getNomeEspecialidade());
-            preparedStatement.setString(3, profissional.getEspecialidade().getDescricao());
-            preparedStatement.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }  */ 
-    //}
 
     
 
@@ -456,9 +266,9 @@ public String receberFormularioCliente(@ModelAttribute Cliente cliente,
         profissionaldao.atualizarProfissional(id, profissional);
         enderecodao.atualizarEndereco(
             id,
-            profissional.getEndereco().getCidade(),  // Extraindo cidade do objeto Profissional
-            profissional.getEndereco().getBairro(),  // Extraindo bairro
-            profissional.getEndereco().getRua(),     // Extraindo rua
+            profissional.getEndereco().getCidade(),  
+            profissional.getEndereco().getBairro(),  
+            profissional.getEndereco().getRua(),     
             profissional.getEndereco().getEstado());
         return "redirect:/deslogar";
     }

@@ -43,7 +43,7 @@
 
 .quadrado-roxo {
     display: inline-block;
-    background-color: #6c63ff;; /* Fundo sólido roxo */
+    background-color: #6c63ff;
     color: white; /* Cor do texto ajustada para contraste */
     padding: 4px; /* Espaçamento interno */
     border-radius: 4px; /* Cantos arredondados (opcional) */
@@ -215,6 +215,55 @@ img{
     height: 60px;
     width: 60px;
     margin-left: 48%;
+}
+
+.local1{
+    background-color: #ad94f4;
+    width: 100px;
+    color: #fff;
+    font-weight: bold;
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+
+.local2{
+    background-color: #ad94f4;
+    width: 100px;
+    color: #fff;
+    font-weight: bold;
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+
+
+
+
+.local3{
+    background-color: #ad94f4;
+    width: 100px;
+    color: #fff;
+    font-weight: bold;
+    margin-bottom: 10px;
+    border-radius: 10px;
+
+}
+
+.local4{
+    background-color: #ad94f4;
+    width: 100px;
+    color: #fff;
+    font-weight: bold;
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+
+.local5{
+    background-color: #ad94f4;
+    width: 100px;
+    color: #fff;
+    font-weight: bold;
+    margin-bottom: 10px;
+    border-radius: 10px;
 }
 
 .paragrafo-agende{

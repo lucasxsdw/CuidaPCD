@@ -3,10 +3,10 @@ async function carregarProfissionais() {
         const response = await fetch('http://localhost:8080/api/profissionais');
         const profissionais = await response.json();
 
-        // Função para exibir os profissionais filtrados
+       
         function exibirProfissionais(profissionaisFiltrados) {
             const container = document.getElementById('profissional');
-            container.innerHTML = ''; // Limpar conteúdo anterior
+            container.innerHTML = ''; 
 
             if (profissionaisFiltrados.length === 0) {
                 container.innerHTML = "<p>Nenhum profissional encontrado com os critérios selecionados.</p>";
@@ -42,16 +42,15 @@ async function carregarProfissionais() {
             });
         }
 
-        // Exibir todos os profissionais inicialmente
+        
         exibirProfissionais(profissionais);
 
-        // Evento de busca
+        
         document.querySelector('.btn-buscar').addEventListener('click', () => {
             const cidadeSelecionada = document.getElementById('cidade').value.toLowerCase();
             const estadoSelecionado = document.getElementById('estado').value.toLowerCase();
             const formacaoSelecionada = document.getElementById('formacao').value.toLowerCase();
 
-            // Filtragem de profissionais com base nos critérios
             const profissionaisFiltrados = profissionais.filter(profissional => {
                 const temFormacao = formacaoSelecionada ? profissional.formacao.toLowerCase() === formacaoSelecionada : true;
                 const naCidade = cidadeSelecionada ? profissional.endereco.cidade.toLowerCase() === cidadeSelecionada : true;
@@ -60,7 +59,7 @@ async function carregarProfissionais() {
                 return temFormacao && naCidade && noEstado;
             });
 
-            // Exibir os profissionais filtrados
+          
             exibirProfissionais(profissionaisFiltrados);
         });
 
@@ -70,5 +69,4 @@ async function carregarProfissionais() {
     }
 }
 
-// Carregar os profissionais ao abrir a página
 carregarProfissionais();

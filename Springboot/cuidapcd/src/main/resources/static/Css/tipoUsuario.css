@@ -6,16 +6,16 @@
     gap: 20px;
     justify-content: center;
     align-items: center;
-    height: 100vh; /* A altura total da tela */
+    height: 100vh; 
     flex-wrap: wrap;
-    overflow-y: auto; /* Adiciona a barra de rolagem vertical */
+    overflow-y: auto;
 }
 
 
 .caixaEsquerda {
     flex: 1;
     max-width: 30%;
-    height: 100%; /* Ajusta a altura para caber na tela */
+    height: 100%; 
     background-color: #1F3556;
     color: white;
     border-radius: 10px;
@@ -28,7 +28,7 @@
     background-position: right bottom;
     background-size: 250px 250px;
     padding-top: 90px;
-    overflow: hidden; /* Garante que a caixa esquerda não exiba a rolagem */
+    overflow: hidden;
 }
 
 

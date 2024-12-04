@@ -33,7 +33,7 @@ public class PerfilController {
         Usuario usuario = (Usuario) session.getAttribute("usuario");
     
         if (usuario != null) {
-        // O usuário está logado, adiciona o objeto ao modelo para a view
+       
             model.addAttribute("usuario", usuario);
         }
         return "perfilProfissional";
@@ -63,18 +63,5 @@ public class PerfilController {
             }
     }
 
-    //TESTE BINHO PARA PERFIL DE USUARIO
-   /*  @GetMapping("/api/profissionais")
-    public List<Profissional> getProfissionais() {
-        // Simule uma busca por múltiplos profissionais (o DAO deve ser ajustado se necessário)
-        List<Profissional> profissionais = new ArrayList<>();
-        // Adicione IDs dos profissionais que deseja buscar
-        for (int i = 1; i <= 5; i++) { // Exemplo para buscar os primeiros 5
-            Profissional profissional = profissionalDao.buscarProfissionalPorId((long) i);
-            if (profissional != null) {
-                profissionais.add(profissional);
-            }
-        }
-        return profissionais;
-    }*/
+   
 }

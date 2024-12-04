@@ -14,11 +14,10 @@ public class TelasController {
 
     @GetMapping("/SobreNos")
     public String SobreNos(HttpSession session, Model model) {
-    // Recupera o usuário da sessão
+    
     Usuario usuario = (Usuario) session.getAttribute("usuario");
     
     if (usuario != null) {
-        // O usuário está logado, adiciona o objeto ao modelo para a view
         model.addAttribute("usuario", usuario);
     }
         return "sobrenos";
@@ -26,11 +25,9 @@ public class TelasController {
 
     @GetMapping("/Politica")
     public String telaPolitica(HttpSession session, Model model) {
-        // Recupera o usuário da sessão
         Usuario usuario = (Usuario) session.getAttribute("usuario");
         
         if (usuario != null) {
-            // O usuário está logado, adiciona o objeto ao modelo para a view
             model.addAttribute("usuario", usuario);
         }
         return "politicadeprivacidade";
@@ -38,11 +35,11 @@ public class TelasController {
 
     @GetMapping("/BuscarProfissional")
     public String telaBuscar(HttpSession session, Model model) {
-        // Recupera o usuário da sessão
+       
         Usuario usuario = (Usuario) session.getAttribute("usuario");
         
         if (usuario != null) {
-            // O usuário está logado, adiciona o objeto ao modelo para a view
+            
             model.addAttribute("usuario", usuario);
         }
         return "buscarProfissional";

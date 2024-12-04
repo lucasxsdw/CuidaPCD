@@ -202,33 +202,7 @@ public class ProfissionalDAO {
     return profissionais;
 }
 
-//config img
- // Método para atualizar um profissional
- /*public void atualizarProfissional(Profissional profissional) {
-    String sql = """
-        UPDATE profissional 
-        SET formacao = ?, experiencia = ?, sobre = ?, cnpj = ?, registroProfissional = ?, 
-            arquivoCurriculo = ?, arquivoCertificado = ?, arquivoFoto = ? 
-        WHERE id = ?
-    """;
-
-    try (Connection connection = DriverManager.getConnection(dbUrl, dbUsername, dbPassword);
-         PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
-        preparedStatement.setString(1, profissional.getFormacao());
-        preparedStatement.setString(2, profissional.getExperiencia());
-        preparedStatement.setString(3, profissional.getSobre());
-        preparedStatement.setString(4, profissional.getCnpj());
         preparedStatement.setString(5, profissional.getRegistroProfissional());
-        preparedStatement.setString(6, profissional.getArquivoCurriculo());
-        preparedStatement.setString(7, profissional.getArquivoCertificado());
-        preparedStatement.setString(8, profissional.getArquivoFoto()); // Atualiza o campo da foto
-        preparedStatement.setLong(9, profissional.getId()); // Define o ID para a cláusula WHERE
-
-        preparedStatement.executeUpdate();
-    } catch (SQLException e) {
-        e.printStackTrace();
-    }
-}*/
 
 public boolean verificarCadastroProfissional(String registro, String cnpj) {
     boolean unico = true;

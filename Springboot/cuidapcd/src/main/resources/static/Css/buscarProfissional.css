@@ -13,59 +13,57 @@
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-   
 }
 
 #profissional {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
+    gap: 30px;
+    align-items: flex-start; /* Ajusta o alinhamento dos itens */
     padding-top: 10px;
     background-color: #fff;
     border-radius: 6px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    
 }
 
 .profissional2{
     margin: 0 auto;
-    height: auto; /* Ajuste automático da altura, se necessário */
+    height: auto; 
     width: calc(100% - 80px);
-    padding: 20px 0 30px; /* Espaçamento interno consistente */
+    padding: 20px 0 30px; 
     display: flex;
     gap: 30px;
-    justify-content: center; /* Centraliza verticalmente */
+    justify-content: center; 
     
 }
 
 .profissional3{
     margin: 0 auto;
-    height: auto; /* Ajuste automático da altura, se necessário */
+    height: auto; 
     width: calc(100% - 80px);
-    padding: 20px 0 30px; /* Espaçamento interno consistente */
+    padding: 20px 0 30px; 
     display: flex;
     gap: 30px;
-    justify-content: center; /* Centraliza verticalmente */
+    justify-content: center; 
     
 }
 
 .profissional4{
     margin: 0 auto;
-    height: auto; /* Ajuste automático da altura, se necessário */
+    height: auto; 
     width: calc(100% - 80px);
-    padding: 20px 0 30px; /* Espaçamento interno consistente */
+    padding: 20px 0 30px; 
     display: flex;
     gap: 30px;
-    justify-content: center; /* Centraliza verticalmente */
+    justify-content: center; 
     
 }
 
 .quadradoPro{
     display: flex;
-    flex-direction: column; /* Alinha itens em uma coluna */
-    justify-content: center; /* Centraliza verticalmente */
-    align-items: center; /* Centraliza horizontalmente */
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center; 
     width: 334px;
     height: 503px;
     background-color: #ffffff;
@@ -205,18 +203,17 @@
 }
 
 select {
-    background-color: #e0e0e0; /* Cor de fundo cinza claro */
-    width: 270px; /* Largura de 270px */
-    height: 36px; /* Altura de 36px */
-    border:none; /* Borda cinza clara */
-    border-radius: 5px; /* Bordas arredondadas */
-    padding: 5px 10px; /* Padding para o conteúdo dentro da caixa */
-    font-size: 14px; /* Tamanho da fonte */
-    color: #333; /* Cor do texto */
-    cursor: pointer; /* Mostra um cursor de ponteiro ao passar o mouse */
+    background-color: #e0e0e0;
+    width: 270px; 
+    height: 36px; 
+    border:none; 
+    border-radius: 5px; 
+    padding: 5px 10px; 
+    font-size: 14px; 
+    color: #333; 
+    cursor: pointer; 
 }
 
-/* Estilo para a label (opcional) */
 label {
     font-size: 14px;
     margin-bottom: 8px;
@@ -225,19 +222,19 @@ label {
 }
 
 .btn-buscar {
-    background-color: #936CFB; /* Cor roxa */
-    color: white; /* Cor do texto */
+    background-color: #936CFB; 
+    color: white; 
     border: none;
-    border-radius: 5px; /* Bordas arredondadas */
-    padding: 10px 20px; /* Espaciamento interno */
-    font-size: 16px; /* Tamanho da fonte */
-    cursor: pointer; /* Cursor de ponteiro */
+    border-radius: 5px; 
+    padding: 10px 20px; 
+    font-size: 16px; 
+    cursor: pointer; 
     display: flex;
-    align-items: center; /* Alinha o conteúdo verticalmente */
-    gap: 10px; /* Espaço entre o ícone e o texto */
+    align-items: center; 
+    gap: 10px; 
 }
 
-/* Estilo do ícone */
+
 .btn-buscar img {
     width: 18px;
 }

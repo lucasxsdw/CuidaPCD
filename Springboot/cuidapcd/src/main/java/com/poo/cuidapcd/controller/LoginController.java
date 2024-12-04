@@ -50,7 +50,7 @@ public class LoginController {
         boolean autenticado = usuarioService.verificarLogin(email, senha);
 
         if (autenticado) {
-            //return logar(user.encontrarUsuario(email, senha, session));
+           
             Profissional profissional = profDAO.buscarProfissionalPorId(user.buscarUsuario(email, senha));
             if(profissional != null){
                 session.setAttribute("usuario", profissional);
@@ -58,38 +58,29 @@ public class LoginController {
                 Cliente cliente = clienteDAO.buscarClientePorId(user.buscarUsuario(email, senha));
                 session.setAttribute("usuario", cliente);
             }
-            //Usuario usuario = user.encontrarUsuario(email, senha);
-            
-            //return new ModelAndView("redirect:/index");
+           
             return "redirect:/index";
         } else {
             redirectAttributes.addFlashAttribute("erro", "Usuário ou senha inválidos.");
-            //ModelAndView negado = new ModelAndView("redirect:/login");
+          
             return "redirect:/login";
         }
     }
 
     @GetMapping("/index")
     public String logado(HttpSession session, Model model) {
-        // Recupera o usuário da sessão
+    
         Usuario usuario = (Usuario) session.getAttribute("usuario");
     
-        // Verifica se o usuário está logado
+      
         if (usuario != null) {
-            // Adiciona o usuário ao modelo para que ele possa ser acessado na view
+           
             model.addAttribute("usuario", usuario);
         }
         return "index";
     }
 
-    //public ModelAndView logar(Usuario usuario, HttpSession session) {
-
-        //session.setAttribute("usuario", usuario);
-        //ModelAndView modelAndView = new ModelAndView("redirect:/index");
-        //modelAndView.addObject("usuario", usuario);
-
-        //return modelAndView;
-    //}
+  
 
     @GetMapping("/deslogar")
     public String deslogar(HttpSession session) {

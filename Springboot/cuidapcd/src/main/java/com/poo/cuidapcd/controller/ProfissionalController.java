@@ -26,7 +26,7 @@ import com.poo.cuidapcd.entity.Profissional;
 import com.poo.cuidapcd.service.ProfissionalService;
 
 @RestController
-@RequestMapping("/api/profissionais") // URL base da API
+@RequestMapping("/api/profissionais") 
 public class ProfissionalController {
 
     // config img
@@ -38,44 +38,14 @@ public class ProfissionalController {
 
     //
     @Autowired
-    private ProfissionalService profissionalService; // Serviço que gerencia a lógica dos profissionais
+    private ProfissionalService profissionalService; 
 
-    // Endpoint para obter todos os profissionais
+
     @GetMapping
     public List<Profissional> getProfissionais() {
-        return profissionalService.listarProfissionais(); // Chama o serviço para pegar todos os profissionais
+        return profissionalService.listarProfissionais(); 
     }
 
 
-    //config img
-
- /*@PostMapping("/uploadFoto/{id}")
-    public ResponseEntity<String> uploadFoto(@PathVariable Long id,
-                                             @RequestParam("file") MultipartFile file) {
-        try {
-            // Valida o profissional
-            Profissional profissional = profissionalDAO.buscarProfissionalPorId(id);
-            if (profissional == null) {
-                return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Profissional não encontrado");
-            }
-
-             // Salva o arquivo no diretório
-             String fileName = UUID.randomUUID() + "_" + file.getOriginalFilename();
-             Path filePath = Paths.get(uploadDir + fileName);
-             Files.createDirectories(filePath.getParent()); // Garante que o diretório existe
-             Files.write(filePath, file.getBytes()); // Escreve o arquivo no diretório
- 
-             // Atualiza o profissional com o caminho da imagem
-             profissional.setArquivoFoto(filePath.toString());
-             profissionalDAO.atualizarProfissional(profissional); // Usa o método de atualização em vez de save()
- 
-             return ResponseEntity.ok("Foto salva com sucesso. Link: " + filePath.toString());
-         } catch (IOException e) {
-             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Erro ao salvar arquivo");
-         }
-     } */
-    
-
-
-    //
+   
 }
