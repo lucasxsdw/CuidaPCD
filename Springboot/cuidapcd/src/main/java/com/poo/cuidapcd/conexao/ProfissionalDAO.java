@@ -203,6 +203,7 @@ public class ProfissionalDAO {
 }
 
 
+
 public boolean verificarCadastroProfissional(String registro, String cnpj) {
     boolean unico = true;
     String sql = "SELECT * FROM profissional WHERE registroProfissional = ? OR cnpj = ?";
