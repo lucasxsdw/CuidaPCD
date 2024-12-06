@@ -10,7 +10,7 @@
     <script th:src="@{/js/menuSuspenso.js}"></script>
 </head>
 <body>
-    <header> <!--  MENU PARTE DE CIMA  -->
+    <header>
         <div class="logo">
            <a href="/index">   <h1> <img th:src="@{/images/Logo.png}" alt="Logo" /> </h1> </a>
         </div>
@@ -21,15 +21,10 @@
                 <li><a href="/SobreNos">Sobre Nós</a></li>
             </ul>
         </nav>
-        <!-- <div class="botões">
-            <a href="/formulario"><button class="botãoCadastro">Cadastre-se</button></a>
-            <a href= "/login"> <button class="botãoLogin">Login</button> </a>
-        </div>
-        -->
+       
 
-  <!------------------------menu suspenso----------------------------->    
+    
         <div class="botões">
-            <!-- Verifica se o usuário está logado  -->
              <a th:if="${usuario == null}" href="/Cadastro">
                 <button class="botãoCadastro">Cadastre-se</button>
             </a>
@@ -37,10 +32,8 @@
                 <button class="botãoLogin">Login</button>
             </a>
         
-            <!-- Se o usuário estiver logado, exibe o ícone de perfil -->
             <div th:if="${usuario != null}" class="profile-container">
                 <img  th:src="@{/{filename}(filename=${usuario.arquivoFoto})}" alt="Foto de Perfil" width="50" class="profile-icon" id="profile-icon">
-                <!-- Menu suspenso -->
                 <div class="profile-menu" id="profile-menu">
                     <div class="menu-header">
                         <img  th:src="@{/{filename}(filename=${usuario.arquivoFoto})}" alt="Foto de Perfil" class="menu-profile-pic">
@@ -51,16 +44,13 @@
                 </div>
             </div>
         </div>
-    <!------------------------menu suspenso----------------------------->     
         
-    </header><!--  MENU PARTE DE CIMA  -->
+    </header>
 
 
 
     
-    <!-- CONTAINER PRINCIPAL -->
     <div class="Conteiner">
-        <!-- CAIXA ESQUERDA -->
         <div class="caixaEsquerda">
             <div>
                 <p class="texto-saude">
@@ -71,11 +61,7 @@
             </div>
         </div>
 
-        <!-- CAIXA DIREITA -->
         <div class="caixaDireita">
-            <!-- Ícone de Fechar 
-            <img src="images\fechar.png" alt="Fechar" class="close-icon">
-            -->
             <div class="LogoLogin">
                 <img th:src="@{/images/iconeLogo.svg}" alt="Logo da empresa">
                 <h1>Editar dados</h1>
@@ -84,7 +70,6 @@
             <div class="container-form">
                 <form id="atualizarDadosForm" th:action="@{/Usuario/Editar/Enviar/{id}(id=${usuario.id})}" method="POST" class="login-form" enctype="multipart/form-data">
                     <div class="form-sections">
-                        <!-- Primeira coluna -->
                         <div class="form-section">
                             <div class="input-group">
                                 <label for="nome">Nome:</label>
@@ -109,7 +94,6 @@
 
                         </div>
             
-                        <!-- Segunda coluna -->
                         <div class="form-section">
                            
                             <div class="input-group">
@@ -142,8 +126,8 @@
         </div>
     </div>
 
-    <!-- RODAPÉ -->
-    <footer> <!--  RODAPÉ  -->
+    
+    <footer> 
         <div class="footer-top">
             <hr class="linha-cinza">
             <div class="footer-content">
@@ -180,7 +164,7 @@
                 </div>
             </div>
         </div>
-    </footer> <!--  RODAPÉ  -->
+    </footer> 
    
 </body>
 </html>

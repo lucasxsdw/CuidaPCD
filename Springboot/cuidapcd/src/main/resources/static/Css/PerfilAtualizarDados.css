@@ -6,9 +6,9 @@
     gap: 20px;
     justify-content: center;
     align-items: center;
-    height: 100vh; /* A altura total da tela */
+    height: 100vh; 
     flex-wrap: wrap;
-    overflow-y: auto; /* Barra de rolagem no contêiner principal */
+    overflow-y: auto; 
 }
 
 .caixaEsquerda {
@@ -27,7 +27,7 @@
     background-position: right bottom;
     background-size: 250px 250px;
     padding-top: 90px;
-    overflow: hidden; /* Garante que a caixa esquerda não exiba a rolagem */
+    overflow: hidden; 
 }
 
 .container-form {
@@ -38,8 +38,8 @@
     margin: 0 auto;
     padding: 20px;
     height: 100%;
-    overflow-y: auto; /* Barra de rolagem dentro do formulário, se necessário */
-    max-height: 400px; /* Defina uma altura máxima para a rolagem */
+    overflow-y: auto;
+    max-height: 400px; 
 }
 
 .form-sections {
@@ -87,7 +87,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    overflow-y: auto; /* Ativa a rolagem para a área da caixa direita */
+    overflow-y: auto; 
 }
 
 .LogoLogin {
@@ -114,8 +114,8 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
-    max-height: 400px; /* Limita a altura do formulário */
-    overflow-y: auto; /* Adiciona a rolagem no formulário */
+    max-height: 400px; 
+    overflow-y: auto; 
 }
 
 .input-group input {
@@ -162,7 +162,7 @@ input[type="email"]:focus, input[type="password"]:focus, input[type="text"]:focu
     height: 20px;
 }
 
-/* Estilo para o botão */
+
 button[type="submit"] {
     width: 100%;
     max-width: 200px;
@@ -174,8 +174,8 @@ button[type="submit"] {
     cursor: pointer;
     font-size: 14px;
     transition: background-color 0.3s ease;
-    align-self: center; /* Centraliza o botão */
-    margin-top: 20px; /* Espaço antes do botão */
+    align-self: center; 
+    margin-top: 20px; 
 }
 
 button[type="submit"]:hover {

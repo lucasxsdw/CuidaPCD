@@ -17,11 +17,7 @@ public class Usuario {
         this.cpf = cpf;
     }
 
-      //config img
-
-    // Construtor vazio (necessário para evitar o erro)
-   // public Usuario() {}
-    //
+     
     
     public Long getId() {
         return id;

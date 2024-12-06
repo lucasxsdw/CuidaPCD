@@ -23,10 +23,7 @@ public class LoginController {
     @Autowired
     private MySQLConnectionController usuarioService;
 
-    //@Autowired
-    //@Lazy
-    //private LoginController logged;
-
+  
     @Autowired
     private UsuarioDAO user;
 

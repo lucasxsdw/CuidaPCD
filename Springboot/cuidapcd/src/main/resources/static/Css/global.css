@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 
-/* MENU PARTE DE CIMA */
 * {
     margin: 0;
     padding: 0;
@@ -88,8 +87,6 @@ nav {
 .botões .botãoLogin:hover {
     background-color: #371595;
 }
-
-/* MENU PARTE DE CIMA */
 
 footer {
     background-color: none;

@@ -35,10 +35,10 @@
 
 .quadrado-roxo {
     display: inline-block;
-    background-color: #6c63ff;; /* Fundo sólido roxo */
-    color: white; /* Cor do texto ajustada para contraste */
-    padding: 4px; /* Espaçamento interno */
-    border-radius: 4px; /* Cantos arredondados (opcional) */
+    background-color: #6c63ff;; 
+    color: white;
+    padding: 4px;
+    border-radius: 4px; 
 }
 
 #amarelo {
@@ -145,18 +145,16 @@ button:hover {
 }
 
 #escolha-container{
-    display: flex; /* Ativa Flexbox para alinhamento horizontal */
-    justify-content: center; /* Centraliza os botões no contêiner */
-    gap: 20px; /* Espaço entre os botões */
-
+    display: flex; 
+    justify-content: center; 
+    gap: 20px; 
 }
 
-/* Centraliza o conteúdo dentro do botão */
 .opcao-btn {
     display: flex;
-    flex-direction: column; /* Organiza em coluna (imagem acima do texto) */
-    justify-content: center; /* Centraliza verticalmente */
-    align-items: center; /* Centraliza horizontalmente */
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center; 
     width: 100px;
     height: 100px;
     border-radius: 50%;
@@ -167,47 +165,42 @@ button:hover {
     cursor: pointer;
 }
 
-/* Estilo para o botão de usuário */
 #usuario-btn {
     background-color: #F0EAFF;
 }
 
-/* Estilo para o botão de médico */
+
 #medico-btn {
     background-color: #F0EAFF;
 }
 
-/* Estilo para a imagem dentro do botão */
 .opcao-btn img {
-    width: 40px; /* Tamanho da imagem */
-    margin-bottom: 5px; /* Espaço entre a imagem e o texto */
+    width: 40px; 
+    margin-bottom: 5px;
 }
 
-/* Estilo para o texto */
 .opcao-btn span {
     font-size: 14px;
     font-weight: 400;
-    color: #936CFB; /* Cor do texto */
+    color: #936CFB; 
 }
 
-/* Efeito ao passar o mouse */
 .opcao-btn:hover {
     opacity: 0.8;
 }
 
 .barraderolagem{
-    width: 770px; /* Largura da área */
-    height: 431px; /* Altura da área */
-    padding: 15px; /* Espaçamento interno */
-    overflow-y: auto; /* Barra de rolagem vertical */
-    overflow-x: hidden; /* Esconde a barra de rolagem horizontal */
-    border-radius: 8px; /* Bordas arredondadas */
+    width: 770px; 
+    height: 431px; 
+    padding: 15px; 
+    overflow-y: auto; 
+    overflow-x: hidden; 
+    border-radius: 8px; 
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-/* Mensagem de Sucesso */
 .mensagem-sucesso {
     text-align: center;
     color: green;

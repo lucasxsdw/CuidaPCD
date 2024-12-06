@@ -37,5 +37,5 @@ async function carregarProfissionais() {
     }
 }
 
-// Carregar os profissionais ao abrir a página
+
 carregarProfissionais();

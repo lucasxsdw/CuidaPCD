@@ -1,15 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 
 
-/*  menu suspenso */
 
-
-
-
-/* menu suspenso*/
-
-
-/* CAIXA DO MAIN*/
 .caixa-roxa {
     background-color: #1F3556;
     margin: 0 auto;
@@ -27,10 +19,10 @@
 
 .quadrado-roxo {
     display: inline-block;
-    background-color: #6c63ff;; /* Fundo sólido roxo */
-    color: white; /* Cor do texto ajustada para contraste */
-    padding: 4px; /* Espaçamento interno */
-    border-radius: 4px; /* Cantos arredondados (opcional) */
+    background-color: #6c63ff;
+    color: white;
+    padding: 4px; 
+    border-radius: 4px; 
 }
 
 #amarelo {
@@ -138,7 +130,7 @@
     display: flex;
     flex-wrap: wrap;
     gap: 30px;
-    align-items: flex-start; /* Ajusta o alinhamento dos itens */
+    align-items: flex-start;
     padding-top: 10px;
     background-color: #fff;
     border-radius: 6px;

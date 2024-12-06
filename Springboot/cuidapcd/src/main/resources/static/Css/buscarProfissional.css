@@ -19,7 +19,7 @@
     display: flex;
     flex-wrap: wrap;
     gap: 30px;
-    align-items: flex-start; /* Ajusta o alinhamento dos itens */
+    align-items: flex-start; 
     padding-top: 10px;
     background-color: #fff;
     border-radius: 6px;
