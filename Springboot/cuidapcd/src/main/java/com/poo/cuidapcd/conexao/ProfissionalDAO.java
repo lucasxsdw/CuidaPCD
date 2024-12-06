@@ -240,7 +240,7 @@ public void atualizarProfissional(Long id, Profissional profissional) {
         preparedStatement.setString(1, profissional.getFormacao());
         preparedStatement.setString(2, profissional.getExperiencia());
         preparedStatement.setString(3, profissional.getSobre());
-        preparedStatement.setLong(4, profissional.getId()); // Define o ID para a cláusula WHERE
+        preparedStatement.setLong(4, profissional.getId());
 
         preparedStatement.executeUpdate();
     } catch (SQLException e) {
