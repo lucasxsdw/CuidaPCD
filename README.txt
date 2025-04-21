@@ -46,6 +46,3 @@ Após toda configuração do banco , vscode e java.
 4) Ao clicar em algum arquivo .java e carregar o java projects ira aparecer um icone a esquerda de um botão de ligar, clique nele
 5) Dê play no cuidapcd
 6) Digite "localhost:8080/" no navegador e utilize o site
-
-Em caso de duvidas, mande mensagem para Sancho
-Telefone: 77981042174
